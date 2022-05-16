@@ -4,8 +4,8 @@
         <Identity Id="TypeScriptAnalyzerEslintVsix64.32ed3625-909f-4970-9d47-e0030bc2656f" Version="2.0" Language="en-US" Publisher="RN" />
         <DisplayName>TypeScript Analyzer (ESLint, Prettier)</DisplayName>
         <Description xml:space="preserve">Lints and formats JavaScript and TypeScript files directly in Visual Studio using ESLint and Prettier</Description>
+        <MoreInfo>https://rich-newman.github.io/typescript-analyzer-eslint-prettier/</MoreInfo>
         <License>Resources\LICENSE</License>
-        <GettingStartedGuide>https://github.com/rich-newman/typescript-analyzer-eslint-prettier</GettingStartedGuide>
         <Icon>Resources\icon.png</Icon>
         <PreviewImage>Resources\preview.png</PreviewImage>
         <Tags>Lint,ESLint,Prettier,JavaScript,TypeScript</Tags>
