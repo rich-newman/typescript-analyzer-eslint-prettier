@@ -1,0 +1,25 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.inner {
+  max-width: 90%;
+}
+
+body {
+    font-size: 20px;
+}
+
+#header_wrap {
+    background: black;
+}
+
+#footer_wrap {
+    background: black;
+}
+
+img {
+    max-width: 100%;
+}
+

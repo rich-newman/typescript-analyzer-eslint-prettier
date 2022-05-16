@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+
+	<Commands package="guidVSPackage">
+		<Groups>
+			<!-- Solution Explorer Context menu -->
+			<Group guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0200" />
+
+			<!-- Code File Context menu -->
+			<Group guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0200" />
+
+			<!-- Error List Context menu -->
+			<Group guid="ErrorListGuid" id="ErrorListContextMenuGroup" priority="0x0200" />
+
+			<!-- Tools menu - Tools/TypeScript Analyzer (ESLint) -->
+			<Group guid="ToolsMenuGuid" id="ToolsGroup" priority="0x9500">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"></Parent>
+			</Group>
+			<Group guid="ToolsMenuGuid" id="ToolsMenuResetGroup" priority="0x0100">
+				<Parent guid="ToolsMenuGuid" id="ToolsMenu"></Parent>
+			</Group>
+			<Group guid="ToolsMenuGuid" id="ToolsMenuGroup" priority="0x0200">
+				<Parent guid="ToolsMenuGuid" id="ToolsMenu"></Parent>
+			</Group>
+
+			<!-- Folder View Context menu on Solution Explorer -->
+			<Group guid="FolderViewGuid" id="FolderViewContextMenuGroup" priority="0x0100">
+				<Parent guid="guidWorkspaceExplorerToolWindowGuid" id="idmWSE_ContextMenu"/>
+			</Group>
+		</Groups>
+
+		<Menus>
+			<!-- Tools Menu entry -->
+			<Menu guid="ToolsMenuGuid" id="ToolsMenu" priority="0x0100" type="Menu">
+				<Parent guid="ToolsMenuGuid" id="ToolsGroup" />
+				<Strings>
+					<ButtonText>TypeScript Analyzer (ESLint)</ButtonText>
+				</Strings>
+			</Menu>
+		</Menus>
+
+		<Buttons>
+			<!-- Solution Explorer Context menu -->
+			<Button guid="SolutionExplorerGuid" id="LintFilesCommand" priority="0x0100" type="Button">
+				<Parent guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="RunChecked" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Run TypeScript Analyzer (ESLint)</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="SolutionExplorerGuid" id="FixLintErrorsCommand" priority="0x0150" type="Button">
+				<Parent guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors If Possible</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="SolutionExplorerGuid" id="CleanErrorsCommand" priority="0x0200" type="Button">
+				<Parent guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="ClearWindowContent" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Clear all TypeScript Analyzer (ESLint) errors</ButtonText>
+				</Strings>
+			</Button>
+
+			<!-- Code File Context menu -->
+			<Button guid="CodeFileGuid" id="LintActiveFileCommand" priority="0x0100" type="Button">
+				<Parent guid="CodeFileGuid" id="CodeFileContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="RunChecked" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Run TypeScript Analyzer (ESLint) on Code File</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="CodeFileGuid" id="FixActiveFileCommand" priority="0x0150" type="Button">
+				<Parent guid="CodeFileGuid" id="CodeFileContextMenuGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors in Code File If Possible</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="CodeFileGuid" id="CodeFileCleanErrorsCommand" priority="0x0200" type="Button">
+				<Parent guid="CodeFileGuid" id="CodeFileContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="ClearWindowContent" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Clear all TypeScript Analyzer (ESLint) errors</ButtonText>
+				</Strings>
+			</Button>
+
+			<!-- Error List Context menu -->
+			<Button guid="ErrorListGuid" id="ErrorListCleanErrorsCommand" priority="0x0200" type="Button">
+				<Parent guid="ErrorListGuid" id="ErrorListContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="ClearWindowContent" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Clear all TypeScript Analyzer (ESLint) errors</ButtonText>
+				</Strings>
+			</Button>
+
+			<!-- Tools menu submenu items -->
+			<Button guid="ToolsMenuGuid" id="ResetConfigFiles" priority="0x0101" type="Button">
+				<Parent guid="ToolsMenuGuid" id="ToolsMenuResetGroup" />
+				<Icon guid="ImageCatalogGuid" id="CleanData" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Reset TypeScript Analyzer (ESLint) Settings...</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="ToolsMenuGuid" id="EditESLint" priority="0x0105" type="Button">
+				<Parent guid="ToolsMenuGuid" id="ToolsMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="EditRowLeft" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Edit Default Config (c:\Users\{username}\TypeScriptAnalyzerConfig\.eslintrc.js)</ButtonText>
+				</Strings>
+			</Button>
+
+			<!-- Folder View Context menu on Solution Explorer -->
+			<Button guid="FolderViewGuid" id="FolderViewLintFilesCommand" priority="0x0100" type="Button">
+				<Parent guid="FolderViewGuid" id="FolderViewContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="RunChecked" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Run TypeScript Analyzer (ESLint)</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="FolderViewGuid" id="FolderViewFixLintErrorsCommand" priority="0x0101" type="Button">
+				<Parent guid="FolderViewGuid" id="FolderViewContextMenuGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors If Possible</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="FolderViewGuid" id="FolderViewCleanErrorsCommand" priority="0x0102" type="Button">
+				<Parent guid="FolderViewGuid" id="FolderViewContextMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="ClearWindowContent" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<Strings>
+					<ButtonText>Clear all TypeScript Analyzer (ESLint) errors</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+
+	<CommandPlacements>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBITEMNODE"/>
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBFOLDER"/>
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE"/>
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBPROJECT"/>
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE"/>
+		</CommandPlacement>
+		<CommandPlacement guid="SolutionExplorerGuid" id="SolutionExplorerContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE"/>
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
+		</CommandPlacement>
+		<CommandPlacement guid="ErrorListGuid" id="ErrorListContextMenuGroup" priority="0x0600">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ERRORLIST"/>
+		</CommandPlacement>
+	</CommandPlacements>
+
+	<Symbols>
+		<!-- This is the package guid. -->
+		<GuidSymbol name="guidVSPackage" value="{D7C8E95A-D62A-4C10-B4B0-2FB3BA02A47B}" />
+
+		<!-- Solution Explorer Context menu -->
+		<GuidSymbol name="SolutionExplorerGuid" value="{A21D2581-A97E-4B22-B776-D5AE7DE9BB7D}">
+			<IDSymbol name="SolutionExplorerContextMenuGroup" value="0x1020" />
+			<IDSymbol name="LintFilesCommand" value="0x0100" />
+			<IDSymbol name="FixLintErrorsCommand" value="0x0150" />
+			<IDSymbol name="CleanErrorsCommand" value="0x0200" />
+		</GuidSymbol>
+
+		<!-- Code File Context menu -->
+		<GuidSymbol name="CodeFileGuid" value="{5388B95A-2B18-4C96-8A9F-9F192FED6A3F}">
+			<IDSymbol name="CodeFileContextMenuGroup" value="0x1020" />
+			<IDSymbol name="LintActiveFileCommand" value="0x0100" />
+			<IDSymbol name="FixActiveFileCommand" value="0x0150" />
+			<IDSymbol name="CodeFileCleanErrorsCommand" value="0x0200" />
+		</GuidSymbol>
+
+		<!-- Error List Context menu -->
+		<GuidSymbol name="ErrorListGuid" value="{6FD8152D-849E-49B8-90B2-95CE539C93C9}">
+			<IDSymbol name="ErrorListContextMenuGroup" value="0x1020" />
+			<IDSymbol name="ErrorListCleanErrorsCommand" value="0x0200" />
+		</GuidSymbol>
+
+		<!-- Tools menu -->
+		<GuidSymbol name="ToolsMenuGuid" value="{24F0F526-4616-4C7A-82EE-F012CF3AB9CB}">
+			<IDSymbol name="ToolsGroup" value="0x1010" />
+			<IDSymbol name="ToolsMenu" value="0x1020" />
+			<IDSymbol name="ToolsMenuGroup" value="0x1030" />
+			<IDSymbol name="ToolsMenuResetGroup" value="0x1040" />
+			<IDSymbol name="ResetConfigFiles" value="0x0010" />
+			<IDSymbol name="EditESLint" value="0x0400" />
+		</GuidSymbol>
+
+
+		<GuidSymbol name="guidWorkspaceExplorerToolWindowGuid" value="{cfb400f1-5c60-4f3c-856e-180d28def0b7}">
+			<IDSymbol name="idmWSE_ContextMenu" value="0x0002"/>
+		</GuidSymbol>
+
+		<!-- Folder View Context menu on Solution Explorer -->
+		<GuidSymbol name="FolderViewGuid" value="{AB48B7DA-2DE4-4ED4-BF0D-E98489E8AAB5}">
+			<IDSymbol name="FolderViewContextMenuGroup" value="0x1020" />
+			<IDSymbol name="FolderViewLintFilesCommand" value="0x0101" />
+			<IDSymbol name="FolderViewFixLintErrorsCommand" value="0x0102" />
+			<IDSymbol name="FolderViewCleanErrorsCommand" value="0x0103" />
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>

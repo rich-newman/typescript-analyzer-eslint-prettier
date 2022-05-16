@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>32a760fa-59d5-40f5-86bb-865f3ca1011a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TypeScriptAnalyzerEslintTestShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EslintConfigTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EslintConfigWithTypeInfoTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BuildSelectedItemsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EmptyUnloadedProjectsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EslintTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EsLintTextTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EslintWithTsconfigTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LintableFileTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LintEndToEndTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LintFileLocationsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocalNodeModulesLocationsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MessageFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MockErrorListDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MockSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MockUIHierarchyItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PrettierTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TsconfigLocationsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VisualStudioVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)zzGenerateCsprojEntries.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)app.config" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\bad-eslint-config.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\bad-eslint-config.sln" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\badtest.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\bad-eslint-config.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\bad-eslint-config.sln" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\badtest.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\empty\noprojects.sln" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\a.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\aFixed.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\b.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\c.tsx" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\cFixed.tsx" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\d.tsx" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\eslint\e.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\a\a.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\a\fileA.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\a\fileAA.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\b\b.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\b\fileB.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\multiple.sln" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\a.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\aFixed.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\tsconfig\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\tsconfig\a.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\prettier\tsconfig\aFixed.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\file8.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\file9.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\a\c\file4.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\a\c\file6.tsx" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\a\file1.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\b\file2.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\b\file3.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\file7.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\react-dom.d.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\react.d.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\test.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\tsconfigTest.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\none\b\file5.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\none\tsconfigEmptyTest.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\Tsconfig.sln" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\.eslintrc.js" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\file8.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\file9.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\a\c\file4.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\a\c\file6.tsx" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\a\file1.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\b\file2.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\b\file3.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\d\file10.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\file7.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\node_modules\d\filenm5.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\node_modules\filenm4.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\react-dom.d.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\react.d.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\test.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\tsconfigTest.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\b\file5.ts" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\tsconfigEmptyTest.csproj" />
+    <None Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\Tsconfig.sln" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\b\node_modules\eslint\dummy.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\b\package.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\node_modules\eslint\dummy.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\package.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\prettier\tsconfig\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\a\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\b\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\HtmlPage1.html" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\multiple\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\none\b\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\none\HtmlPage1.html" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfigTypeInfoRule\none\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\a\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\b\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\d\tsconfig.app.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\d\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\HtmlPage1.html" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\node_modules\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\b\tsconfig.json" />
+    <Content Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\HtmlPage1.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\bad-eslint-config-typeinfo\Properties\" />
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\a\Properties\" />
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\localinstall\multiple\b\Properties\" />
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\multiple\Properties\" />
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\a\c\" />
+    <Folder Include="$(MSBuildThisFileDirectory)artifacts\tsconfig\none\Properties\" />
+  </ItemGroup>
+</Project>

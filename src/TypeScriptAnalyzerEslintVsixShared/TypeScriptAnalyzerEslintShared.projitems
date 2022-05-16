@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5d53fad6-1af1-4151-9621-b6e45fc4f45a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TypeScriptAnalyzerEslintShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BuildEvents\BuildEventsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BuildEvents\BuildEventsListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BuildEvents\BuildSelectedItems.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CleanErrorsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\EditConfigFilesCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\FixActiveFileCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\FixLintErrorsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\LintActiveFileCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\LintActiveFileCommandBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\LintFilesCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\LintFilesCommandBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ResetConfigFilesCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorList\ErrorListDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorList\ErrorListService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorList\SinkManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorList\TableEntriesSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FolderViewActions\LintableFileContextProviderFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FolderViewActions\LintActionProviderFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileListeners\FileListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Testing\GCTesting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LintableFiles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocationFinders\LintFileLocations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocationFinders\LocalNodeModulesLocations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocationFinders\TsconfigLocations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LinterService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tagging\LintingErrorTag.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tagging\Tagger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tagging\TaggerProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSPackage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)LocationFinders\" />
+  </ItemGroup>
+</Project>

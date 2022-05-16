@@ -1,0 +1,4 @@
+theme: jekyll-theme-slate
+title: TypeScript Analyzer (ESLint, Prettier)
+description: A linter and formatter for JavaScript and TypeScript in Visual Studio
+github: [metadata]
