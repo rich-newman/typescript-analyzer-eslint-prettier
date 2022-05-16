@@ -12,7 +12,7 @@ It's available for Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017
 
 ![Basic Fix](assets\images\basicfix.gif)
 
-## Feature List
+# Feature List
 
 The TypeScript Analyzer has the features below.  A [walk through showing these features being used, with pictures, is available](walkthrough.md).
 
@@ -27,6 +27,10 @@ The TypeScript Analyzer has the features below.  A [walk through showing these f
 - **A [default configuration file](defaultconfig.md) is provided** that explicitly enables all recommended rules separately, so you can see what's going on without having to find a list of rules on a website.  You can edit this for all your projects at once, or provide separate configuration for specific projects as necessary, as usual with ESLint. The Analyzer also respects .eslintignore files, as you'd expect.
 - The Analyzer **is reasonably performant**, although clearly it is limited by ESLint's own performance capabilities.
 
-## Documentation
+# Documentation
 
 There is an abbreviated set of navigation links in the footer of this and every documentation page.  A full [table of contents for the documentation](contents.md) is also available.
+
+# Source Code
+
+The code for this extension is [available on GitHub](https://github.com/rich-newman/typescript-analyzer-eslint-prettier).

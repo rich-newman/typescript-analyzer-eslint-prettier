@@ -20,7 +20,7 @@ A workaround is to open the source.extension.vsixmanifest designer in Visual Stu
 
 ## Debugging server.js
 
-server.js is the JavaScript node code that runs the web server that runs ESLint.  It's possible to debug this, either from the Visual Studio experimental instance with Visual Studio running in debug, or more simply by creating a Node Console App that runs it.
+[server.js](https://github.com/rich-newman/typescript-analyzer-eslint-prettier/blob/main/src/TypeScriptAnalyzerEslintLinter/Node/server.js) is the JavaScript node code that runs the web server that runs ESLint.  It's possible to debug this, either from the Visual Studio experimental instance with Visual Studio running in debug, or more simply by creating a Node Console App that runs it.
 
 ### Debugging server.js with Visual Studio Running
 
@@ -36,17 +36,15 @@ server.js is the JavaScript node code that runs the web server that runs ESLint.
 
 The debugger will reconnect on a later run if you leave it open.
 
-TODO link to server.js and package.json from above.
-
 ### Debugging server.js from a Node Console Application
 
 - Create a Node Console App (JavaScript)
-- Open the server.js file and copy/paste this entire file into app.js
-- Paste the dependencies section from package.json in TypeScriptAnalyzerEslintLinter/Node into your package.json.  
+- Open the [server.js](https://github.com/rich-newman/typescript-analyzer-eslint-prettier/blob/main/src/TypeScriptAnalyzerEslintLinter/Node/server.js) file and copy/paste this entire file into app.js
+- Paste the dependencies section from [package.json in TypeScriptAnalyzerEslintLinter/Node](https://github.com/rich-newman/typescript-analyzer-eslint-prettier/blob/main/src/TypeScriptAnalyzerEslintLinter/Node/package.json) into your package.json.  
 - Restore packages (rightclick npm, Install npm packages).
 - Set up appropriate paths to lint in the 'const data = ' section at the bottom of app.js.  
 - The Node Console App should now run in debug in Visual Studio, and you should be able to put breakpoints in the main code in VS.
-- If you get an 'You have used a rule which requires parserServices to be generated.' error it means you need to pass a tsconfig.json in projectfiles.  
+- If you get an 'You have used a rule which requires parserServices to be generated.' error it means you need to pass a tsconfig.json in projectfiles. 
 
 ## Running the GitHub Pages Site Locally
 

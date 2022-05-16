@@ -26,4 +26,6 @@ It has the following features:
 
 To install visit Visual Studio Marketplace or search for 'TypeScript Analyzer' in Extensions and Updates in Visual Studio.
 
+[Documentation for the extension is available.](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/)
+
 
