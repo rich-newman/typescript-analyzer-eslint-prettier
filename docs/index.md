@@ -1,5 +1,3 @@
-## Pre-release documentation: This extension has not yet been released to Visual Studio Marketplace
-
 # Overview
 
 **This extension will lint and format JavaScript and TypeScript files in Visual Studio.**  
