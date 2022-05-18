@@ -3,7 +3,6 @@ node_modules.7z
 edge.7z
 edge/
 src/Shared/Node/
-node_modules
 
 # User files
 *.suo
