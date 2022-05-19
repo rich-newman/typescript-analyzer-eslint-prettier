@@ -52,11 +52,10 @@ namespace TypeScriptAnalyzerEslintTest
         public async Task InSolutionFolder()
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-            //string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\multiple.sln");
-            //string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
-            //string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple");
-            //Assert.AreEqual(expected, result);
-            Assert.AreEqual(2, 1 + 1);
+            string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\multiple.sln");
+            string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
+            string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple");
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod, TestCategory("Local Node Module Locations")]
