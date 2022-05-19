@@ -6,7 +6,9 @@ It uses recommended rules for [ESLint](https://eslint.org/) for linting and [Pre
 
 For formatting, and where fixers are available for linting, it allows the code to be automatically fixed via context menu options.
 
-It's available for Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017, all editions.
+The TypeScript Analyzer should also [work with almost any ESLint plugin](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/plugins.html), showing errors in the Visual Studio Error List and allowing fixing.
+
+It's available for [Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=RichNewman.TypeScriptAnalyzerEslintPrettier), [Visual Studio 2019 and Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=RichNewman.TypeScriptAnalyzerEslintPrettier2019), all editions.
 
  The 'TypeScript Analyzer (ESLint, Prettier)' has the following features. A [walk through](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/walkthrough.html) showing these features being used, with pictures, is available.
 
@@ -20,9 +22,9 @@ It's available for Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017
 - [**Prettier can be disabled and the Analyzer can fall back to a simpler set of formatting rules using ESLint.**](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/formatting.html)  Alternatively formatting rules can be disabled altogether.
 - Unlike other linters, **[logging is available](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/settings.html#logging)** in the Visual Studio Output window.  This is useful for diagnosing set-up and configuration issues.
 - **[A default configuration file is provided](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/defaultconfig.html)** that explicitly enables all recommended rules separately, so you can see what's going on without having to find a list of rules on a website.  You can edit this for all your projects at once, or provide separate configuration for specific projects as necessary, as usual with ESLint. The Analyzer also respects .eslintignore files, as you'd expect.
-- The Analyzer **is reasonably performant**, although clearly it is limited by ESLint's own performance capabilities.  In particular it's fairly easy to run out of memory if the memory is set to the default and you're trying to lint a large project. To mitigate this the memory used by the JavaScript Virtual Machine is configurable.  
+- The Analyzer **is reasonably performant**, although clearly it is limited by ESLint's own performance capabilities.
 
-To install visit Visual Studio Marketplace or search for 'TypeScript Analyzer' in Extensions and Updates in Visual Studio.
+To install visit [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=RichNewman.TypeScriptAnalyzerEslintPrettier) or search for 'TypeScript Analyzer' in Extensions and Updates in Visual Studio.
 
 [Documentation for the extension is available.](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/contents.html)
 
