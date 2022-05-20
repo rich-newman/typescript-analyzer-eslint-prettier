@@ -5,15 +5,17 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3BDFE0EC-C4AF-422A-BED1-D5EC825FB6B5}"
 	ProjectSection(SolutionItems) = preProject
+		.eslintrc.js = .eslintrc.js
 		build\build.cmd = build\build.cmd
 		CHANGELOG.md = CHANGELOG.md
 		nuget.config = nuget.config
+		package.json = package.json
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "docs", "docs\", "{8695AFA9-31CA-47EE-B605-5013BF891674}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_55452"
 		Debug.AspNetCompiler.PhysicalPath = "docs\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55452\"
@@ -43,12 +45,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeScriptAnalyzerEslintTest64", "src\TypeScriptAnalyzerEslintTest64\TypeScriptAnalyzerEslintTest64.csproj", "{FE76B0C2-F57D-47AD-BDC0-AD5147A9296A}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems*{32a760fa-59d5-40f5-86bb-865f3ca1011a}*SharedItemsImports = 13
-		src\TypeScriptAnalyzerEslintVsixShared\TypeScriptAnalyzerEslintShared.projitems*{3b2bd3b3-d42e-452d-8ab3-3b5b50187d25}*SharedItemsImports = 4
-		src\TypeScriptAnalyzerEslintVsixShared\TypeScriptAnalyzerEslintShared.projitems*{db640846-8db0-477e-b923-2aec9a8e4046}*SharedItemsImports = 13
-		src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems*{fe76b0c2-f57d-47ad-bdc0-ad5147a9296a}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -92,5 +88,11 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CCEF534-6D9C-46F8-92E6-57D1D836E6D0}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems*{32a760fa-59d5-40f5-86bb-865f3ca1011a}*SharedItemsImports = 13
+		src\TypeScriptAnalyzerEslintVsixShared\TypeScriptAnalyzerEslintShared.projitems*{3b2bd3b3-d42e-452d-8ab3-3b5b50187d25}*SharedItemsImports = 4
+		src\TypeScriptAnalyzerEslintVsixShared\TypeScriptAnalyzerEslintShared.projitems*{db640846-8db0-477e-b923-2aec9a8e4046}*SharedItemsImports = 13
+		src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems*{fe76b0c2-f57d-47ad-bdc0-ad5147a9296a}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
