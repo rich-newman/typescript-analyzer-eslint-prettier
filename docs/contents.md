@@ -1,6 +1,6 @@
 ﻿### Features
 
-[Home](index.md)
+[Overview](index.md)
 
 [Walk Through of Features](walkthrough.md)
 
