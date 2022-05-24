@@ -62,13 +62,16 @@ To do this:
 
 ## Dogfooding the TypeScript Analyzer Solution
 
-The TypeScript Analyzer solution is set up so that if the Analyzer is installed locally it will lint the Markdown and JavaScript files in the project.  For this to work for the Markdown it needs a couple of additional steps as below.  These are the same steps you need to [get the Analyzer to lint Markdown](setupmarkdown.md) in general.
+The TypeScript Analyzer solution is set up so that if the Analyzer is installed locally it will lint the Markdown and JavaScript files in the project.  For this to work for the Markdown it needs some set up as below.  These are broadly the same steps you need to [get the Analyzer to lint Markdown](setupmarkdown.md) in general.
 
-1. Open a Command Prompt in the root folder of the project and run `npm i`.  There is a package.json in the root of the project that contains the npm packages the Analyzer needs to run.
-2. Go to Tools/Options/TypeScript Analyzer/ESLint and under the setting 'File extensions to lint' add ',md'.  So the full setting should be 'js,jsx,ts,tsx,mjs,cjs,md'.
+This linting uses the package.json and .eslintrc.js files that are included in the Solution in Solution Items.  If you look inside .eslintrc.js you will see that some of the default Markdown rules have been disabled.
+
+### Steps to Lint the TypeScript Analyzer Solution
+
+1. On a computer where you have cloned [the GitHub project for the TypeScript Analyzer](https://github.com/rich-newman/typescript-analyzer-eslint-prettier) ensure the [TypeScript Analyzer (ESLint, Prettier) extension](https://marketplace.visualstudio.com/items?itemName=RichNewman.TypeScriptAnalyzerEslintPrettier) is installed.  You can do this inside Visual Studio through Extensions/Manage Extensions and search for 'TypeScript Analyzer' of course.
+2. Rightclick the solution (root) in Solution Explorer/Open in Terminal, and run `npm i` in the terminal that appears.  There is a package.json in the root of the project that contains the npm packages the Analyzer needs to run.
+3. Go to Tools/Options/TypeScript Analyzer/ESLint and under the setting 'File extensions to lint' add ',md'.  So the full setting should be 'js,jsx,ts,tsx,mjs,cjs,md'.
 
 To test this works copy and paste the top-level heading in a .md file, so that the heading is duplicated, and save the file.  You should get a `no-multiple-toplevel-headings` error.
 
 If you revert the change above and run the TypeScript Analyzer on the entire solution it should have no errors.  It will tell you via messages that .eslintrc.js has been ignored.
-
-This linting uses the package.json and .eslintrc.js files that are included in the Solution in Solution Items.
