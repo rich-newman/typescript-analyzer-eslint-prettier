@@ -14248,6 +14248,12 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\..\CHANGELOG.md">
+      <Link>CHANGELOG.md</Link>
+    </None>
+    <None Include="..\..\README.md">
+      <Link>README.md</Link>
+    </None>
     <None Include="..\Shared\app.config">
       <Link>app.config</Link>
     </None>

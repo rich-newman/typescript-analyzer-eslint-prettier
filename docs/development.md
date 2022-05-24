@@ -50,11 +50,25 @@ The debugger will reconnect on a later run if you leave it open.
 
 The docs project in this solution is our GitHub pages site.  You can make changes to this and preview them locally if you have Jekyll installed.
 
-To install Jekyll there are [instructions on the Jekyll site](https://jekyllrb.com/docs/installation/windows/). Follow ‘Installation via RubyInstaller’, steps 1-4. Basically you run the installer, including the optional bit at the end, and then do `gem install jekyll bundler`. And then `jekyll -v`.
+To install Jekyll there are [instructions on the Jekyll site](https://jekyllrb.com/docs/installation/windows/). Follow ‘Installation via RubyInstaller’, steps 1-4. Basically you run the installer, including the optional bit at the end where you accept the defaults by hitting Enter in the Command Prompt that appears.  Then you do `gem install jekyll bundler`. And then `jekyll -v`.
 
 Once Jekyll is installed, and assuming you have the code checked out locally and loaded in Visual Studio, you can launch the site locally in a browser.
 
 To do this:
-- Rightclick the docs project in Solution Explorer and select 'Open in Terminal'
-- In the terminal that appears run command 'bundle exec jekyll serve'
+- Rightclick the docs project in Solution Explorer and select 'Open in Terminal'.
+- The first time you do this you will need to run 'bundle install' at this point.
+- In the terminal that appears run command 'bundle exec jekyll serve'.
 - This should run the web server and show an address to enter into a browser to see the site, usually <http://127.0.0.1:4000>.  If you start a browser and type in this URL you should see the site.  Don't use ctrl-c to copy the URL out of the terminal by the way, as that's the command to stop the web server.
+
+## Dogfooding the TypeScript Analzyer Solution
+
+The TypeScript Analyzer solution is set up so that if the Analyzer is installed locally it will lint the Markdown and JavaScript files in the project.  For this to work for the Markdown it needs a couple of additional steps as below.  These are the same steps you need to [get the Analyzer to lint Markdown](setupmarkdown.md) in general.
+
+1. Open a Command Prompt in the root folder of the project and run `npm i`.  There is a package.json in the root of the project that contains the npm packages the Analyzer needs to run.
+2. Go to Tools/Options/TypeScript Analyzer/ESLint and under the setting 'File extensions to lint' add ',md'.  So the full setting should be 'js,jsx,ts,tsx,mjs,cjs,md'.
+
+To test this works copy and paste the top-level heading in a .md file, so that the heading is duplicated, and save the file.  You should get a `no-multiple-toplevel-headings` error.
+
+If you revert the change above and run the TypeScript Analyzer on the entire solution it should have no errors.  It will tell you via messages that .eslintrc.js has been ignored.
+
+This linting uses the package.json and .eslintrc.js files that are included in the Solution in Solution Items.

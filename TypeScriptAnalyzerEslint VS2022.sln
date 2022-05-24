@@ -7,10 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.eslintrc.js = .eslintrc.js
 		build\build.cmd = build\build.cmd
-		CHANGELOG.md = CHANGELOG.md
 		nuget.config = nuget.config
 		package.json = package.json
-		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "docs", "docs\", "{8695AFA9-31CA-47EE-B605-5013BF891674}"
