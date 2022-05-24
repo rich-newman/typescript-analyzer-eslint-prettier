@@ -60,7 +60,7 @@ To do this:
 - In the terminal that appears run command 'bundle exec jekyll serve'.
 - This should run the web server and show an address to enter into a browser to see the site, usually <http://127.0.0.1:4000>.  If you start a browser and type in this URL you should see the site.  Don't use ctrl-c to copy the URL out of the terminal by the way, as that's the command to stop the web server.
 
-## Dogfooding the TypeScript Analzyer Solution
+## Dogfooding the TypeScript Analyzer Solution
 
 The TypeScript Analyzer solution is set up so that if the Analyzer is installed locally it will lint the Markdown and JavaScript files in the project.  For this to work for the Markdown it needs a couple of additional steps as below.  These are the same steps you need to [get the Analyzer to lint Markdown](setupmarkdown.md) in general.
 
