@@ -20,6 +20,27 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TypeScriptAnalyzerEslintVsi
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TypeScriptAnalyzerEslintTestShared", "src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.shproj", "{32A760FA-59D5-40F5-86BB-865F3CA1011A}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "docs", "docs\", "{8695AFA9-31CA-47EE-B605-5013BF891674}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55452"
+		Debug.AspNetCompiler.PhysicalPath = "docs\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55452\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55452"
+		Release.AspNetCompiler.PhysicalPath = "docs\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55452\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55452"
+		SlnRelativePath = "docs\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems*{32a760fa-59d5-40f5-86bb-865f3ca1011a}*SharedItemsImports = 13
@@ -72,6 +93,16 @@ Global
 		{4480E2E4-80C1-4DB4-B6CD-000A9B5DA03D}.Release|x64.Build.0 = Release|Any CPU
 		{4480E2E4-80C1-4DB4-B6CD-000A9B5DA03D}.Release|x86.ActiveCfg = Release|Any CPU
 		{4480E2E4-80C1-4DB4-B6CD-000A9B5DA03D}.Release|x86.Build.0 = Release|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Debug|x64.Build.0 = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Debug|x86.Build.0 = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Release|x64.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Release|x64.Build.0 = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8695AFA9-31CA-47EE-B605-5013BF891674}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
