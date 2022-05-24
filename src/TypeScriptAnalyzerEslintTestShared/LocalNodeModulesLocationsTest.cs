@@ -62,10 +62,31 @@ namespace TypeScriptAnalyzerEslintTest
         public async Task InNoLocalFolder()
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-            string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\none");
-            string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
-            string expected = "";
-            Assert.AreEqual(expected, result);
+            try
+            {
+                // If we install ESLint at the solution root for linting the Analyzer solution it becomes a valid local install for
+                // the test.  So we temporarily remove package.json at the root to stop it being found.
+                BackupPackageJson();
+                string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\none");
+                string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
+                Assert.AreEqual("", result);
+            }
+            finally { RestorePackageJson(); }
+        }
+
+        private void BackupPackageJson()
+        {
+            string packageJsonPath = Path.Combine(VisualStudioVersion.GetSolutionFolder(), "package.json");
+            string packageJsonBakPath = Path.Combine(VisualStudioVersion.GetSolutionFolder(), "packagebak.json");
+            if (File.Exists(packageJsonBakPath)) File.Delete(packageJsonBakPath);
+            if (File.Exists(packageJsonPath)) File.Move(packageJsonPath, packageJsonBakPath);
+        }
+
+        private void RestorePackageJson()
+        {
+            string packageJsonPath = Path.Combine(VisualStudioVersion.GetSolutionFolder(), "package.json");
+            string packageJsonBakPath = Path.Combine(VisualStudioVersion.GetSolutionFolder(), "packagebak.json");
+            if (!File.Exists(packageJsonPath) && File.Exists(packageJsonBakPath)) File.Move(packageJsonBakPath, packageJsonPath);
         }
 
         [TestMethod, TestCategory("Local Node Module Locations")]

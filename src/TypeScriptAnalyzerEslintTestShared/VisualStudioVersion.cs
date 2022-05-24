@@ -21,5 +21,14 @@ namespace TypeScriptAnalyzerEslintTest
             return Path.GetFullPath(@"..\..\..\TypeScriptAnalyzerEslintTestShared\artifacts");
 #endif
         }
+
+        public static string GetSolutionFolder()
+        {
+#if VS2022
+            return Path.GetFullPath(@"..\..\..\..\..");
+#else
+            return Path.GetFullPath(@"..\..\..\..");
+#endif
+        }
     }
 }
