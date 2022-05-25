@@ -8,6 +8,8 @@ It uses recommended rules for [ESLint](https://eslint.org/) for linting and [Pre
 
 For formatting, and where fixers are available for linting, it allows the code to be automatically fixed via context menu options.
 
+The TypeScript Analyzer should also [work with almost any ESLint plugin](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/plugins.html), showing errors in the Visual Studio Error List and allowing fixing.
+
 It's available for Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017, all editions.
 
 ![Basic Fix](assets\images\basicfix.gif)
