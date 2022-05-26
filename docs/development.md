@@ -6,7 +6,13 @@ This page explains how to perform some tasks relating to developing the TypeScri
 
 To run the TypeScript Analyzer in debug ensure [node is installed](https://nodejs.org/en/download/), clone the repository, and open the appropriate project with Visual Studio.  The 'appropriate project' is TypeScriptAnalyzerEslint VS2022.sln for Visual Studio 2022, or TypeScriptAnalyzerEslint.sln for Visual Studio 2017 or Visual Studio 2019.  Both of these files are in the root folder.
 
-Now ensure TypeScriptAnalyzerESlintVsix64 is your startup project in VS2022, or TypeScriptAnalyzerEslintVsix in VS2019 or VS2017.  You need the usual settings to run a VSIX in debug for this project: open the properties of this project and go to the Debug tab.  Make sure that the [start action is correctly set](https://bideveloperextensions.github.io/features/VSIXextensionmodel/) to 'Start external program', with a path to devenv.exe for the version of Visual Studio you are using, and that Command line arguments are set to '/rootsuffix Exp'.
+If you load the solution in Visual Studio 2022 and have no earlier version of Visual Studio installed you may find that Visual Studio is unable to load project TypeScriptAnalyzerEslintLinter, which targets the .NET Framework 4.6.1. In this case it will show you a dialog box saying that the project 'targets an earlier version of .NET Framework that is not installed'.  This dialog offers to 'Update the target to .NET Framework 4.8 (recommended)', or to install the targeting pack for 4.6.1.  Easiest is to select the recommended option, then open the properties of the TypeScriptAnalyzerEslintLinter project by doubleclicking it in Solution Explorer, and on the Application tab change 'Target framework' to '.NET Framework 4.7.2'.  Installing the targeting pack will also work.
+
+After this the solution should build.  However, if you have a long Windows user name see the issue below.
+
+Once you have the solution loaded and building ensure TypeScriptAnalyzerESlintVsix64 is your startup project in VS2022, or TypeScriptAnalyzerEslintVsix in VS2019 or VS2017.  To set this, right click the project name in Solution Explorer and select 'Set as Startup Project'.
+  
+You need the usual settings to run a VSIX in debug for this project, but these should be set correctly from the checkout if you have a default install location for Visual Studio.  To check this open the properties of the startup project you just set, and go to the Debug tab.  Make sure that the [start action is correctly set](https://bideveloperextensions.github.io/features/VSIXextensionmodel/) to 'Start external program', with a path to devenv.exe for the version of Visual Studio you are using, and that Command line arguments are set to '/rootsuffix Exp'.
 
 Set a breakpoint and start debugging (F5).  It will open a new instance of Visual Studio in the experimental instance in which you can make use of TypeScript Analyzer until your breakpoint will be hit.
 
