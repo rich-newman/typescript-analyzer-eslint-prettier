@@ -12,6 +12,8 @@ You need the usual settings to run a VSIX in debug for this project, but these s
 
 Set a breakpoint and start debugging (F5).  It will open a new instance of Visual Studio in the experimental instance in which you can make use of TypeScript Analyzer until your breakpoint will be hit.
 
+Once you have the project building and running in either Visual Studio 2019 or 2022 then you should be able to run and debug the unit tests from the Test Explorer window.
+
 ## Issue: Project won't Build and Long User Names
 
 If your Windows username is more than 15 characters you will find that the solution won't build with an error message 'Problem occurred while extracting the vsix to the experimental extensions path. Could not find a part of the path {path}'.  
