@@ -4,7 +4,7 @@ This page explains how to perform some tasks relating to developing the TypeScri
 
 ## Running the TypeScript Analyzer in Visual Studio in Debug
 
-To run the TypeScript Analyzer in debug ensure [node is installed](https://nodejs.org/en/download/), clone the repository, and open the appropriate project with Visual Studio.  The 'appropriate project' is TypeScriptAnalyzerEslint VS2022.sln if you are running Visual Studio 2022, or TypeScriptAnalyzerEslint.sln for Visual Studio 2019.  Both of these files are in the root folder.  The solution cannot be run in debug from Visual Studio 2017.
+To run the TypeScript Analyzer in debug ensure [node is installed](https://nodejs.org/en/download/), clone the repository, and open the appropriate solution with Visual Studio.  The 'appropriate solution' is TypeScriptAnalyzerEslint VS2022.sln if you are running Visual Studio 2022, or TypeScriptAnalyzerEslint.sln for Visual Studio 2019.  Both of these files are in the root folder.  The TypeScript Analyzer cannot be run in debug from Visual Studio 2017.
 
 Now ensure TypeScriptAnalyzerESlintVsix64 is your startup project in VS2022, or TypeScriptAnalyzerEslintVsix in VS2019.  
 
@@ -12,7 +12,7 @@ You need the usual settings to run a VSIX in debug for this project, but these s
 
 Set a breakpoint and start debugging (F5).  It will open a new instance of Visual Studio in the experimental instance in which you can make use of TypeScript Analyzer until your breakpoint will be hit.
 
-Once you have the project building and running in either Visual Studio 2019 or 2022 then you should be able to run and debug the unit tests from the Test Explorer window.
+Once you have the solution building and running in either Visual Studio 2019 or 2022 then you should be able to run and debug the unit tests from the Test Explorer window.
 
 ## Issue: Project won't Build and Long User Names
 
