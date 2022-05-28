@@ -28,12 +28,13 @@ Instructions on how to do this in a ASP.NET Core with Angular project are below.
 4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
 5. Copy the [file contents on this link](setupangularconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Angular plugin.  The actual changes made are [detailed at the end of this article](setupangular.md#changesmadetodefaultconfig).
 6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under File extensions to lint add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'.
-7. Open any .html file, for example, ClientApp/src/app/app.component.html, and paste the code below into it and save.
+7. Open any .html file, for example ClientApp/src/app/app.component.html, and paste the code below into it and save.
 ``` lang-html
     <p *ngIf="forecasts==false"><em>Loading...</em></p>
     <app-sizer ([size])="fontSizePx"></app-sizer>
 ```
 If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'
+8. To test it's working with TypeScript, open a TypeScript file, for example ClientApp/src/app/app.component.ts and change the value of the selector to CamelCase.  For example change it from 'app-root' to 'AppRoot' in app.component.ts.  You should get a @angular-eslint/component-selector error 'The selector should be kebab-case'.
 
 ## <a name="changesmadetodefaultconfig"></a>Changes Made to Default Configuration File
 
