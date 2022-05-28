@@ -29,7 +29,7 @@ Instructions on how to do this in a ASP.NET Core with Angular project are below.
 5. Copy the [file contents on this link](setupangularconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Angular plugin.  The actual changes made are [detailed at the end of this article](setupangular.md#changesmadetodefaultconfig).
 6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under File extensions to lint add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'.
 7. Open any .html file, for example, ClientApp/src/app/app.component.html, and paste the code below into it and save.
-``` html
+``` lang-html
 <p *ngIf="forecasts==false"><em>Loading...</em></p>
 <app-sizer ([size])="fontSizePx"></app-sizer>
 ```
