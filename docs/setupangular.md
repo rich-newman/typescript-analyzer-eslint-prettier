@@ -30,8 +30,8 @@ Instructions on how to do this in a ASP.NET Core with Angular project are below.
 6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under File extensions to lint add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'.
 7. Open any .html file, for example, ClientApp/src/app/app.component.html, and paste the code below into it and save.
 ``` lang-html
-<p *ngIf="forecasts==false"><em>Loading...</em></p>
-<app-sizer ([size])="fontSizePx"></app-sizer>
+    <p *ngIf="forecasts==false"><em>Loading...</em></p>
+    <app-sizer ([size])="fontSizePx"></app-sizer>
 ```
 If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'
 
