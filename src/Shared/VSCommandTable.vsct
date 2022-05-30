@@ -190,6 +190,18 @@
 		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
 			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
 		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_HTML" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_SCRIPT" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x1001">
+			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_ASPX" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x1001">
+			<Parent guid="CMDSETID_HtmEdGrp_Dev12" id="IDMX_HTM_SOURCE_HTML_Dev12" />
+		</CommandPlacement>
 		<CommandPlacement guid="ErrorListGuid" id="ErrorListContextMenuGroup" priority="0x0600">
 			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ERRORLIST"/>
 		</CommandPlacement>
@@ -242,6 +254,16 @@
 			<IDSymbol name="FolderViewLintFilesCommand" value="0x0101" />
 			<IDSymbol name="FolderViewFixLintErrorsCommand" value="0x0102" />
 			<IDSymbol name="FolderViewCleanErrorsCommand" value="0x0103" />
+		</GuidSymbol>
+
+		<GuidSymbol name="CMDSETID_HtmEdGrp_Dev12" value="{78F03954-2FB8-4087-8CE7-59D71710B3BB}">
+			<IDSymbol name="IDMX_HTM_SOURCE_HTML_Dev12" value="0x1" />
+		</GuidSymbol>
+
+		<GuidSymbol name="CMDSETID_HtmEdGrp" value="{d7e8c5e1-bdb8-11d0-9c88-0000f8040a53}">
+			<IDSymbol name="IDMX_HTM_SOURCE_HTML" value="0x33" />
+			<IDSymbol name="IDMX_HTM_SOURCE_SCRIPT" value="0x34" />
+			<IDSymbol name="IDMX_HTM_SOURCE_ASPX" value="0x35" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

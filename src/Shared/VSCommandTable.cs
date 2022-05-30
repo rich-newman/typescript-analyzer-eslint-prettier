@@ -32,6 +32,12 @@ namespace TypeScriptAnalyzerEslintVsix
 
         public const string FolderViewGuidString = "ab48b7da-2de4-4ed4-bf0d-e98489e8aab5";
         public static Guid FolderViewGuid = new Guid(FolderViewGuidString);
+
+        public const string CMDSETID_HtmEdGrp_Dev12String = "78f03954-2fb8-4087-8ce7-59d71710b3bb";
+        public static Guid CMDSETID_HtmEdGrp_Dev12 = new Guid(CMDSETID_HtmEdGrp_Dev12String);
+
+        public const string CMDSETID_HtmEdGrpString = "d7e8c5e1-bdb8-11d0-9c88-0000f8040a53";
+        public static Guid CMDSETID_HtmEdGrp = new Guid(CMDSETID_HtmEdGrpString);
     }
     /// <summary>
     /// Helper class that encapsulates all CommandIDs uses across VS Package.
@@ -59,5 +65,9 @@ namespace TypeScriptAnalyzerEslintVsix
         public const int FolderViewLintFilesCommand = 0x0101;
         public const int FolderViewFixLintErrorsCommand = 0x0102;
         public const int FolderViewCleanErrorsCommand = 0x0103;
+        public const int IDMX_HTM_SOURCE_HTML_Dev12 = 0x0001;
+        public const int IDMX_HTM_SOURCE_HTML = 0x0033;
+        public const int IDMX_HTM_SOURCE_SCRIPT = 0x0034;
+        public const int IDMX_HTM_SOURCE_ASPX = 0x0035;
     }
 }
