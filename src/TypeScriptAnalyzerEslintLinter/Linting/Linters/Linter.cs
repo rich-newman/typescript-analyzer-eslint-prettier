@@ -194,8 +194,12 @@ namespace TypeScriptAnalyzerEslintLinter
             errorCode.StartsWith("promise/") ?
                 "https://github.com/xjamundx/eslint-plugin-promise/blob/development/docs/rules/" +
                 $"{RuleUrlName(errorCode)}" :
-            errorCode.StartsWith("@angular-eslint/") ?
-                "http://codelyzer.com/rules/" + $"{RuleUrlName(errorCode, "/")}" :
+            errorCode.StartsWith("@angular-eslint/template/") ?
+                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/" + 
+                $"{RuleUrlName(errorCode.Substring(16))}" :
+             errorCode.StartsWith("@angular-eslint/") ?
+                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/" + 
+                $"{RuleUrlName(errorCode)}" :
             errorCode.StartsWith("jsdoc/") ?
                 "https://www.npmjs.com/package/eslint-plugin-jsdoc#" + $"{RuleUrlName(errorCode, "")}" :
             errorCode == "md/remark" ?
