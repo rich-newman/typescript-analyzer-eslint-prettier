@@ -30,7 +30,6 @@ const config = {
                 "@typescript-eslint",
                 "prettier",
                 "@angular-eslint",
-                "@angular-eslint/template",
             ],
             "env": {
                 "amd": true,
@@ -175,20 +174,21 @@ const config = {
                 "@typescript-eslint/prefer-namespace-keyword": "error",            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-namespace-keyword.md
                 "@typescript-eslint/triple-slash-reference": "error",              // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/triple-slash-reference.md
 
-                "@angular-eslint/component-class-suffix": "error",
-                "@angular-eslint/contextual-lifecycle": "error",
-                "@angular-eslint/directive-class-suffix": "error",
-                "@angular-eslint/no-conflicting-lifecycle": "error",
-                "@angular-eslint/no-empty-lifecycle-method": "error",
-                "@angular-eslint/no-host-metadata-property": "error",
-                "@angular-eslint/no-input-rename": "error",
-                "@angular-eslint/no-inputs-metadata-property": "error",
-                "@angular-eslint/no-output-native": "error",
-                "@angular-eslint/no-output-on-prefix": "error",
-                "@angular-eslint/no-output-rename": "error",
-                "@angular-eslint/no-outputs-metadata-property": "error",
-                "@angular-eslint/use-lifecycle-interface": "warn",
-                "@angular-eslint/use-pipe-transform-interface": "error",
+                // List of all angular-eslint plugin rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin/docs/rules
+                "@angular-eslint/component-class-suffix": "error",       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/component-class-suffix.md
+                "@angular-eslint/contextual-lifecycle": "error",         // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/contextual-lifecycle.md
+                "@angular-eslint/directive-class-suffix": "error",       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/directive-class-suffix.md
+                "@angular-eslint/no-conflicting-lifecycle": "error",     // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-conflicting-lifecycle.md
+                "@angular-eslint/no-empty-lifecycle-method": "error",    // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-lifecycle-method.md
+                "@angular-eslint/no-host-metadata-property": "error",    // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-host-metadata-property.md
+                "@angular-eslint/no-input-rename": "error",              // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-input-rename.md
+                "@angular-eslint/no-inputs-metadata-property": "error",  // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inputs-metadata-property.md
+                "@angular-eslint/no-output-native": "error",             // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-output-native.md
+                "@angular-eslint/no-output-on-prefix": "error",          // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-output-on-prefix.md
+                "@angular-eslint/no-output-rename": "error",             // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-output-rename.md
+                "@angular-eslint/no-outputs-metadata-property": "error", // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/no-outputs-metadata-property.md
+                "@angular-eslint/use-lifecycle-interface": "warn",       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/use-lifecycle-interface.md
+                "@angular-eslint/use-pipe-transform-interface": "error", // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/use-pipe-transform-interface.md
                 "@angular-eslint/directive-selector": [
                     "error",
                     {
@@ -196,7 +196,7 @@ const config = {
                         "prefix": "app",
                         "style": "camelCase"
                     }
-                ],
+                ],                                                       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/directive-selector.md
                 "@angular-eslint/component-selector": [
                     "error",
                     {
@@ -204,7 +204,7 @@ const config = {
                         "prefix": "app",
                         "style": "kebab-case"
                     }
-                ],
+                ],                                                       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/component-selector.md
                 //"@angular-eslint/template/banana-in-box": "error",
                 //"@angular-eslint/template/eqeqeq": "error",
                 //"@angular-eslint/template/no-negated-async": "error",
@@ -233,11 +233,12 @@ const config = {
         {
             "files": ["*.html"],
             "parser": "@angular-eslint/template-parser",
-            //"extends": ["plugin:@angular-eslint/template/recommended"],
+            "plugins": [ "@angular-eslint/template" ],
             "rules": {
-                "@angular-eslint/template/banana-in-box": "error",
-                "@angular-eslint/template/eqeqeq": "error",
-                "@angular-eslint/template/no-negated-async": "error",
+                // List of all angular-eslint plugin template rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin-template/docs/rules
+                "@angular-eslint/template/banana-in-box": "error",    // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/banana-in-box.md
+                "@angular-eslint/template/eqeqeq": "error",           // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/eqeqeq.md
+                "@angular-eslint/template/no-negated-async": "error", // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/no-negated-async.md
             }
         }
     ],
