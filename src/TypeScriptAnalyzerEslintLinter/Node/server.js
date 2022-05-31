@@ -159,11 +159,11 @@ function gettsconfigContents(tsconfigFile, dirName, data, log) {
     const contents = fs
         .readFileSync(tsconfigFile, "utf8")
         .replace(/^\uFEFF/, "");
-    const jsonContents = JSON.parse(contents);
-    const tsconfigFilePath = path.dirname(tsconfigFile);
     const typescript = require(dirName + "\\node_modules\\typescript");
+    const jsonContents = typescript.parseConfigFileTextToJson(tsconfigFile, contents);
+    const tsconfigFilePath = path.dirname(tsconfigFile);
     const tsResult = typescript.parseJsonConfigFileContent(
-        jsonContents,
+        jsonContents.config,
         typescript.sys,
         tsconfigFilePath
     );
