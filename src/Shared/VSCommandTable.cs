@@ -33,11 +33,20 @@ namespace TypeScriptAnalyzerEslintVsix
         public const string FolderViewGuidString = "ab48b7da-2de4-4ed4-bf0d-e98489e8aab5";
         public static Guid FolderViewGuid = new Guid(FolderViewGuidString);
 
-        public const string CMDSETID_HtmEdGrp_Dev12String = "78f03954-2fb8-4087-8ce7-59d71710b3bb";
-        public static Guid CMDSETID_HtmEdGrp_Dev12 = new Guid(CMDSETID_HtmEdGrp_Dev12String);
+        public const string HtmlEditorWindowsString = "d7e8c5e1-bdb8-11d0-9c88-0000f8040a53";
+        public static Guid HtmlEditorWindows = new Guid(HtmlEditorWindowsString);
 
-        public const string CMDSETID_HtmEdGrpString = "d7e8c5e1-bdb8-11d0-9c88-0000f8040a53";
-        public static Guid CMDSETID_HtmEdGrp = new Guid(CMDSETID_HtmEdGrpString);
+        public const string HtmlEditorWindows2String = "78f03954-2fb8-4087-8ce7-59d71710b3bb";
+        public static Guid HtmlEditorWindows2 = new Guid(HtmlEditorWindows2String);
+
+        public const string CssEditorWindowsString = "a764e896-518d-11d2-9a89-00c04f79efc3";
+        public static Guid CssEditorWindows = new Guid(CssEditorWindowsString);
+
+        public const string CssEditorWindows2String = "64da400e-b4ad-4d67-aa92-4b7acb01ecd5";
+        public static Guid CssEditorWindows2 = new Guid(CssEditorWindows2String);
+
+        public const string JsonEditorWindowsString = "f718ca06-cf4f-4a0c-9106-e79e9ee5e7cd";
+        public static Guid JsonEditorWindows = new Guid(JsonEditorWindowsString);
     }
     /// <summary>
     /// Helper class that encapsulates all CommandIDs uses across VS Package.
@@ -65,9 +74,14 @@ namespace TypeScriptAnalyzerEslintVsix
         public const int FolderViewLintFilesCommand = 0x0101;
         public const int FolderViewFixLintErrorsCommand = 0x0102;
         public const int FolderViewCleanErrorsCommand = 0x0103;
-        public const int IDMX_HTM_SOURCE_HTML_Dev12 = 0x0001;
+        public const int IDMX_HTM_SOURCE_BASIC = 0x0032;
         public const int IDMX_HTM_SOURCE_HTML = 0x0033;
         public const int IDMX_HTM_SOURCE_SCRIPT = 0x0034;
         public const int IDMX_HTM_SOURCE_ASPX = 0x0035;
+        public const int IDMX_HTM_SOURCE_ASMX_CODE_VB = 0x0039;
+        public const int IDMX_HTM_SOURCE_HTML_Dev12 = 0x0001;
+        public const int IDMX_HTM_SOURCE_CSS = 0x0102;
+        public const int IDMX_CSS_SOURCE = 0x0002;
+        public const int IDMX_JSON_SOURCE = 0x0003;
     }
 }

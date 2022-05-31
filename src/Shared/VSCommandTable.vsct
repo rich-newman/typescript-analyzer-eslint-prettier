@@ -191,16 +191,31 @@
 			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
 		</CommandPlacement>
 		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
-			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_HTML" />
+			<Parent guid="HtmlEditorWindows" id="IDMX_HTM_SOURCE_BASIC" />
 		</CommandPlacement>
 		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
-			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_SCRIPT" />
+			<Parent guid="HtmlEditorWindows" id="IDMX_HTM_SOURCE_HTML" />
 		</CommandPlacement>
-		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x1001">
-			<Parent guid="CMDSETID_HtmEdGrp" id="IDMX_HTM_SOURCE_ASPX" />
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="HtmlEditorWindows" id="IDMX_HTM_SOURCE_SCRIPT" />
 		</CommandPlacement>
-		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x1001">
-			<Parent guid="CMDSETID_HtmEdGrp_Dev12" id="IDMX_HTM_SOURCE_HTML_Dev12" />
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="HtmlEditorWindows" id="IDMX_HTM_SOURCE_ASPX" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="HtmlEditorWindows" id="IDMX_HTM_SOURCE_ASMX_CODE_VB" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="HtmlEditorWindows2" id="IDMX_HTM_SOURCE_HTML_Dev12" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="CssEditorWindows" id="IDMX_HTM_SOURCE_CSS" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="CssEditorWindows2" id="IDMX_CSS_SOURCE" />
+		</CommandPlacement>
+		<CommandPlacement guid="CodeFileGuid" id="CodeFileContextMenuGroup" priority="0x0100">
+			<Parent guid="JsonEditorWindows" id="IDMX_JSON_SOURCE" />
 		</CommandPlacement>
 		<CommandPlacement guid="ErrorListGuid" id="ErrorListContextMenuGroup" priority="0x0600">
 			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ERRORLIST"/>
@@ -243,7 +258,6 @@
 			<IDSymbol name="EditESLint" value="0x0400" />
 		</GuidSymbol>
 
-
 		<GuidSymbol name="guidWorkspaceExplorerToolWindowGuid" value="{cfb400f1-5c60-4f3c-856e-180d28def0b7}">
 			<IDSymbol name="idmWSE_ContextMenu" value="0x0002"/>
 		</GuidSymbol>
@@ -256,14 +270,27 @@
 			<IDSymbol name="FolderViewCleanErrorsCommand" value="0x0103" />
 		</GuidSymbol>
 
-		<GuidSymbol name="CMDSETID_HtmEdGrp_Dev12" value="{78F03954-2FB8-4087-8CE7-59D71710B3BB}">
-			<IDSymbol name="IDMX_HTM_SOURCE_HTML_Dev12" value="0x1" />
-		</GuidSymbol>
-
-		<GuidSymbol name="CMDSETID_HtmEdGrp" value="{d7e8c5e1-bdb8-11d0-9c88-0000f8040a53}">
+		<!-- Code windows that aren't covered by IDM_VS_CTXT_CODEWIN, so we can set up a context menu -->
+		<!-- We only get a context menu if the appropriate extension is in LintableFileExtensions set from Tools/Options  -->
+		<GuidSymbol name="HtmlEditorWindows" value="{d7e8c5e1-bdb8-11d0-9c88-0000f8040a53}">
+            <IDSymbol name="IDMX_HTM_SOURCE_BASIC" value="0x32" />
 			<IDSymbol name="IDMX_HTM_SOURCE_HTML" value="0x33" />
 			<IDSymbol name="IDMX_HTM_SOURCE_SCRIPT" value="0x34" />
 			<IDSymbol name="IDMX_HTM_SOURCE_ASPX" value="0x35" />
+			<IDSymbol name="IDMX_HTM_SOURCE_ASMX_CODE_VB" value="0x39" />
+		</GuidSymbol>	
+		<GuidSymbol name="HtmlEditorWindows2" value="{78F03954-2FB8-4087-8CE7-59D71710B3BB}">
+			<IDSymbol name="IDMX_HTM_SOURCE_HTML_Dev12" value="0x1" />
 		</GuidSymbol>
+		<GuidSymbol name="CssEditorWindows" value="{A764E896-518D-11D2-9A89-00C04F79EFC3}">
+			<IDSymbol name="IDMX_HTM_SOURCE_CSS" value="0x0102" />
+		</GuidSymbol>
+		<GuidSymbol name="CssEditorWindows2" value="{64DA400E-B4AD-4D67-AA92-4B7ACB01ECD5}">
+			<IDSymbol name="IDMX_CSS_SOURCE" value="0x0002"/>
+		</GuidSymbol>
+		<GuidSymbol name="JsonEditorWindows" value="{F718CA06-CF4F-4A0C-9106-E79E9EE5E7CD}">
+			<IDSymbol name="IDMX_JSON_SOURCE" value="0x0003"/>
+		</GuidSymbol>
+
 	</Symbols>
 </CommandTable>
