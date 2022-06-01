@@ -221,7 +221,7 @@ const config = {
                             }
                         ]
                     }
-                ],
+                ], // https://eslint.org/docs/rules/no-restricted-imports
                 "@typescript-eslint/member-ordering": [
                     "error",
                     {
@@ -232,22 +232,20 @@ const config = {
                             "instance-method"
                         ]
                     }
-                ],
+                ], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-ordering.md
                 "no-restricted-syntax": [
                     "error",
                     {
                         "selector": "CallExpression[callee.object.name=\"console\"][callee.property.name=/^(debug|info|time|timeEnd|trace)$/]",
                         "message": "Unexpected property on console object was called"
                     }
-                ],
+                ], // https://eslint.org/docs/rules/no-restricted-syntax
                 "@typescript-eslint/no-inferrable-types": [
                     "error",
                     { "ignoreParameters": true }
-                ],
-                "@typescript-eslint/no-non-null-assertion": "error",
-                "no-fallthrough": "error"
-
-
+                ], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md
+                "@typescript-eslint/no-non-null-assertion": "error",  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
+                "no-fallthrough": "error" // https://eslint.org/docs/rules/no-fallthrough
 
                 //"@angular-eslint/template/banana-in-box": "error",
                 //"@angular-eslint/template/eqeqeq": "error",
