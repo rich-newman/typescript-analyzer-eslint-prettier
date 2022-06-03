@@ -59,7 +59,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<CommandFlag>DefaultInvisible</CommandFlag>
 				<Strings>
-					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors If Possible</ButtonText>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors if Possible</ButtonText>
 				</Strings>
 			</Button>
 			<Button guid="SolutionExplorerGuid" id="CleanErrorsCommand" priority="0x0200" type="Button">
@@ -89,7 +89,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<CommandFlag>DefaultInvisible</CommandFlag>
 				<Strings>
-					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors in Code File If Possible</ButtonText>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors in Code File if Possible</ButtonText>
 				</Strings>
 			</Button>
 			<Button guid="CodeFileGuid" id="CodeFileCleanErrorsCommand" priority="0x0200" type="Button">
@@ -149,7 +149,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<CommandFlag>DefaultInvisible</CommandFlag>
 				<Strings>
-					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors If Possible</ButtonText>
+					<ButtonText>Fix TypeScript Analyzer (ESLint) Errors if Possible</ButtonText>
 				</Strings>
 			</Button>
 			<Button guid="FolderViewGuid" id="FolderViewCleanErrorsCommand" priority="0x0102" type="Button">

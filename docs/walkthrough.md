@@ -16,7 +16,7 @@ Right-click in the code window.  The context menu has TypeScript Analyzer option
 
 ![walkthrough2](assets\images\walkthrough2.jpg)
 
-Select 'Fix TypeScript Analyzer (ESLint) Errors If Possible', and the errors are fixed where possible. 
+Select 'Fix TypeScript Analyzer (ESLint) Errors if Possible', and the errors are fixed where possible. 
 
 `var` is changed to `const` and a semicolon is added at the end.  The rules can be changed to remove semicolons rather than adding them if that's what you prefer.  The no-unused-vars warning applying to x cannot be fixed automatically, so remains.
 
@@ -28,7 +28,7 @@ Hit ctrl-z to undo that change.  Now add a second project.  Rename app.ts to app
 
 ![walkthrough4](assets\images\walkthrough4.jpg)
 
-Select 'Fix TypeScript Analyzer (ESLint) Errors If Possible'.  
+Select 'Fix TypeScript Analyzer (ESLint) Errors if Possible'.  
 
 Linting errors and warnings in both projects are fixed where this is possible.  The ones that remain are unused variable errors.
 
