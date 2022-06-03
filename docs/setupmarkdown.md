@@ -25,9 +25,9 @@ Instructions on how to do this in a TypeScript Node.js Console Application are b
 }
 ```
 3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
-4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
+4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name in Solution Explorer, Add/New File..., enter .eslintrc.js, and click OK.
 5. Copy the [file contents on this link](setupmarkdownconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Markdown plugin.  The actual changes made are [detailed at the end of this article](setupmarkdown.md#changesmadetodefaultconfig).
-6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under File extensions to lint add ',md' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,md'.
+6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',md' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,md'.
 7. Open README.md, copy the header that's in there and paste it on a new line, so it's duplicated.  The TypeScript Analyzer should generate md/remark warnings 'Don't use multiple top level headings' and 'Do not use headings with similar content'.
 
 ## <a name="changesmadetodefaultconfig"></a>Changes Made to Default Configuration File
