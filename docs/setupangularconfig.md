@@ -251,10 +251,6 @@ const config = {
                 "@typescript-eslint/no-non-null-assertion": "error",  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
                 "no-fallthrough": "error" // https://eslint.org/docs/rules/no-fallthrough
 
-                //"@angular-eslint/template/banana-in-box": "error",
-                //"@angular-eslint/template/eqeqeq": "error",
-                //"@angular-eslint/template/no-negated-async": "error",
-
                 // TypeScript-specific recommended rules from the typescript-eslint plugin that need type information: for these
                 // to work we need a tsconfig.json that includes the files we want linted, and to turn it on by setting
                 // Tools/Options/TypeScript/Lint with tsconfig.json files to true.
@@ -279,7 +275,7 @@ const config = {
         {
             "files": ["*.html"],
             "parser": "@angular-eslint/template-parser",
-            "plugins": [ "@angular-eslint/template" ],
+            "plugins": ["@angular-eslint/template"],
             // These rules apply to both .html files AND .ts/.tsx files with inline templates, because of the 'extends' in the .ts override
             "rules": {
                 // List of all angular-eslint plugin template rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin-template/docs/rules
@@ -310,9 +306,9 @@ const prettierDisabledConfig = {
         {
             "files": ["*.js", "*.jsx", "*.mjs", "*.cjs"],
             "rules": {
-                "comma-dangle": ["warn", "always-multiline"],                 // https://eslint.org/docs/rules/comma-dangle
-                "indent": "warn",                                             // https://eslint.org/docs/rules/indent
-                "quotes": ["warn", "double",
+                "comma-dangle": ["warn", "never"],                 // https://eslint.org/docs/rules/comma-dangle
+                "indent": ["warn", 2],                                        // https://eslint.org/docs/rules/indent
+                "quotes": ["warn", "single",
                     { "avoidEscape": true, "allowTemplateLiterals": true }],  // https://eslint.org/docs/rules/quotes
                 "semi": "warn",                                               // https://eslint.org/docs/rules/semi
             },
@@ -320,11 +316,11 @@ const prettierDisabledConfig = {
         {
             "files": ["*.ts", "*.tsx"],
             "rules": {
-                "@typescript-eslint/comma-dangle": ["warn", "always-multiline"], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-dangle.md
+                "@typescript-eslint/comma-dangle": ["warn", "never"], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-dangle.md
                 // The indent rule comes with a warning from its author but seems to work OK usually https://github.com/typescript-eslint/typescript-eslint/issues/1824
-                "@typescript-eslint/indent": "warn",                             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
+                "@typescript-eslint/indent": ["warn", 2],                        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
                 "@typescript-eslint/member-delimiter-style": "warn",             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-delimiter-style.md
-                "@typescript-eslint/quotes": ["warn", "double",
+                "@typescript-eslint/quotes": ["warn", "single",
                     { "avoidEscape": true, "allowTemplateLiterals": true }],     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
                 "@typescript-eslint/semi": "warn",                               // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
                 "@typescript-eslint/type-annotation-spacing": "warn",            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/type-annotation-spacing.md
