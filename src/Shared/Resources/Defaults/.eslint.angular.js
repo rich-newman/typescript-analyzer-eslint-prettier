@@ -138,10 +138,9 @@ const config = {
         {
             // TypeScript-only rules
             "files": ["*.ts", "*.tsx"],
-            "plugins": [
-                "@angular-eslint",
-                // "plugin:@angular-eslint/template/process-inline-templates"
-             ],
+            "plugins": ["@angular-eslint",],
+            // Make @angular-eslint use the rules in the .html section below to lint HTML inline templates in .ts files
+            "extends": ["plugin:@angular-eslint/template/process-inline-templates"],
             "rules": {
                 // For TypeScript files we follow typescript-eslint's recommendations re ESLint recommended rules: rules that are recommended to be
                 // disabled are not applied to TypeScript (they are in the JavaScript only section above), additional recommended rules are enabled below

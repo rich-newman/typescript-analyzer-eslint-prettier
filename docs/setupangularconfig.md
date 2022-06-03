@@ -66,7 +66,7 @@ const config = {
                 "no-empty-pattern": "error",              // https://eslint.org/docs/rules/no-empty-pattern
                 "no-ex-assign": "error",                  // https://eslint.org/docs/rules/no-ex-assign
                 "no-extra-boolean-cast": "error",         // https://eslint.org/docs/rules/no-extra-boolean-cast
-                "no-fallthrough": "error",                // https://eslint.org/docs/rules/no-fallthrough
+                //"no-fallthrough": "error",                // https://eslint.org/docs/rules/no-fallthrough
                 "no-global-assign": "error",              // https://eslint.org/docs/rules/no-global-assign
                 "no-inner-declarations": "error",         // https://eslint.org/docs/rules/no-inner-declarations
                 "no-invalid-regexp": "error",             // https://eslint.org/docs/rules/no-invalid-regexp
@@ -143,10 +143,9 @@ const config = {
         {
             // TypeScript-only rules
             "files": ["*.ts", "*.tsx"],
-            "plugins": [
-                "@angular-eslint",
-                // "plugin:@angular-eslint/template/process-inline-templates"
-             ],
+            "plugins": ["@angular-eslint",],
+            // Make @angular-eslint use the rules in the .html section below to lint HTML inline templates in .ts files
+            "extends": ["plugin:@angular-eslint/template/process-inline-templates"],
             "rules": {
                 // For TypeScript files we follow typescript-eslint's recommendations re ESLint recommended rules: rules that are recommended to be
                 // disabled are not applied to TypeScript (they are in the JavaScript only section above), additional recommended rules are enabled below
@@ -168,12 +167,12 @@ const config = {
                 "@typescript-eslint/no-explicit-any": "warn",                      // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-explicit-any.md
                 "@typescript-eslint/no-extra-non-null-assertion": "error",         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.md
                 "@typescript-eslint/no-extra-semi": "error",                       // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
-                "@typescript-eslint/no-inferrable-types": "error",                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md
+                //"@typescript-eslint/no-inferrable-types": "error",                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md
                 "@typescript-eslint/no-loss-of-precision": "error",                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loss-of-precision.md
                 "@typescript-eslint/no-misused-new": "error",                      // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-misused-new.md
                 "@typescript-eslint/no-namespace": "error",                        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-namespace.md
                 "@typescript-eslint/no-non-null-asserted-optional-chain": "error", // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.md
-                "@typescript-eslint/no-non-null-assertion": "warn",                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
+                //"@typescript-eslint/no-non-null-assertion": "warn",                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
                 "@typescript-eslint/no-this-alias": "error",                       // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-this-alias.md
                 "@typescript-eslint/no-unnecessary-type-constraint": "error",      // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-constraint.md
                 "@typescript-eslint/no-unused-vars": "warn",                       // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
@@ -183,6 +182,7 @@ const config = {
                 "@typescript-eslint/triple-slash-reference": "error",              // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/triple-slash-reference.md
 
                 // List of all angular-eslint plugin rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin/docs/rules
+                // https://github.com/angular-eslint/angular-eslint/blob/f92b184c5b0b57328d0a323ac8c89f1b3017b8d4/packages/eslint-plugin/src/configs/recommended.json
                 "@angular-eslint/component-class-suffix": "error",       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/component-class-suffix.md
                 "@angular-eslint/contextual-lifecycle": "error",         // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/contextual-lifecycle.md
                 "@angular-eslint/directive-class-suffix": "error",       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/directive-class-suffix.md
@@ -213,6 +213,44 @@ const config = {
                         "style": "kebab-case"
                     }
                 ],                                                       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/component-selector.md
+                // Recommended configuration for Angular from angular-eslint:
+                // https://github.com/angular-eslint/angular-eslint/blob/f92b184c5b0b57328d0a323ac8c89f1b3017b8d4/packages/eslint-plugin/src/configs/recommended--extra.json
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "paths": [
+                            {
+                                "name": "rxjs/Rx",
+                                "message": "Please import directly from 'rxjs' instead"
+                            }
+                        ]
+                    }
+                ], // https://eslint.org/docs/rules/no-restricted-imports
+                "@typescript-eslint/member-ordering": [
+                    "error",
+                    {
+                        "default": [
+                            "static-field",
+                            "instance-field",
+                            "static-method",
+                            "instance-method"
+                        ]
+                    }
+                ], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-ordering.md
+                "no-restricted-syntax": [
+                    "error",
+                    {
+                        "selector": "CallExpression[callee.object.name=\"console\"][callee.property.name=/^(debug|info|time|timeEnd|trace)$/]",
+                        "message": "Unexpected property on console object was called"
+                    }
+                ], // https://eslint.org/docs/rules/no-restricted-syntax
+                "@typescript-eslint/no-inferrable-types": [
+                    "error",
+                    { "ignoreParameters": true }
+                ], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md
+                "@typescript-eslint/no-non-null-assertion": "error",  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
+                "no-fallthrough": "error" // https://eslint.org/docs/rules/no-fallthrough
+
                 //"@angular-eslint/template/banana-in-box": "error",
                 //"@angular-eslint/template/eqeqeq": "error",
                 //"@angular-eslint/template/no-negated-async": "error",
@@ -244,6 +282,7 @@ const config = {
             "plugins": [ "@angular-eslint/template" ],
             "rules": {
                 // List of all angular-eslint plugin template rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin-template/docs/rules
+                // https://github.com/angular-eslint/angular-eslint/blob/65afe1c9d8437562803c90c1dc648ec4b9db3e72/packages/eslint-plugin-template/src/configs/recommended.json
                 "@angular-eslint/template/banana-in-box": "error",    // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/banana-in-box.md
                 "@angular-eslint/template/eqeqeq": "error",           // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/eqeqeq.md
                 "@angular-eslint/template/no-negated-async": "error", // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/no-negated-async.md
