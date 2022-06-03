@@ -274,7 +274,8 @@ const config = {
         {
             "files": ["*.html"],
             "parser": "@angular-eslint/template-parser",
-            "plugins": [ "@angular-eslint/template" ],
+            "plugins": ["@angular-eslint/template"],
+            // These rules apply to both .html files AND .ts/.tsx files with inline templates, because of the 'extends' in the .ts override
             "rules": {
                 // List of all angular-eslint plugin template rules: https://github.com/angular-eslint/angular-eslint/tree/master/packages/eslint-plugin-template/docs/rules
                 // https://github.com/angular-eslint/angular-eslint/blob/65afe1c9d8437562803c90c1dc648ec4b9db3e72/packages/eslint-plugin-template/src/configs/recommended.json
