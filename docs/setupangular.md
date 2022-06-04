@@ -8,9 +8,9 @@ We can set up the TypeScript Analyzer to use this plugin in Visual Studio projec
 
 Instructions on how to do this in a **ASP.NET Core with Angular project in Visual Studio 2022** are below.
 
-## Instructions for a ASP.NET Core with Angular project
+## Instructions for a ASP.NET Core with Angular project in Visual Studio 2022
 
-These instructions only work in Visual Studio 2022 at present.  Visual Studio 2017 doesn't have any Angular project templates by default.  Visual Studio 2019 does have an ASP.NET Core with Angular project template, but it uses old versions of Angular and other packages, and we are in npm dependency hell trying to work out compatible versions of packages.
+These instructions only work in Visual Studio 2022 at present.  Visual Studio 2017 doesn't have an ASP.NET Core with Angular native project template.  Visual Studio 2019 does have an ASP.NET Core with Angular project template, but it uses old versions of Angular and other packages, and we are in npm dependency hell trying to work out compatible versions of packages.
 
 1. Create a new ASP.NET Core with Angular project.  For testing purposes it's easier to NOT configure for HTTPS, so clear the checkbox on the 'Additional Information' screen.
 2. Build the project to ensure it builds.

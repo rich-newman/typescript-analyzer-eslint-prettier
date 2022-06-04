@@ -58,7 +58,6 @@ To create the [configuration file for Angular](setupangularconfig.md) the follow
             "style": "kebab-case"
           }
         ],                                                       // https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/component-selector.md
-
 ```
 4. In the same section, after the rules above, the [@angular-eslint extra recommended rules](https://github.com/angular-eslint/angular-eslint/blob/f92b184c5b0b57328d0a323ac8c89f1b3017b8d4/packages/eslint-plugin/src/configs/recommended--extra.json) for TypeScript files were added.  Where these rules were already in force in the file with a different configuration the original rule entry was commented out.
 ``` javascript
