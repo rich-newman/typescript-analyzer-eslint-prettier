@@ -48,12 +48,12 @@ If the Analyzer is working correctly you should see two @angular-eslint errors, 
     @Component({
       selector: 'app-test-name',
       template: `
-        <p *ngIf="forecasts == false"><em>Loading...</em></p>
-        <app-sizer ([size])="(fontSizePx)">{{ !(foo | async) }}</app-sizer>
+       <p *ngIf="forecasts == false"><em>Loading...</em></p>
+       <app-sizer ([size])="(fontSizePx)"></app-sizer>
       `
     })
 ```
-You should get template/eqeqeq, template/banana-in-box, and template/no-negated-async errors in the inline template.  This code is taken from the @angular-eslint docs examples of how to break the rules.
+You should get template/eqeqeq and template/banana-in-box errors in the inline template.  This code is taken from the @angular-eslint docs examples of how to break the rules.
 
 Note that there is a fixer for the template/banana-in-box rule, but the @angular-eslint plugin doesn't seem to work too well here. If you fix the test file above (rightclick in code window/Fix TypeScript Analyzer (ESLint) Errors if Possible) it will remove the space after app-sizer.  After that all your errors disappear in spite of the fact that only banana-in-box is actually fixed.  Put the space back to get the other two errors appearing again.
 
