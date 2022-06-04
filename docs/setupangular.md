@@ -29,7 +29,7 @@ Instructions on how to do this in a **ASP.NET Core with Angular project** are be
 5. Copy the [file contents on this link](setupangularconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Angular plugin.  The actual changes made are [detailed in another article](setupangularchangestodefaultconfig.md).
 6. **Go to Tools/Options/TypeScript Analyzer/ESLint and under File extensions to lint add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'.  
 
-You should now be set up correctly.  The remaining steps show this.
+ You should now be set up correctly.  The remaining steps show this.
 
 7. Open any .html file, for example ClientApp/src/app/app.component.html, and paste the code below into it and save.
 ``` lang-html
@@ -40,14 +40,14 @@ If the Analyzer is working correctly you should see two @angular-eslint errors, 
 8. To test it's working with TypeScript, open a TypeScript file, for example ClientApp/src/app/app.component.ts and change the value of the selector to CamelCase.  For example change it from 'app-root' to 'AppRoot' in app.component.ts.  You should get a @angular-eslint/component-selector error 'The selector should be kebab-case'.
 9. To test it's working with inline HTML templates in TypeScript files open a component TypeScript file, for example, src/app/counter/counter.component.ts.  Replace the @Component attribue on the class with the (very unrealistic) code below:
 ``` javascript
-@Component({
-  selector: 'app-test-name',
-  template: `
-    <p *ngIf="forecasts == false"><em>Loading...</em></p>
-    <app-sizer ([size])="fontSizePx"></app-sizer>
-    {{ !(foo | async) }}
-  `
-})
+    @Component({
+      selector: 'app-test-name',
+      template: `
+        <p *ngIf="forecasts == false"><em>Loading...</em></p>
+        <app-sizer ([size])="fontSizePx"></app-sizer>
+        {{ !(foo | async) }}
+      `
+    })
 ```
 This code is taken from the @angular-eslint docs examples of how to break the rules.  You should get template/eqeqeq, template/banana-in-box, and template/no-negated-async errors in the inline template.
 
