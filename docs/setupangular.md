@@ -50,7 +50,7 @@ If the Analyzer is working correctly you should see two @angular-eslint errors, 
       template: `
        <p *ngIf="forecasts == false"><em>Loading...</em></p>
        <app-sizer ([size])="(fontSizePx)"></app-sizer>
-      `
+     `
     })
 ```
 You should get template/eqeqeq and template/banana-in-box errors in the inline template.  This code is taken from the @angular-eslint docs examples of how to break the rules.
