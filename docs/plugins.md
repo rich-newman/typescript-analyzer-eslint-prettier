@@ -2,7 +2,7 @@
 
 Most ESLint plugins should work with the TypeScript Analyzer. 
 
-We have some **detailed instructions** for setting up the [React plugin](setupreact.md), the [Markdown plugin](setupmarkdown.md), the [Node plugin](setupnode.md) and the [JSDoc plugin](setupjsdoc.md).
+We have some **detailed instructions** for setting up the [React plugin](setupreact.md), [Angular plugin](setupangular.md), the [Markdown plugin](setupmarkdown.md), the [Node plugin](setupnode.md) and the [JSDoc plugin](setupjsdoc.md).
 
 Broadly there are three actions, described below, that may need to be taken to get a plugin working in the TypeScript Analyzer.  The example instructions above show in detail how to do this for the specific plugins covered:
 
