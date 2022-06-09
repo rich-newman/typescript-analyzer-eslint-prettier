@@ -69,7 +69,7 @@ namespace TypeScriptAnalyzerEslintLinter
         {
             string configFolder = GetUserConfigFolder();
             return Directory.Exists(configFolder) ? configFolder : "";
-        } 
+        }
 
         private string GetIgnoreFile(string filePath)
         {
@@ -112,7 +112,7 @@ namespace TypeScriptAnalyzerEslintLinter
                 return;
             }
             string logOutput = obj["log"]?.Value<string>() ?? "";
-            if (logOutput != "")await  logger(logOutput, false);
+            if (logOutput != "") await logger(logOutput, false);
             JArray array = obj["result"]?.Value<JArray>() ?? new JArray();
             await ParseEslintErrorsAsync(array, isCalledFromBuild);
         }
@@ -153,7 +153,8 @@ namespace TypeScriptAnalyzerEslintLinter
                         }
                         hasVSErrors = hasVSErrors || (lintingErrorType == LintingErrorType.Error);
                     }
-                    catch (Exception e) {
+                    catch (Exception e)
+                    {
                         string logMessage = $"A linting error failed to parse.\nThe linting error was:\n{message}\n" +
                             $"The exception thrown was:\n{e.Message}\nat\n{e.StackTrace}";
                         await logger(logMessage, true);
@@ -195,11 +196,13 @@ namespace TypeScriptAnalyzerEslintLinter
                 "https://github.com/xjamundx/eslint-plugin-promise/blob/development/docs/rules/" +
                 $"{RuleUrlName(errorCode)}" :
             errorCode.StartsWith("@angular-eslint/template/") ?
-                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/" + 
+                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/" +
                 $"{RuleUrlName(errorCode.Substring(16))}" :
              errorCode.StartsWith("@angular-eslint/") ?
-                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/" + 
+                "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/" +
                 $"{RuleUrlName(errorCode)}" :
+             errorCode.StartsWith("vue/") ?
+                "https://eslint.vuejs.org/rules/" + $"{RuleUrlName(errorCode, ".html")}" :
             errorCode.StartsWith("jsdoc/") ?
                 "https://www.npmjs.com/package/eslint-plugin-jsdoc#" + $"{RuleUrlName(errorCode, "")}" :
             errorCode == "md/remark" ?
