@@ -15,25 +15,19 @@ namespace TypeScriptAnalyzerEslintVsix
     [TextViewRole(PredefinedTextViewRoles.Analyzable)]
     public class TaggerProvider : IViewTaggerProvider
     {
-        private readonly ITextDocumentFactoryService textDocumentFactoryService;
-
-        [ImportingConstructor]
-        public TaggerProvider([Import] ITextDocumentFactoryService textDocumentFactoryService)
+        public TaggerProvider()
         {
-            this.textDocumentFactoryService = textDocumentFactoryService;
             Package.TaggerProvider = this;
         }
 
         public ITagger<T> CreateTagger<T>(ITextView textView, ITextBuffer buffer) where T : ITag
         {
             Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
-            if (typeof(IErrorTag) != typeof(T) ||
-                !textDocumentFactoryService.TryGetTextDocument(buffer, out ITextDocument document) ||
-                buffer != document.TextBuffer) return null;
+            if (typeof(IErrorTag) != typeof(T) || textView.TextBuffer != buffer) return null;
             // We create a tagger for all text files, even non-lintable, in case they become lintable
             if (!taggerCache.ContainsKey(textView))
             {
-                taggerCache.Add(textView, new Tagger(buffer, document));
+                taggerCache.Add(textView, new Tagger(buffer));
                 textView.Closed += (s, e) => taggerCache.Remove(textView);
             }
             return taggerCache[textView] as ITagger<T>;

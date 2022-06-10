@@ -10,20 +10,32 @@ namespace TypeScriptAnalyzerEslintVsix
 {
     class Tagger : ITagger<LintingErrorTag> //, IDisposable
     {
-        private readonly ITextDocument document;
         private ITextSnapshot currentTextSnapshot;
 
         // FilePath can change whilst the tagger is in use if we rename an open file, so don't key on it
         // document, buffer, and textView are all always the same object for a given tagger because we create a new tagger
         // if the view changes.
-        internal string FilePath => document.FilePath;
+        internal string FilePath
+        {
+            get
+            {
+                if (currentTextSnapshot.TextBuffer.Properties.TryGetProperty("lint_filename_eslint", out string fileName)
+                    && fileName != null) return fileName;
+#if DEBUG
+                throw new Exception("Tagger created but can't find file name");
+#else
+                return "";
+#endif
 
-        internal Tagger(ITextBuffer buffer, ITextDocument document)
+            }
+        }
+
+
+        internal Tagger(ITextBuffer buffer)
         {
             Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
-            Debug.WriteLine($"Creating Tagger for {document.FilePath}, thread={Thread.CurrentThread.ManagedThreadId}");
-            this.document = document;
             currentTextSnapshot = buffer.CurrentSnapshot;
+            Debug.WriteLine($"Creating Tagger for {FilePath}, thread={Thread.CurrentThread.ManagedThreadId}");
             //this.TagsChanged += OnTagsChanged;
         }
 
@@ -49,7 +61,7 @@ namespace TypeScriptAnalyzerEslintVsix
         public IEnumerable<ITagSpan<LintingErrorTag>> GetTags(NormalizedSnapshotSpanCollection spans)
         {
             Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
-            if (Package.Settings == null || !Package.Settings.ShowUnderlining 
+            if (Package.Settings == null || !Package.Settings.ShowUnderlining
                 || !Package.Settings.ESLintEnable) yield break;
             UpdateTagSpans(spans);
             foreach (ITagSpan<LintingErrorTag> tagSpan in tagSpans)
