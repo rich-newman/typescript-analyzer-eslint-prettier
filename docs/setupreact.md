@@ -2,7 +2,7 @@
 
 ## Overview
 
-To lint a React project we need to set up a React plugin for ESLint.  For the TypeScript Analyzer this means setting up a [local install](creatinglocalinstall.md) with the plugin, and a [configuration file](configuration.md) with appropriate rules enabled.
+To lint a React project we need to set up the [React plugin for ESLint](https://github.com/jsx-eslint/eslint-plugin-react).  For the TypeScript Analyzer this means setting up a [local install](creatinglocalinstall.md) with the plugin, and a [configuration file](configuration.md) with appropriate rules enabled.
 
 Detailed instructions on how to do this in a Node.js Console application are below, separately for [TypeScript](setupreact.md#typescript) and [JavaScript](setupreact.md#javascript) projects.
 
