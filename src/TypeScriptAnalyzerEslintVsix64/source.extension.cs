@@ -11,7 +11,7 @@ namespace TypeScriptAnalyzerEslintVsix
         public const string Name = "TypeScript Analyzer (ESLint, Prettier)";
         public const string Description = @"Lints and formats JavaScript and TypeScript files directly in Visual Studio using ESLint and Prettier";
         public const string Language = "en-US";
-        public const string Version = "2.1";
+        public const string Version = "2.2";
         public const string Author = "RN";
         public const string Tags = "Lint,ESLint,Prettier,JavaScript,TypeScript";
     }

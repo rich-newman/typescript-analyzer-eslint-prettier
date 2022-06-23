@@ -8,6 +8,13 @@ TypeScript Analyzer which was based on TSLint rather than ESLint.
 The old TypeScript Analyzer had version numbers with major version 
 number of 1.
 
+## 2.2
+
+**2022-06-23**
+
+- Fix bug that means the tagger doesn't underline correctly in .vue files.
+- Add links to help files for Vue errors.
+
 ## 2.1
 
 **2022-06-04**
