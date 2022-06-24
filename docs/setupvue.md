@@ -63,11 +63,11 @@ To set up your own configuration with Prettier follow the steps below.
       "prettier/prettier": [
         "warn",
         {
-          "tabWidth": 4,
-          "endOfLine": "crlf",
+          "tabWidth": 2,
+          "endOfLine": "lf",
           "printWidth": 80,
           "semi": true,
-          "singleQuote": false,
+          "singleQuote": true,
           "quoteProps": "as-needed",
           "jsxSingleQuote": false,
           "trailingComma": "es5",
