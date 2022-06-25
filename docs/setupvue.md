@@ -23,25 +23,15 @@ If you create a Standalone Vue Project in Visual Studio 2022 then ESLint is inst
 
 **To enable this** go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.
 
-**To test this is working**, open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html).  Note that clicking the link in the Code column in the Error List should take you to the help page for this error.  Errors in the template section will also be shown correctly.
+**To test this is working**, open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html). Errors in the template section will also be shown correctly.
 
-### Drawbacks of the Default Linting in the Project
+Note that clicking the link in the Code column in the Error List should take you to the help page for this error.  
 
-There are some drawbacks to using this default linting.  The main one is that there is no Prettier, and no formatting rules are enabled at all.  Also the default lint has a limited set of rules, and which rules are enabled is not immediately obvious.
+### Enabling Prettier
 
-To set up your own configuration with Prettier follow the steps below.
+Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript project.  We can enable it by following the steps below, which extend the existing configuration:
 
-### Full Instructions for a Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022
-
-1. Create a new Standalone TypeScript Vue Project in Visual Studio 2022.  Build the project.
-2. If you haven't already, go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.
-3. Doubleclick package.json in Solution Explorer to edit it. Add the dependencies below into the devDependencies and save. Add them after the existing devDependencies. These are the additional dependencies that the TypeScript Analyzer needs to get Prettier to run:
-``` json
-    "eslint-plugin-prettier": "4.0.0",
-    "prettier": "2.6.2"
-```
-4. Install these npm packages. Rightclickthe project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
-5. Go back to package.json, and find the "eslintconfig" property.  Replace the entire property and value with the code below:
+1. Doubleclick package.json in Solution Explorer to edit it.  Find the "eslintconfig" property.  This is the configuration for ESLint which the TypeScript Analyzer usually has in a .eslintrc.js file.  Replace the entire property and value with the code below:
 ``` json
   "eslintConfig": {
     "root": true,
@@ -78,6 +68,14 @@ To set up your own configuration with Prettier follow the steps below.
     }
   },
 ```
+2.  Still in package.json, add the dependencies below into the devDependencies section and save. Add them after the existing devDependencies. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
+``` json
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.6.2"
+```
+3. Install the new npm packages. Rightclick the project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
+
+Now if you lint a .vue file in the project you will probably get some Prettier warnings.  As usual, you can rightclick/Fix TypeScript Analyzer (ESLint) Errors to format the file and remove these errors.
 
 
 
