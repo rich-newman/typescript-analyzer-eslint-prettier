@@ -88,9 +88,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Shared\Resources\Defaults\.eslint.angular.js">
-      <Link>Resources\Defaults\.eslint.angular.js</Link>
-    </Content>
     <Content Include="..\Shared\Resources\Defaults\.eslintrc.js">
       <Link>Resources\Defaults\.eslintrc.js</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
