@@ -8,6 +8,13 @@ TypeScript Analyzer which was based on TSLint rather than ESLint.
 The old TypeScript Analyzer had version numbers with major version 
 number of 1.
 
+## 2.3
+
+**Release date TBD**
+
+- Set the node working directory in the web server to the local install folder if there is one, rather than defaulting to the open solution folder.  This helps some packages to find their own config files, notably the Babel parser.  Display the working directory in the logs.  More sophisticated ways of setting the working directory may be necessary, this will be added to the road map.
+- Give a better error message if a local install uses a version of ESLint before 7.0.0.  The way ESLint is called from code changed fundamentally in v7.0.0 and as a result the Analyzer cannot work with versions before this.
+
 ## 2.2
 
 **2022-06-23**
