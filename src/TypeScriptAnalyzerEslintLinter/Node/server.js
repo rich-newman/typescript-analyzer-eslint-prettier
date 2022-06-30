@@ -211,6 +211,7 @@ function createESLint(dirName, log) {
     const pathToRequire = dirName + "\\node_modules\\eslint";
     log("Path for ESLint: " + pathToRequire);
     const { ESLint } = require(pathToRequire);
+    if (ESLint == null) throw ("ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?");
     log("Successfully Loaded ESLint version: " + ESLint.version);
     return ESLint;
 }
