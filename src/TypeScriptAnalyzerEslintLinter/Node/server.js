@@ -87,6 +87,7 @@ var start = function (port) {
 // If we're passing text we will have the associated file in data.files[0],
 // if we're using a tsconfig that additionally will be in data.projectfiles[0]
 async function linteslint(data, log) {
+    setWorkingDirectory(data.dirname, log);
     const dirName = data.dirname === "" ? __dirname : data.dirname;
     if (data.debug || data.enablelogging) logInitialValues(data, dirName, log);
     process.env["USERPROFILE"] = data.configfolder;
@@ -106,6 +107,16 @@ async function linteslint(data, log) {
     return allResults;
 }
 
+function setWorkingDirectory(dirName, log) {
+    if (dirName !== "") {
+        try {
+            process.chdir(dirName);
+        } catch (err) {
+            log("Unable to set working directory to '" + dirName + "'. Error: " + err);
+        }
+    }
+}
+
 function logInitialValues(data, dirName, log) {
     log("LINTING RUN STARTED");
     log("Try to fix: " + data.fixerrors);
@@ -119,6 +130,7 @@ function logInitialValues(data, dirName, log) {
     log("Ignore file: " + ignoreFile);
     log("Root Directory for Node: " + dirName);
     log("Extension install directory: " + __dirname);
+    log("Working directory: " + process.cwd());
     if (data.logfilenames) {
         log("Files to lint:");
         data.files.forEach((f) => log(f));
@@ -323,7 +335,7 @@ async function testServer() {
         ],
         projectfiles: [],
         fixerrors: false,
-        // dirname is folder that contains node_modules, full path
+        // dirname is folder that contains node_modules, full path. If dirname is empty string we use the installed node_modules.
         dirname: __dirname,
         debug: true, // Logs to console window if true: set to false and use console.log if you want to find your output more easily
         enablelogging: true, // If true sets the log property of the response object to the log output

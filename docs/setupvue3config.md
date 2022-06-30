@@ -1,4 +1,4 @@
-﻿# Configuration File (.eslintrc.js) for Vue Plugin, for Use with Vue 3
+﻿# Configuration File (.eslintrc.js) for Vue Plugin, for Use with TypeScript and Vue 3
 
 ``` javascript
 // If the prettierEnabled flag is set to false prettier is completely disabled, and the (less opinionated) set of ESLint formatting rules

@@ -15,19 +15,17 @@ Visual Studio has a couple of Vue project templates:
 
 ## Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022
 
-### Enabling the Default Linting in the TypeScript Analyzer
-
-If you create a Standalone Vue Project in Visual Studio 2022 then ESLint is installed and linting is available.  The eslint-plugin-vue plugin is installed as part of the project creation.  If you run `npm run lint` from a terminal in the root of the project ESLint will run and show any errors.
+If you create a Standalone TypeScript Vue Project or Standalone JavaScript Vue Project in Visual Studio 2022 then ESLint is installed and linting is available.  The eslint-plugin-vue plugin is installed as part of the project creation.  ESLint is configured from an 'eslintConfig' property in package.json.  If you run `npm run lint` from a terminal in the root of the project ESLint will run and show any errors.
 
 **The TypeScript Analyzer can use this ESLint configuration, and show linting errors in the code windows and Error List.**
 
 **To enable this** go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.
 
-**To test this is working**, open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html). Errors in the template section will also be shown correctly.
+**To test this is working**, open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html). Errors in the template or style section will also be shown correctly.
 
-Note that clicking the link in the Code column in the Error List should take you to the help page for this error.  
+Note that clicking the link in the Code column in the Error List should take you to the help page for this error. 
 
-### Enabling Prettier
+## Enabling Prettier for Standalone Vue Projects
 
 Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript project.  We can enable it by following the steps below, which extend the existing configuration:
 
@@ -77,7 +75,7 @@ Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript pro
 
 Now if you lint a .vue file in the project you will probably get some Prettier warnings.  As usual, you can rightclick/Fix TypeScript Analyzer (ESLint) Errors to format the file and remove these errors.
 
-
+### Full Configuration
 
 
 
