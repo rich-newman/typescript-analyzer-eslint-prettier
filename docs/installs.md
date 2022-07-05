@@ -15,12 +15,12 @@ As usual for Visual Studio extensions the TypeScript Analyzer (ESLint) install c
 The current npm packages that are installed with the TypeScript Analyzer are as below.
 
 ```json
-    "@typescript-eslint/eslint-plugin": "5.23.0",
-    "@typescript-eslint/parser": "5.23.0",
-    "eslint": "8.15.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "prettier": "2.6.2",
-    "typescript": "4.6.4"
+    "@typescript-eslint/eslint-plugin": "5.30.5",
+    "@typescript-eslint/parser": "5.30.5",
+    "eslint": "8.19.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.7.1",
+    "typescript": "4.7.4"
 ```
 
 These packages can be seen in a package.json in the code base.  Note that the extension does not use this package.json to do an install when the extension is started or installed.  The exact versions are distributed with the extension.

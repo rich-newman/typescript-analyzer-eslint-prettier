@@ -108,7 +108,7 @@
       <Generator>VsctGenerator</Generator>
       <LastGenOutput>VSCommandTable.cs</LastGenOutput>
     </VSCTCompile>
-    <Content Include="..\Shared\Node\log.txt">
+	<Content Include="..\Shared\Node\log.txt">
       <Link>Node\log.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -120,6 +120,11 @@
     </Content>
     <Content Include="..\Shared\Node\server.js">
       <Link>Node\server.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\.package-lock.json">
+      <Link>Node\node_modules\.package-lock.json</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -833,6 +838,16 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\configs\strict.js">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\configs\strict.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\configs\strict.js.map">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\configs\strict.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\adjacent-overload-signatures.js">
       <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\adjacent-overload-signatures.js</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -930,6 +945,16 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\comma-spacing.js.map">
       <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\comma-spacing.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\consistent-generic-constructors.js">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\consistent-generic-constructors.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\consistent-generic-constructors.js.map">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\consistent-generic-constructors.js.map</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -3563,6 +3588,26 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.d.ts.map">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.d.ts.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.js">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.js.map">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.date.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.full.d.ts">
       <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.full.d.ts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -3610,6 +3655,26 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.js.map">
       <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.d.ts.map">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.d.ts.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.js">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.js.map">
+      <Link>Node\node_modules\@typescript-eslint\scope-manager\dist\lib\es2020.number.js.map</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -5363,6 +5428,81 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\containsAllTypesByName.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\containsAllTypesByName.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getConstrainedTypeAtLocation.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getConstrainedTypeAtLocation.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getContextualType.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getContextualType.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getDeclaration.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getDeclaration.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getSourceFileOfNode.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getSourceFileOfNode.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTokenAtPosition.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTokenAtPosition.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTypeArguments.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTypeArguments.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTypeName.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getTypeName.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\isTypeReadonly.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\isTypeReadonly.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\isUnsafeAssignment.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\isUnsafeAssignment.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\predicates.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\predicates.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\propertyTypes.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\propertyTypes.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\requiresQuoting.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\requiresQuoting.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\typeFlagUtils.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\typeFlagUtils.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\types\LICENSE">
       <Link>Node\node_modules\@typescript-eslint\types\LICENSE</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -5780,6 +5920,26 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\createWatchProgram.js.map">
       <Link>Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\createWatchProgram.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.d.ts.map">
+      <Link>Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.d.ts.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.js">
+      <Link>Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.js.map">
+      <Link>Node\node_modules\@typescript-eslint\typescript-estree\dist\create-program\getScriptKind.js.map</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -6770,6 +6930,216 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\dist\ts-eslint-scope\Variable.js.map">
       <Link>Node\node_modules\@typescript-eslint\utils\dist\ts-eslint-scope\Variable.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\json-schema.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\json-schema.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-estree.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-estree.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\helpers.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\helpers.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\misc.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\misc.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\predicates.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\predicates.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\astUtilities.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\astUtilities.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\PatternMatcher.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\PatternMatcher.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\predicates.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\predicates.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\ReferenceTracker.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\ReferenceTracker.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\scopeAnalysis.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ast-utils\eslint-utils\scopeAnalysis.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\applyDefault.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\applyDefault.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\batchedSingleLineTests.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\batchedSingleLineTests.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\deepMerge.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\deepMerge.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\getParserServices.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\getParserServices.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\InferTypesFromRule.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\InferTypesFromRule.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\nullThrows.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\nullThrows.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\RuleCreator.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\RuleCreator.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\RuleTester.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\eslint-utils\RuleTester.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\AST.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\AST.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\CLIEngine.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\CLIEngine.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\ESLint.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\ESLint.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Linter.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Linter.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\ParserOptions.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\ParserOptions.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Rule.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Rule.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\RuleTester.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\RuleTester.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Scope.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\Scope.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\SourceCode.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint\SourceCode.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\analyze.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\analyze.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Definition.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Definition.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\index.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Options.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Options.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\PatternVisitor.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\PatternVisitor.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Reference.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Reference.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Referencer.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Referencer.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Scope.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Scope.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\ScopeManager.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\ScopeManager.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Variable.d.ts">
+      <Link>Node\node_modules\@typescript-eslint\utils\_ts3.4\dist\ts-eslint-scope\Variable.d.ts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -10703,6 +11073,11 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\flatted\esm.js">
+      <Link>Node\node_modules\flatted\esm.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\flatted\flatted.jpg">
       <Link>Node\node_modules\flatted\flatted.jpg</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -13268,6 +13643,11 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2020.date.d.ts">
+      <Link>Node\node_modules\typescript\lib\lib.es2020.date.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2020.full.d.ts">
       <Link>Node\node_modules\typescript\lib\lib.es2020.full.d.ts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -13275,6 +13655,11 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2020.intl.d.ts">
       <Link>Node\node_modules\typescript\lib\lib.es2020.intl.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2020.number.d.ts">
+      <Link>Node\node_modules\typescript\lib\lib.es2020.number.d.ts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -13345,6 +13730,11 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2022.full.d.ts">
       <Link>Node\node_modules\typescript\lib\lib.es2022.full.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\typescript\lib\lib.es2022.intl.d.ts">
+      <Link>Node\node_modules\typescript\lib\lib.es2022.intl.d.ts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
