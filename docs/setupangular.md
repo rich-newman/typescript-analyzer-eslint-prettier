@@ -55,7 +55,7 @@ If the Analyzer is working correctly you should see two @angular-eslint errors, 
 ```
 You should get template/eqeqeq and template/banana-in-box errors in the inline template.  This code is taken from the @angular-eslint docs examples of how to break the rules.
 
-Note that there is a fixer for the template/banana-in-box rule, but the @angular-eslint plugin doesn't seem to work too well here. If you fix the test file above (rightclick in code window/Fix TypeScript Analyzer (ESLint) Errors if Possible) it will remove the space after app-sizer.  After that all your errors disappear in spite of the fact that only banana-in-box is actually fixed.  Put the space back to get the other two errors appearing again.
+Note that there is a fixer for the template/banana-in-box rule, but the @angular-eslint plugin doesn't seem to work too well here. If you fix the app.component.ts file above (rightclick in code window/Fix TypeScript Analyzer (ESLint) Errors if Possible) it will remove the space after app-sizer and before the fixed code `[(size)])="(fontSizePx)"`.  After that all your errors disappear in spite of the fact that only banana-in-box is actually fixed.  Put the space back to get the other error appearing again.  That is, make the second line be `<app-sizer [(size)])="(fontSizePx)"></app-sizer>`.
 
 ## Standalone TypeScript Angular Project
 
