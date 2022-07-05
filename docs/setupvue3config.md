@@ -95,7 +95,7 @@ const config = {
                     "warn",
                     {
                         "tabWidth": 4,
-                        "endOfLine": "crlf",
+                        "endOfLine": "lf",
                         "printWidth": 80,
                         "semi": true,
                         "singleQuote": true,
