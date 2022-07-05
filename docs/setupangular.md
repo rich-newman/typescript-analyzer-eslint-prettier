@@ -64,4 +64,3 @@ The exact same steps as above will also work in Visual Studio's Standalone TypeS
 ## Changes Made to Default Configuration File
 
 To create the [configuration file for Angular](setupangularconfig.md) several changes were made to the [code in the default configuration file](defaultconfig.md#defaulteslintrc).  These are [detailed in a separate article](setupangularchangestodefaultconfig.md).
-

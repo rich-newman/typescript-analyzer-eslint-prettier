@@ -27,5 +27,3 @@ It's available for [Visual Studio 2022](https://marketplace.visualstudio.com/ite
 To install visit [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=RichNewman.TypeScriptAnalyzerEslintPrettier) or search for 'TypeScript Analyzer' in Extensions and Updates in Visual Studio.
 
 [Documentation for the extension is available.](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/contents.html)
-
-

@@ -112,7 +112,7 @@ To create the [configuration file for Angular](setupangularconfig.md) the follow
           "arrowParens": "always",
         }],
 ```
-6.  The configuration if Prettier is disabled and ESLint used for formatting was also updated to reflect Angular settings described in 5 above:
+6. The configuration if Prettier is disabled and ESLint used for formatting was also updated to reflect Angular settings described in 5 above:
 ``` javascript
     {
       "files": ["*.js", "*.jsx", "*.mjs", "*.cjs"],

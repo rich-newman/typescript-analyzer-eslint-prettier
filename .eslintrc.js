@@ -207,7 +207,9 @@ const config = {
                             ["lint-maximum-line-length", false],    // Too painful, and Mads' extension wraps as you type
                             ["lint-maximum-heading-length", false], // Still too painful
                             ["lint-no-duplicate-headings", false],  // Perfectly valid 'Background' subheadings get flagged
-                            ["lint-ordered-list-marker-value", [1, "ordered"]]  // Let's see the actual numbers
+                            ["lint-ordered-list-marker-value", [1, "ordered"]],  // Let's see the actual numbers
+                            ["lint-no-shortcut-reference-link", false],   // Giving false positives
+                            ["lint-no-emphasis-as-heading", false]   // Giving false positives
                         ],
                     },
                 ],

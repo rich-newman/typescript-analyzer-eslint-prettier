@@ -66,7 +66,7 @@ Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript pro
     }
   },
 ```
-2.  Still in package.json, add the dependencies below into the devDependencies section and save. Add them after the existing devDependencies. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
+2. Still in package.json, add the dependencies below into the devDependencies section and save. Add them after the existing devDependencies. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
 ``` json
     "eslint-plugin-prettier": "4.0.0",
     "prettier": "2.6.2"
@@ -76,6 +76,3 @@ Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript pro
 Now if you lint a .vue file in the project you will probably get some Prettier warnings.  As usual, you can rightclick/Fix TypeScript Analyzer (ESLint) Errors to format the file and remove these errors.
 
 ### Full Configuration
-
-
-

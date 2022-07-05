@@ -112,7 +112,12 @@ function setWorkingDirectory(dirName, log) {
         try {
             process.chdir(dirName);
         } catch (err) {
-            log("Unable to set working directory to '" + dirName + "'. Error: " + err);
+            log(
+                "Unable to set working directory to '" +
+                    dirName +
+                    "'. Error: " +
+                    err
+            );
         }
     }
 }
@@ -172,7 +177,10 @@ function gettsconfigContents(tsconfigFile, dirName, data, log) {
         .readFileSync(tsconfigFile, "utf8")
         .replace(/^\uFEFF/, "");
     const typescript = require(dirName + "\\node_modules\\typescript");
-    const jsonContents = typescript.parseConfigFileTextToJson(tsconfigFile, contents);
+    const jsonContents = typescript.parseConfigFileTextToJson(
+        tsconfigFile,
+        contents
+    );
     const tsconfigFilePath = path.dirname(tsconfigFile);
     const tsResult = typescript.parseJsonConfigFileContent(
         jsonContents.config,
@@ -211,7 +219,8 @@ function createESLint(dirName, log) {
     const pathToRequire = dirName + "\\node_modules\\eslint";
     log("Path for ESLint: " + pathToRequire);
     const { ESLint } = require(pathToRequire);
-    if (ESLint == null) throw ("ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?");
+    if (ESLint === null || ESLint === undefined)
+        throw "ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?";
     log("Successfully Loaded ESLint version: " + ESLint.version);
     return ESLint;
 }
