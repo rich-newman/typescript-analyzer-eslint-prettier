@@ -10,7 +10,7 @@ number of 1.
 
 ## 2.3
 
-**Release date TBD**
+**2022-07-05**
 
 - Update to latest versions of dependent npm packages, including ESLint 8.19.0
 - Set the node working directory in the web server to the local install folder if there is one, rather than defaulting to the open solution folder.  This helps some packages to find their own config files, notably the Babel parser.  Display the working directory in the logs.  More sophisticated ways of setting the working directory may be necessary, this will be added to the road map.
