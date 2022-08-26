@@ -8,16 +8,20 @@ We can set up the TypeScript Analyzer to use this plugin in Visual Studio projec
 
 ## Vue and Visual Studio Projects
 
-Visual Studio has a couple of Vue project templates:
+Visual Studio has several Vue project templates, of two basic types:
 
-1. 'Standalone JavaScript/TypeScript Vue Project'.  This project template is only available in Visual Studio 2022.  The project created here is Vue 3.
-2. 'Basic vue.js Web Application', using either JavaScript or TypeScript.  This project template is available in Visual Studio 2017, 2019 and 2022.  This creates a Vue 2 project. The latest and now default version of Vue is Vue 3.  
+1. 'Standalone JavaScript Vue Project' and 'Standalone TypeScript Vue Project'.  These project templates are only available in Visual Studio 2022.  The project created here is Vue 3.
+2. 'Basic vue.js Web Application'.  These project templates available in Visual Studio 2017, 2019 and 2022, and in JavaScript or TypeScript versions, although there's no TypeScript version in Visual Studio 2022.  All of these templates are different, but similar obviously.  The JavaScript template in Visual Studio 2022 is Vue 3, and the rest are Vue 2.
+
+Enabling the TypeScript Analyzer for the Standalone JavaScript/TypeScript Vue Projects is relatively straightforward and is described below.
+
+The situation is more complex for Basic vue.js Web Applications.  Setting up the TypeScript Analyzer for these project types is described on a [separate page](setupvuebasicwebapp.md).
 
 ## Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022
 
 ### Using the Default Linting from a Terminal
 
-If you create a Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022 then linting from a terminal window is set up for you as part of the project creation. 
+If in Visual Studio 2022 you create a Standalone JavaScript Vue Project or a Standalone TypeScript Vue Project then linting from a terminal window is set up for you as part of the project creation. 
 
 ESLint and the eslint-plugin-vue plugin are installed for you, and ESLint is configured via an 'eslintConfig' property in package.json.  
 
@@ -40,7 +44,6 @@ Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript pro
 Please note you may not want to do this: Prettier doesn't work too well with .vue files, and the plugins that attempt to mitigate this have [issues on Windows](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/29).
 
 1. Doubleclick package.json in Solution Explorer to edit it.  Find the "eslintconfig" property.  This is the configuration for ESLint which the TypeScript Analyzer usually has in a .eslintrc.js file.  Replace the entire property and value with the code below.
-
 For a Standalone **JavaScript** Vue Project:
 ``` json
   "eslintConfig": {
@@ -122,3 +125,7 @@ For a Standalone **TypeScript** Vue Project:
 3. Install the new npm packages. Rightclick the project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 
 Now if you lint a .vue file in the project you will probably get some Prettier warnings.  As usual, you can rightclick/Fix TypeScript Analyzer (ESLint) Errors to format the file and remove these errors.
+
+## Basic vue.js Web Application
+
+Set up for the TypeScript Analyzer for Basic vue.js Web Applications is in a [separate document](setupvuebasicwebapp.md).
