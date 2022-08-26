@@ -46,7 +46,7 @@ Please note you may not want to do this: Prettier doesn't work too well with .vu
 1. Doubleclick package.json in Solution Explorer to edit it.  Find the "eslintconfig" property.  This is the configuration for ESLint which the TypeScript Analyzer usually has in a .eslintrc.js file.  Replace the entire property and value with the code below.
 For a Standalone **JavaScript** Vue Project:
 ``` json
-  "eslintConfig": {
+"eslintConfig": {
     "root": true,
     "env": {
       "node": true
@@ -78,11 +78,11 @@ For a Standalone **JavaScript** Vue Project:
         }
       ]
     }
-  },
+},
 ```
 For a Standalone **TypeScript** Vue Project:
 ``` json
-  "eslintConfig": {
+"eslintConfig": {
     "root": true,
     "env": {
       "node": true
@@ -115,7 +115,7 @@ For a Standalone **TypeScript** Vue Project:
         }
       ]
     }
-  },
+},
 ```
 2. Still in package.json, add the dependencies below to the end of the devDependencies section and save. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
 ``` json
