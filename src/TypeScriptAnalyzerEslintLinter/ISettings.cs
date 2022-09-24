@@ -6,6 +6,7 @@ namespace TypeScriptAnalyzerEslintLinter
     {
         bool RunOnBuild { get; }
         bool ESLintEnable { get; }
+        bool FixOnSave { get; }
         bool UseTsConfig { get; }
         void ResetSettings();
         bool ShowUnderlining { get; }

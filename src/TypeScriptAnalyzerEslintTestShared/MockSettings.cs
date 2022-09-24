@@ -25,6 +25,7 @@ namespace TypeScriptAnalyzerEslintTest
         }
 
         public bool ESLintEnable => true;
+        public bool FixOnSave => false;
         public bool UseTsConfig { get; set; } = false;
         public bool RunOnBuild => false;
         public bool ShowUnderlining => true;

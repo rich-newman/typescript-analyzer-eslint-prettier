@@ -7,7 +7,9 @@ using Microsoft.VisualStudio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 using Task = System.Threading.Tasks.Task;
 
 namespace TypeScriptAnalyzerEslintVsix
@@ -201,7 +203,9 @@ namespace TypeScriptAnalyzerEslintVsix
                 {
                     //Logger.Log("File action, linting: " + e.FilePath + ", action: " + e.FileActionType);
                     CancelTimer(textBuffer);
-                    await LinterService.LintTextAsync(textBuffer.CurrentSnapshot.GetText(), e.FilePath);
+                    bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk) && Package.Settings.FixOnSave;
+                    if (fix) await Task.Delay(3000);  // Give the save a chance to complete so VS reloads correctly.  Yes, this is a hack.
+                    await LinterService.LintTextAsync(textBuffer.CurrentSnapshot.GetText(), e.FilePath, fixErrors: fix);
                 }
                 // Not a lintable file, has been renamed or saved, may have existing errors (was lintable before a config change)
                 else if (e.FileActionType == FileActionTypes.ContentSavedToDisk || e.FileActionType == FileActionTypes.DocumentRenamed)

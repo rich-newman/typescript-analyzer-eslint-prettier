@@ -14,6 +14,7 @@ namespace TypeScriptAnalyzerEslintVsix
         private void SetDefaults()
         {
             ESLintEnable = true;
+            FixOnSave = false;
             ShowUnderlining = true;
             RunOnBuild = false;
             EnableIgnore = true;
@@ -42,6 +43,12 @@ namespace TypeScriptAnalyzerEslintVsix
         [Description("Enable TypeScript Analyzer to lint using ESLint")]
         [DefaultValue(true)]
         public bool ESLintEnable { get; set; }
+
+        [Category("Basic")]
+        [DisplayName("Fix and format on Save")]
+        [Description("If True, runs a Fix when an individual file is saved.  This also formats with Prettier if enabled.")]
+        [DefaultValue(false)]
+        public bool FixOnSave { get; set; }
 
         [Category("Basic")]
         [DisplayName("TypeScript: lint using tsconfig.json")]

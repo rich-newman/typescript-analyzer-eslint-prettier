@@ -8,6 +8,12 @@ TypeScript Analyzer which was based on TSLint rather than ESLint.
 The old TypeScript Analyzer had version numbers with major version 
 number of 1.
 
+## 2.4
+
+**2022-09-22**
+
+- Add Fix on Save option, which allows Prettier formatting when a file is saved, issue [#1](https://github.com/rich-newman/typescript-analyzer-eslint-prettier/issues/1).
+
 ## 2.3
 
 **2022-07-05**
