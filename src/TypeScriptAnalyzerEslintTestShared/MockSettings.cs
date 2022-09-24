@@ -40,6 +40,7 @@ namespace TypeScriptAnalyzerEslintTest
         public string TsconfigNamesPattern { get; set; } = TypeScriptAnalyzerEslintVsix.Settings.DefaultTsconfigNamesPattern;
         public string LintableFileExtensions { get; set; } = TypeScriptAnalyzerEslintVsix.Settings.DefaultLintableFileExtensions;
         public int LintInterval { get; set; } = 5000;
+        public int SaveDelay => 300;
         public void Initialize() { }
         public void ResetSettings() { }
     }

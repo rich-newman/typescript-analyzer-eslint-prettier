@@ -29,6 +29,7 @@ namespace TypeScriptAnalyzerEslintVsix
             UseTsConfig = false;
             TsconfigNamesPattern = DefaultTsconfigNamesPattern;
             LintInterval = 3000;
+            SaveDelay = 300;
         }
 
         public override void ResetSettings()
@@ -120,6 +121,19 @@ namespace TypeScriptAnalyzerEslintVsix
             "update quickly enough. Set to -1 to disable linting after typing.")]
         [DefaultValue(3000)]
         public int LintInterval { get; set; }
+
+        private int saveDelay;
+
+        //[Category("Extended")]
+        //[DisplayName("Save delay before fixing when saving (ms)")]
+        //[Description("If we save a file and fix VS gets confused if ESLint tries to overwrite the file before the original save has " +
+        //    "fully completed. We need a delay or the fixed file will not load in the editor.")]
+        //[DefaultValue(300)]
+        public int SaveDelay
+        {
+            get { return saveDelay < 0 ? 0 : saveDelay; }
+            set { saveDelay = value; }
+        }
 
         [Category("Logging")]
         [DisplayName("Enable logging")]

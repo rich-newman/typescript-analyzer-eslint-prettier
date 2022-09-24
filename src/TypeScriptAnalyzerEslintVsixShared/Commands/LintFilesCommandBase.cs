@@ -51,7 +51,7 @@ namespace TypeScriptAnalyzerEslintVsix
                 // only happens if the file is open in the editor of course.
                 FileListener.EventLintingSuspended = true;
                 Package.Dte.ExecuteCommand("File.SaveAll");
-                if (fixErrors) await Task.Delay(300);
+                if (fixErrors) await Task.Delay(Package.Settings.SaveDelay);
                 if (path != null)
                     await LintSelectedItemInFolderViewAsync(fixErrors, path);
                 else

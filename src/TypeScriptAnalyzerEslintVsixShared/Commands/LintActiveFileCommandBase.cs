@@ -33,7 +33,7 @@ namespace TypeScriptAnalyzerEslintVsix
                     if (System.IO.File.ReadAllText(fileName) != text)
                     {
                         Package.Dte.ExecuteCommand("File.SaveSelectedItems");
-                        await Task.Delay(300);  // Give the async command a chance to complete, along with all its events
+                        await Task.Delay(Package.Settings.SaveDelay);  
                     }
                 }
                 await LinterService.LintTextAsync(text, fileName, fixErrors);
