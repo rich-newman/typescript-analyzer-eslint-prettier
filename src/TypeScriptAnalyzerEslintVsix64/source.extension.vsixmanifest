@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="TypeScriptAnalyzerEslintVsix64.32ed3625-909f-4970-9d47-e0030bc2656f" Version="2.4" Language="en-US" Publisher="Rich Newman" />
+        <Identity Id="TypeScriptAnalyzerEslintVsix64.32ed3625-909f-4970-9d47-e0030bc2656f" Version="2.4" Language="en-US" Publisher="RN" />
         <DisplayName>TypeScript Analyzer (ESLint, Prettier)</DisplayName>
         <Description xml:space="preserve">Lints and formats JavaScript and TypeScript files directly in Visual Studio using ESLint and Prettier</Description>
         <MoreInfo>https://rich-newman.github.io/typescript-analyzer-eslint-prettier/</MoreInfo>
