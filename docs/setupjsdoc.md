@@ -13,14 +13,14 @@ ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmj
     "name": ""
 },
 "devDependencies": {
-    "@types/node": "16.11.43",
-    "@typescript-eslint/eslint-plugin": "5.30.5",
-    "@typescript-eslint/parser": "5.30.5",
-    "eslint": "8.19.0",
+    "@types/node": "16.11.60",
+    "@typescript-eslint/eslint-plugin": "5.38.0",
+    "@typescript-eslint/parser": "5.38.0",
+    "eslint": "8.24.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
-    "typescript": "4.7.4",
-    "eslint-plugin-jsdoc": "39.3.3"
+    "typescript": "4.8.3",
+    "eslint-plugin-jsdoc": "39.3.6"
 }
 ```
 3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.

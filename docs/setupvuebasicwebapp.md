@@ -103,13 +103,13 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-babel": "4.5.13",
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-service": "4.5.13",
-    "typescript": "4.1.5",
     "vue-template-compiler": "2.6.12",
-    "eslint": "8.22.0",
     "eslint-plugin-vue": "9.4.0",
     "vue-eslint-parser": "9.0.3",
-    "@typescript-eslint/eslint-plugin": "5.30.4",
-    "@typescript-eslint/parser": "5.30.4",
+    "@typescript-eslint/eslint-plugin": "5.38.0",
+    "@typescript-eslint/parser": "5.38.0",
+    "eslint": "8.24.0",
+    "typescript": "4.8.3",
     "@vue/eslint-config-typescript": "11.0.0"
   },
   "postcss": {
