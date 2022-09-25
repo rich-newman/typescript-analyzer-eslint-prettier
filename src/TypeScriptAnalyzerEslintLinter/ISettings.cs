@@ -21,7 +21,6 @@ namespace TypeScriptAnalyzerEslintLinter
         string TsconfigNamesPattern { get; }
         string LintableFileExtensions { get; }
         int LintInterval { get; }
-        int SaveDelay { get; }
         void Initialize();
     }
 }

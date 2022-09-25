@@ -204,7 +204,7 @@ namespace TypeScriptAnalyzerEslintVsix
                     //Logger.Log("File action, linting: " + e.FilePath + ", action: " + e.FileActionType);
                     CancelTimer(textBuffer);
                     bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk) && Package.Settings.FixOnSave;
-                    if (fix) await Task.Delay(Package.Settings.SaveDelay);  
+                    if (fix) await Task.Delay(Settings.SaveDelay);  
                     await LinterService.LintTextAsync(textBuffer.CurrentSnapshot.GetText(), e.FilePath, fixErrors: fix);
                 }
                 // Not a lintable file, has been renamed or saved, may have existing errors (was lintable before a config change)
