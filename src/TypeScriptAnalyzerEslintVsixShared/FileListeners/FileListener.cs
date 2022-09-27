@@ -203,7 +203,8 @@ namespace TypeScriptAnalyzerEslintVsix
                 {
                     //Logger.Log("File action, linting: " + e.FilePath + ", action: " + e.FileActionType);
                     CancelTimer(textBuffer);
-                    bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk) && Package.Settings.FixOnSave;
+                    bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk) 
+                               && Package.Settings.FixOnSave && !FixOnSaveSuspended;
                     if (fix) await Task.Delay(Settings.SaveDelay);  
                     await LinterService.LintTextAsync(textBuffer.CurrentSnapshot.GetText(), e.FilePath, fixErrors: fix);
                 }
@@ -234,5 +235,8 @@ namespace TypeScriptAnalyzerEslintVsix
         }
 
         public static bool EventLintingSuspended = false; // Must be accessed from UI thread
+        // We explicitly prevent fixing on a save during a build. This prevents a fix if the build itself
+        // saves a file, and if our user saves, both of which are confusing re what gets built.
+        public static bool FixOnSaveSuspended = false; // Must be accessed from UI thread 
     }
 }

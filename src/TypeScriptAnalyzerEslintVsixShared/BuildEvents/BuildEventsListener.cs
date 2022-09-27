@@ -36,16 +36,24 @@ namespace TypeScriptAnalyzerEslintVsix
             // 1-9 can be called from the build menu if on an item outside a project.
             // These are really edge cases and a bit of work to implement as we need to map them to projects and tell the linter
             // TODO Batch build lints everything, not just the built projects
-            if (!Package.Settings.RunOnBuild || !Guid.StartsWith("{5E") || Guid != "{5EFC7975-14BC-11CF-9B2B-00AA00573819}") return;
-            if (!buildIds.Contains(ID)) return;
+            if (!Guid.StartsWith("{5E") || Guid != "{5EFC7975-14BC-11CF-9B2B-00AA00573819}" || !buildIds.Contains(ID)) return;
             isBuilding = true;
             isBuildingSolution = buildSolutionIds.Contains(ID);
+        }
+
+        public override int UpdateSolution_Done(int fSucceeded, int fModified, int fCancelCommand)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            FileListener.FixOnSaveSuspended = false;
+            return base.UpdateSolution_Done(fSucceeded, fModified, fCancelCommand);
         }
 
         public override int UpdateSolution_Begin(ref int pfCancelUpdate)
         {
             try
             {
+                if (isBuilding && Package.Settings.ESLintEnable) 
+                    FileListener.FixOnSaveSuspended = true;  // Event linting re-enabled in UpdateSolution_Done
                 if (!isBuilding || !Package.Settings.RunOnBuild || !Package.Settings.ESLintEnable)
                     return VSConstants.S_OK;
 #pragma warning disable VSTHRD102
@@ -53,7 +61,12 @@ namespace TypeScriptAnalyzerEslintVsix
 #pragma warning restore VSTHRD102
                 pfCancelUpdate = cancelBuild ? 1 : 0;
                 ThreadHelper.ThrowIfNotOnUIThread();
-                if (cancelBuild) Package.Dte.StatusBar.Text = "Build failed because of ESLint Errors";
+                if (cancelBuild)
+                {
+                    string message = "Build failed because of ESLint Errors";
+                    Package.Dte.StatusBar.Text = message;
+                    Logger.Log(message);
+                }
             }
             catch (Exception ex)
             {
