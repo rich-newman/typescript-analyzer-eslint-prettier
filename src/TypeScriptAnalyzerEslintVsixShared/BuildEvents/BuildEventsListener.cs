@@ -48,6 +48,15 @@ namespace TypeScriptAnalyzerEslintVsix
             return base.UpdateSolution_Done(fSucceeded, fModified, fCancelCommand);
         }
 
+        // Fires after any save events for unsaved files, so we can reset the fix on save suspended here
+        public override int UpdateSolution_StartUpdate(ref int pfCancelUpdate)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            FileListener.FixOnSaveSuspended = false;
+            return base.UpdateSolution_StartUpdate(ref pfCancelUpdate);
+        }
+
+
         public override int UpdateSolution_Begin(ref int pfCancelUpdate)
         {
             try

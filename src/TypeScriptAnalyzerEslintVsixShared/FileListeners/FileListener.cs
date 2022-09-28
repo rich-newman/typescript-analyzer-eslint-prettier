@@ -7,9 +7,7 @@ using Microsoft.VisualStudio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Threading;
-using static System.Net.Mime.MediaTypeNames;
 using Task = System.Threading.Tasks.Task;
 
 namespace TypeScriptAnalyzerEslintVsix
@@ -203,7 +201,7 @@ namespace TypeScriptAnalyzerEslintVsix
                 {
                     //Logger.Log("File action, linting: " + e.FilePath + ", action: " + e.FileActionType);
                     CancelTimer(textBuffer);
-                    bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk) 
+                    bool fix = (e.FileActionType == FileActionTypes.ContentSavedToDisk)
                                && Package.Settings.FixOnSave && !FixOnSaveSuspended;
                     if (fix) await Task.Delay(Settings.SaveDelay);  
                     await LinterService.LintTextAsync(textBuffer.CurrentSnapshot.GetText(), e.FilePath, fixErrors: fix);
