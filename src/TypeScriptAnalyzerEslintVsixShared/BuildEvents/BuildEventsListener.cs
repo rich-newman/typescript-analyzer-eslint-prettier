@@ -96,6 +96,7 @@ namespace TypeScriptAnalyzerEslintVsix
                 if (!LinterService.IsLinterEnabled) return false;
                 FileListener.EventLintingSuspended = true;
                 Package.Dte.ExecuteCommand("File.SaveAll");
+                await System.Threading.Tasks.Task.Delay(Settings.SaveDelay);
                 UIHierarchyItem[] selectedItems = BuildSelectedItems.Get(isBuildingSolution);
                 Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 string[] files = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
