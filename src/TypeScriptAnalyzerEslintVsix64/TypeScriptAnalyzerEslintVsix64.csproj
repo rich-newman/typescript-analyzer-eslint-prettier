@@ -11967,16 +11967,6 @@
 		  <IncludeInVSIX>true</IncludeInVSIX>
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\cjs\utils\checkParams.d.ts">
-		  <Link>Node\node_modules\js-sdsl\dist\cjs\utils\checkParams.d.ts</Link>
-		  <IncludeInVSIX>true</IncludeInVSIX>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\cjs\utils\checkParams.js">
-		  <Link>Node\node_modules\js-sdsl\dist\cjs\utils\checkParams.js</Link>
-		  <IncludeInVSIX>true</IncludeInVSIX>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
 	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\esm\index.d.ts">
 		  <Link>Node\node_modules\js-sdsl\dist\esm\index.d.ts</Link>
 		  <IncludeInVSIX>true</IncludeInVSIX>
@@ -12154,16 +12144,6 @@
 	  </Content>
 	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\esm\container\TreeContainer\Base\TreeNode.js">
 		  <Link>Node\node_modules\js-sdsl\dist\esm\container\TreeContainer\Base\TreeNode.js</Link>
-		  <IncludeInVSIX>true</IncludeInVSIX>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\esm\utils\checkParams.d.ts">
-		  <Link>Node\node_modules\js-sdsl\dist\esm\utils\checkParams.d.ts</Link>
-		  <IncludeInVSIX>true</IncludeInVSIX>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="..\Shared\Node\node_modules\js-sdsl\dist\esm\utils\checkParams.js">
-		  <Link>Node\node_modules\js-sdsl\dist\esm\utils\checkParams.js</Link>
 		  <IncludeInVSIX>true</IncludeInVSIX>
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
