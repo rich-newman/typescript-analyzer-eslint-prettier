@@ -20,6 +20,12 @@ The individual settings on the Settings screen are described below.
 
 If this is set to false then the TypeScript Analyzer remains installed but is disabled everywhere.  No menu options or linting errors will appear. 
 
+#### <a name="fixonsave"></a>Fix and Format on Save
+
+If this is set to True then the Analyzer will run its fix process whenever a file is saved.  If Prettier is enabled this means that Prettier will run whenever a file is saved, and the saved file contents will be formatted.
+
+This is set up so it only runs when a file is explicitly saved using the menus, toolbars or control + S.  When Visual Studio saves a file for you it is not expected to run.  Occasions when Visual Studio saves files are when you build with unsaved files, or rename an unsaved file.
+
 #### <a name="runonbuild"></a>Run on Build
 
 The default for this is False.  If it is set to True then whenever a Visual Studio project or solution is built then the TypeScript Analyzer will run on whatever is being built before actual the build takes place.  

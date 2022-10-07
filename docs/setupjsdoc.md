@@ -13,13 +13,13 @@ ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmj
     "name": ""
 },
 "devDependencies": {
-    "@types/node": "16.11.60",
-    "@typescript-eslint/eslint-plugin": "5.38.0",
-    "@typescript-eslint/parser": "5.38.0",
+    "@types/node": "16.11.64",
+    "@typescript-eslint/eslint-plugin": "5.39.0",
+    "@typescript-eslint/parser": "5.39.0",
     "eslint": "8.24.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
-    "typescript": "4.8.3",
+    "typescript": "4.8.4",
     "eslint-plugin-jsdoc": "39.3.6"
 }
 ```

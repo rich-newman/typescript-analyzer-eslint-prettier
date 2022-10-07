@@ -20,6 +20,7 @@ The TypeScript Analyzer has the features below.  A [walk through showing these f
 
 - Errors are underlined in the code file with [more detail if you hover](walkthrough.md#errorwithhover), as usual, and shown in the Visual Studio Error List:
 - The TypeScript Analyzer lints as you type and lints on file open or save, but **can be instructed to lint an entire project or solution at once**, and show all errors in any files.  **It can fix an entire solution at once.**
+- It **[can fix and format on a save](settings.md#fixonsave)**.  This means that whenever you save a file Prettier will be invoked and will format it in a standard way, assuming Prettier is enabled.  Prettier is enabled by default, but fix on save is not.
 - It **[can run on a local build](settings.md#runonbuild)** in Visual Studio, and will prevent the build from starting if there are unfixed linting or formatting errors anywhere in the code being built.
 - It **[can use type-aware TypeScript rules](typeinformation.md)**, provided a tsconfig.json file and appropriate configuration is provided.
 - It **[works in Visual Studio folder view](folderview.md)**, including allowing entire folders to be linted/formatted at once.

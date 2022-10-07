@@ -14,6 +14,7 @@ It's available for [Visual Studio 2022](https://marketplace.visualstudio.com/ite
 
 - Errors are underlined in the code file with more detail if you hover, as usual, and shown in the Visual Studio Error List.
 - The Analyzer lints as you type and lints on file open or save, but **can be instructed to lint an entire project or solution at once**, and show all errors in any files.  If can fix an entire solution at once.
+- It **can fix and format on a save**.  This means that whenever you save a file Prettier will be invoked and will format it in a standard way, assuming Prettier is enabled.  Prettier is enabled by default, but fix on save is not.
 - It **can run on a local build** in Visual Studio, and to prevent the build from starting if there are unfixed linting or formatting errors anywhere in the code being built.
 - It **[can use type-aware TypeScript rules](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/typeinformation.html)**, provided a tsconfig.json file and appropriate configuration is provided.
 - It **[works in Visual Studio folder view](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/folderview.html)**, including allowing entire folders to be linted/formatted at once.

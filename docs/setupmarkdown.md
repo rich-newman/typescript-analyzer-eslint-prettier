@@ -14,13 +14,13 @@ Instructions on how to do this in a TypeScript Node.js Console Application are b
 2. Doubleclick package.json in Solution Explorer to edit it.  Replace the existing devDependencies section with the code below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-md:
 ``` json
 "devDependencies": {
-    "@types/node": "16.11.60",
-    "@typescript-eslint/eslint-plugin": "5.38.0",
-    "@typescript-eslint/parser": "5.38.0",
+    "@types/node": "16.11.64",
+    "@typescript-eslint/eslint-plugin": "5.39.0",
+    "@typescript-eslint/parser": "5.39.0",
     "eslint": "8.24.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
-    "typescript": "4.8.3",
+    "typescript": "4.8.4",
     "eslint-plugin-md": "1.0.19"
 }
 ```

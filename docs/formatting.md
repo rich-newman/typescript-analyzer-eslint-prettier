@@ -7,7 +7,7 @@ In the TypeScript Analyzer [Prettier](https://prettier.io/docs/en/index.html) is
 - Prettier formatting issues are flagged as warnings in the Visual Studio editor and in the Error List.
 - If you fix using the TypeScript Analyzer then your code is reformatted using Prettier to remove these warnings.
 
-At the time of writing reformatting on a file save is NOT possible using the TypeScript Analyzer.  You have to explicitly fix to get a reformat.
+You can also fix and format whenever a file is saved, although this is not enabled by default.  To enable it set Tools/Menu/TypeScript Analyzer/Fix and format on Save to 'True'.
 
 ## Prettier is Opinionated
 
