@@ -10,7 +10,7 @@ number of 1.
 
 ## 2.4
 
-**2022-09-25**
+**2022-10-07**
 
 - Add Fix on Save option, which allows Prettier formatting when a file is saved, issue [#1](https://github.com/rich-newman/typescript-analyzer-eslint-prettier/issues/1).
 - Update to latest versions of dependent packages, including ESLint 8.24.0.
