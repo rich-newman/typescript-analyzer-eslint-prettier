@@ -8,7 +8,7 @@ namespace TypeScriptAnalyzerEslintVsix
     {
         public static string FindLocalInstallFromPath(string fullPath)
         {
-            return Package.Settings.EnableLocal ?
+            return Package.Settings.EnableLocalNodeModules ?
                 FindLocalInstallFromDirectoryName(Path.GetDirectoryName(fullPath)) : "";
         }
 

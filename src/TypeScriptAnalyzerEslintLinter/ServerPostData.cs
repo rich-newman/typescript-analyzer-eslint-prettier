@@ -26,6 +26,9 @@ namespace TypeScriptAnalyzerEslintLinter
         [JsonProperty("enableignore")]
         public bool EnableIgnore { get; set; }
 
+        [JsonProperty("enablelocalconfig")]
+        public bool EnableLocalConfig { get; set; }
+
         [JsonProperty("ignorefile")]
         public string IgnoreFile { get; set; }
 

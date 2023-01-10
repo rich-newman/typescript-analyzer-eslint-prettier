@@ -56,6 +56,7 @@ namespace TypeScriptAnalyzerEslintLinter
                 LogFirstConfig = Settings.LogFirstConfig,
                 LogTsConfig = Settings.LogTsConfig,
                 EnableIgnore = Settings.EnableIgnore,
+                EnableLocalConfig= Settings.EnableLocalConfig,
                 IgnoreFile = GetIgnoreFile(files.Length > 0 ? files[0] : projectFiles[0])
             };
             if (text != null) postData.Text = text;

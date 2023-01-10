@@ -128,6 +128,7 @@ function logInitialValues(data, dirName, log) {
     log("Enable ignore: " + data.enableignore);
     log("Debug enabled: " + data.debug);
     log("Logging enabled: " + data.enablelogging);
+    log("Local configuration enabled: " + data.enablelocalconfig);
     const baseConfigFolder =
         data.configfolder === "" ? "Not found" : data.configfolder;
     log("Base Config folder: " + baseConfigFolder);
@@ -229,8 +230,11 @@ function createOptions(data, dirName, log, parserOptions) {
     const options = {
         resolvePluginsRelativeTo: dirName,
         ignore: data.enableignore,
+        useEslintrc: data.enablelocalconfig,
     };
     options.overrideConfig = {};
+    if (!data.enablelocalconfig)
+        options.overrideConfigFile = data.configfolder + "\\.eslintrc.js";
     // parserOptions is only set if we are linting with tsconfig.json in this run
     if (parserOptions) options.overrideConfig.parserOptions = parserOptions;
     // We set the TypeScript parser in the install as the default parser in the base config

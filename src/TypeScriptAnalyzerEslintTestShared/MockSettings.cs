@@ -33,7 +33,8 @@ namespace TypeScriptAnalyzerEslintTest
         public bool LogFileNames => false;
         public bool LogFirstConfig => false;
         public bool LogTsConfig => false;
-        public bool EnableLocal { get; set; } = true;
+        public bool EnableLocalNodeModules { get; set; } = true;
+        public bool EnableLocalConfig { get; set; } = true;
         public bool EnableIgnore { get; set; } = true;
         public int JvmMemory { get; set; } = 0;
         public bool ShowPrettierErrors { get; set; } = false;

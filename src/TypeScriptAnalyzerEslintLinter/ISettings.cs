@@ -14,7 +14,8 @@ namespace TypeScriptAnalyzerEslintLinter
         bool LogFileNames { get; }
         bool LogFirstConfig { get; }
         bool LogTsConfig { get; }
-        bool EnableLocal { get; }
+        bool EnableLocalNodeModules { get; }
+        bool EnableLocalConfig { get; }
         bool EnableIgnore { get; }
         int JvmMemory { get; }
         bool ShowPrettierErrors { get; }

@@ -18,7 +18,8 @@ namespace TypeScriptAnalyzerEslintVsix
             ShowUnderlining = true;
             RunOnBuild = false;
             EnableIgnore = true;
-            EnableLocal = true;
+            EnableLocalNodeModules = true;
+            EnableLocalConfig = true;
             LintableFileExtensions = DefaultLintableFileExtensions;
             JvmMemory = 0;
             EnableLogging = false;
@@ -88,7 +89,15 @@ namespace TypeScriptAnalyzerEslintVsix
         [Description("If True, searches for local node_modules to use before using the ones installed with the Analyzer. " +
             "If False, ALWAYS uses the node_modules installed with the Analyzer.")]
         [DefaultValue(true)]
-        public bool EnableLocal { get; set; }
+        public bool EnableLocalNodeModules { get; set; }
+
+        [Category("ESLint Configuration")]
+        [DisplayName("Enable local config (.eslintrc.js)")]
+        [Description("If True, uses normal ESLint rules for finding configuration files. Any appropriate local file will be used. " +
+            "The default config installed with the Analyzer will only be used if none is found. " +
+            "If False, ALWAYS uses the default config (.eslintrc.js) installed with the Analyzer, overriding any local configuration.")]
+        [DefaultValue(true)]
+        public bool EnableLocalConfig{ get; set; }
 
         public const string DefaultLintableFileExtensions = "js,jsx,ts,tsx,mjs,cjs";
 

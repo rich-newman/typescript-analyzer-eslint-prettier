@@ -94,7 +94,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\b\b.csproj");
-            settings.EnableLocal = false;
+            settings.EnableLocalNodeModules = false;
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
             Assert.AreEqual("", result);
         }
@@ -104,7 +104,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\a.csproj");
-            settings.EnableLocal = false;
+            settings.EnableLocalNodeModules = false;
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
             Assert.AreEqual("", result);
         }

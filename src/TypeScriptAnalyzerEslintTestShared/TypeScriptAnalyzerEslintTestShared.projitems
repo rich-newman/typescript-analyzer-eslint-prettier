@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)LintableFileTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LintEndToEndTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LintFileLocationsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocalConfigTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LocalNodeModulesLocationsTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessageFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MockErrorListDataSource.cs" />
