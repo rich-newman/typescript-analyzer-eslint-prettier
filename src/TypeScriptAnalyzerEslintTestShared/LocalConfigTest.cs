@@ -1,10 +1,13 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using EnvDTE;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TypeScriptAnalyzerEslintLinter;
 using TypeScriptAnalyzerEslintTest;
+using TypeScriptAnalyzerEslintVsix;
 
 namespace TypeScriptAnalyzerEslintTest
 {
@@ -12,6 +15,53 @@ namespace TypeScriptAnalyzerEslintTest
     public class LocalConfigTest
     {
         private static MockSettings settings = null;
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext testContext)
+        {
+            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+        }
+
+        // These tests assume the default .eslintrc.js is the one installed with the Analyzer:
+        // the class initialize methods below make sure this is true whilst trying to keep any
+        // changes that have been made
+        public static async Task ClassInitializeAsync()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            string userConfigFolder = Linter.GetUserConfigFolder();
+            string defaultUserConfigFile = Path.Combine(userConfigFolder, ".eslintrc.js");
+            RenameFile(defaultUserConfigFile, defaultUserConfigFile + "bak");
+            string defaultEslintrcFile =
+                Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localconfig\defaulteslintrc\.eslintrc.js");
+            File.Copy(defaultEslintrcFile, defaultUserConfigFile);
+        }
+
+        // Renames without throwing if files don't exist or already exist: deletes an existing file with the target name,
+        // does nothing if the source file doesn't exist
+        private static void RenameFile(string source, string target)
+        {
+            if (File.Exists(source))
+            {
+                File.Delete(target);
+                File.Copy(source, target);
+                File.Delete(source);
+            }
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+        }
+
+        public static async Task ClassCleanupAsync()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            string userConfigFolder = Linter.GetUserConfigFolder();
+            string defaultUserConfigFile = Path.Combine(userConfigFolder, ".eslintrc.js");
+            RenameFile(defaultUserConfigFile + "bak", defaultUserConfigFile);
+        }
 
         [TestInitialize]
         public void TestInitialize()
@@ -59,18 +109,6 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsFalse(result.HasErrors);
         }
 
-
-        //[TestMethod, TestCategory("Local ESLint Config")]
-        //public async Task EnableBrokenLocalConfig()
-        //{
-        //    await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-        //    // The local config doesn't enable any rules, so we get no errors
-        //    settings.EnableLocalConfig = true;
-        //    LintingResult result = await new Linter(settings)
-        //        .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localconfig\broken\test.ts") }, new string[] { });
-        //    Assert.IsFalse(result.HasErrors);
-        //}
-
         // One problem with coding enableLocalConfig was that if all we do is set overrideConfigFile on the ESLint options object
         // then ESLint still tries to parse all local config, which may not be working. If any of that throws the linting throws.
         // The fix, somewhat counterintuitively since we're trying to use a specific .eslintrc.js file to configure, is to
@@ -92,6 +130,23 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.AreEqual(1, result.Errors.Count);
             Assert.AreEqual(@"prettier/prettier", result.Errors.ElementAt(0).ErrorCode);
             Assert.AreEqual(@"Replace `'Hello·world')␍⏎` with `""Hello·world"");`", result.Errors.ElementAt(0).Message);
+        }
+
+        [TestMethod, TestCategory("Local ESLint Config")]
+        public async Task EnableBrokenLocalConfig()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            // The local config is broken: we get an error that it's broken if we try to use it
+            settings.EnableLocalConfig = true;
+            settings.ShowPrettierErrors = true;
+            LintingResult result = await new Linter(settings)
+                .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localconfig\broken\test.ts") }, new string[] { });
+            Assert.IsTrue(result.HasErrors);
+            Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
+            Assert.AreEqual(1, result.Errors.Count);
+            Assert.AreEqual(@"eslint", result.Errors.ElementAt(0).ErrorCode);
+            Assert.IsTrue(result.Errors.ElementAt(0).Message.StartsWith(
+                @"ESLint webserver error. For more details see Output window: Cannot read config file"));
         }
     }
 }
