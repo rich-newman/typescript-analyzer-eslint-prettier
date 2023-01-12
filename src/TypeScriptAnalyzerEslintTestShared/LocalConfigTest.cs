@@ -1,13 +1,9 @@
-﻿using EnvDTE;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using TypeScriptAnalyzerEslintLinter;
-using TypeScriptAnalyzerEslintTest;
-using TypeScriptAnalyzerEslintVsix;
+using Task = System.Threading.Tasks.Task;
 
 namespace TypeScriptAnalyzerEslintTest
 {
