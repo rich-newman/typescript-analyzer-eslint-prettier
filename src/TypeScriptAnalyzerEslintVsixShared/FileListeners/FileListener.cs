@@ -211,11 +211,12 @@ namespace TypeScriptAnalyzerEslintVsix
                 {
                     CancelTimer(textBuffer);
                     ErrorListDataSource.Instance.CleanErrors(new[] { e.FilePath });
-                    Package.TaggerProvider?.RefreshTags();
+                    if(e.FileActionType != FileActionTypes.DocumentRenamed) Package.TaggerProvider?.RefreshTags();
                 }
                 if (e.FileActionType == FileActionTypes.DocumentRenamed)
                 {
                     CleanErrorsForOldFileName(sender, e);
+                    Package.TaggerProvider?.RefreshTags();
                 }
             }
             catch (Exception ex) { await Logger.LogAndWarnAsync(ex); }
