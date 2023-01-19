@@ -56,7 +56,7 @@ namespace TypeScriptAnalyzerEslintLinter
                 LogFirstConfig = Settings.LogFirstConfig,
                 LogTsConfig = Settings.LogTsConfig,
                 EnableIgnore = Settings.EnableIgnore,
-                EnableLocalConfig= Settings.EnableLocalConfig,
+                EnableLocalConfig = Settings.EnableLocalConfig,
                 IgnoreFile = GetIgnoreFile(files.Length > 0 ? files[0] : projectFiles[0])
             };
             if (text != null) postData.Text = text;
@@ -103,9 +103,8 @@ namespace TypeScriptAnalyzerEslintLinter
             }
             catch (JsonReaderException)
             {
-                LintingError le = new LintingError(Name, 0, 0, LintingErrorType.Error, Name)
+                LintingError le = new LintingError(Name, 0, 0, LintingErrorType.Error, Name, output)
                 {
-                    Message = output,
                     Provider = this
                 };
                 Result.Errors.Add(le);
@@ -135,15 +134,15 @@ namespace TypeScriptAnalyzerEslintLinter
                         int lineNumber = GetPropertyValue(message, "line", valueIfNull: 1) - 1;  // eslint line numbers out by one
                         int columnNumber = GetPropertyValue(message, "column", valueIfNull: 1) - 1;
                         int messageSeverity = GetPropertyValue<int>(message, "severity");
+                        string errorMessage = GetPropertyValue<string>(message, "message");
 
                         // File ignored messages have severity 1, no error code, but are not VS warnings (which require action)
                         // Not sure if this is right: the only other way to test is on the string message though
                         if (messageSeverity == 1 && errorCode == null) messageSeverity = 0;
                         LintingErrorType lintingErrorType = (LintingErrorType)messageSeverity;
-                        LintingError le = new LintingError(fileName, lineNumber, columnNumber, lintingErrorType, errorCode);
+                        LintingError le = new LintingError(fileName, lineNumber, columnNumber, lintingErrorType, errorCode, errorMessage);
                         if (!Result.Errors.Contains(le))
                         {
-                            le.Message = GetPropertyValue<string>(message, "message");
                             le.EndLineNumber = GetPropertyValue(message, "endLine", valueIfNull: 1) - 1;
                             le.EndColumnNumber = GetPropertyValue(message, "endColumn", valueIfNull: 1) - 1;
 

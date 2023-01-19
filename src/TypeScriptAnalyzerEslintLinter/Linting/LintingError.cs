@@ -10,13 +10,14 @@
 
     public class LintingError
     {
-        public LintingError(string fileName, int lineNumber, int columnNumber, LintingErrorType errorType, string errorCode)
+        public LintingError(string fileName, int lineNumber, int columnNumber, LintingErrorType errorType, string errorCode, string message)
         {
             FileName = fileName;
             LineNumber = lineNumber;
             ColumnNumber = columnNumber;
             ErrorType = errorType;
             ErrorCode = errorCode;
+            Message = message;
         }
 
         public Linter Provider { get; set; }
@@ -40,7 +41,7 @@
         protected bool Equals(LintingError other)
         {
             return string.Equals(FileName, other.FileName) && LineNumber == other.LineNumber && ColumnNumber == other.ColumnNumber &&
-                ErrorType == other.ErrorType && string.Equals(ErrorCode, other.ErrorCode);
+                ErrorType == other.ErrorType && string.Equals(ErrorCode, other.ErrorCode) && string.Equals(Message, other.Message);
         }
 
         public override bool Equals(object obj)
@@ -60,6 +61,7 @@
                 hashCode = (hashCode * 397) ^ ColumnNumber;
                 hashCode = (hashCode * 397) ^ ErrorType.GetHashCode();
                 hashCode = (hashCode * 397) ^ (ErrorCode != null ? ErrorCode.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Message != null ? Message.GetHashCode() : 0);
                 return hashCode;
             }
         }
