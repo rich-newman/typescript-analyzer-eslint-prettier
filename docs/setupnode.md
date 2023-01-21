@@ -14,24 +14,25 @@ Detailed instructions on how to do this in a Node.js Console application are bel
 2. Doubleclick package.json in Solution Explorer to edit it.  Replace the existing devDependencies section with the code below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
 ``` json
 "devDependencies": {
-    "@types/node": "16.11.64",
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
-    "eslint": "8.24.0",
+    "@types/node": "18.11.18",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint": "8.31.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
-    "typescript": "4.8.4",
+    "prettier": "2.8.2",
+    "typescript": "4.9.4",
     "eslint-plugin-node": "11.1.0"
 }
 ```
-3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
-4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
-5. Copy the [file contents on this link](setupnodeconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Node.js rules in the plugin.  The actual changes made are [detailed at the end of this article](setupnode.md#changesmadetodefaultconfig).
-6. Test the rules work.  Open app.ts, and add the code below.  This is taken from the [plugin docs](https://github.com/mysticatea/eslint-plugin-node) for the [no-exports-assign rule](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md):
+3. If the package.json contains an eslintConfig section you can optionally remove this entire section.  If you create a local configuration file as described below it will override this in any case, but it can be distracting to have unused configuration in your project.  You will only have a eslintConfig section if you are using Visual Studio 2022 v17.4 or later.
+4. Install the npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
+5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
+6. Copy the [file contents on this link](setupnodeconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Node.js rules in the plugin.  The actual changes made are [detailed at the end of this article](setupnode.md#changesmadetodefaultconfig).
+7. Test the rules work.  Open app.ts, and add the code below.  This is taken from the [plugin docs](https://github.com/mysticatea/eslint-plugin-node) for the [no-exports-assign rule](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md):
 ``` javascript
   exports = {};
 ```
-You should get a node/no-exports-assign error "Unexpected assignment to 'exports' variable. Use 'module.exports' instead." in the Error List.  This will also appear if you hover over the line above in the code window.
+You should get a node/no-exports-assign error "Unexpected assignment to 'exports' variable. Use 'module.exports' instead." in the Error List.  This will also appear if you hover over the line above in the code window.  Note that as usual clicking the link in the Code column in the Error List should take you to the help page for this error. 
 
 ## <a name="javascript"></a>Instructions for JavaScript
 
@@ -42,13 +43,13 @@ You should get a node/no-exports-assign error "Unexpected assignment to 'exports
     "name": ""
 },
 "devDependencies": {
-    "@types/node": "16.11.64",
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
-    "eslint": "8.24.0",
+    "@types/node": "18.11.18",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint": "8.31.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
-    "typescript": "4.8.4",
+    "prettier": "2.8.2",
+    "typescript": "4.9.4",
     "eslint-plugin-node": "11.1.0"
 }
 ```
@@ -60,7 +61,7 @@ You should get a node/no-exports-assign error "Unexpected assignment to 'exports
 import typoFile from "./typo-file";
 exports = {};
 ```
-You should get a node/no-exports-assign error "Unexpected assignment to 'exports' variable. Use 'module.exports" instead.' in the Error List.  This will also appear if you hover over the `exports = {};` line above in the code window.  You should also get node/no-missing-import and node/no-unsupported-features/es-syntax errors for the `import typoFile from "./typo-file";` line.
+You should get a node/no-exports-assign error "Unexpected assignment to 'exports' variable. Use 'module.exports" instead.' in the Error List.  This will also appear if you hover over the `exports = {};` line above in the code window.  You should also get node/no-missing-import and node/no-unsupported-features/es-syntax errors for the `import typoFile from "./typo-file";` line.  Note that as usual clicking the link in the Code column in the Error List should take you to the help page for these errors.
 
 ## <a name="changesmadetodefaultconfig"></a>Changes Made to Default Configuration File
 

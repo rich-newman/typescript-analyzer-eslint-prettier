@@ -10,7 +10,7 @@ number of 1.
 
 ## 2.5
 
-**Release Date: To Be Decided**
+**2023-01-23**
 
 - Add documentation explaining why the TypeScript Analyzer shows no linting errors in VS2022 v17.4 and later for Node.js Console Applications and TypeScript Console Applications.  The reason is that the TypeScript Analyzer looks for and uses any local configuration in a project, and these project types are configured locally with ESLint but no linting rules.
 - Add 'Enable local config (.eslintrc.js)' option, which by default is True.  If set to False the TypeScript Analyzer will ignore any local configuration files and always use its own .estlintrc.js that comes with the TypeScript Analyzer installation.  This is the file that can be edited from menu option Tools/TypeScript Analyzer (ESLint)/'Edit Default Config (c:\Users{username}\TypeScriptAnalyzerConfig.eslintrc.js)'.

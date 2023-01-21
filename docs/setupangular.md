@@ -13,14 +13,14 @@ Instructions on how to do this in a **ASP.NET Core with Angular project in Visua
 These instructions only work in Visual Studio 2022 at present.  Visual Studio 2017 doesn't have an ASP.NET Core with Angular native project template.  Visual Studio 2019 does have an ASP.NET Core with Angular project template, but it uses old versions of Angular and other packages, and we are in npm dependency hell trying to work out compatible versions of packages.
 
 1. Create a new ASP.NET Core with Angular project.  For testing purposes it's easier to NOT configure for HTTPS, so clear the checkbox on the 'Additional Information' screen.
-2. Build the project to ensure it builds.
+2. Build the solution to ensure it builds.
 3. Doubleclick package.json in Solution Explorer to edit it.  It's in the ClientApp folder.  Add the dependencies below into the devDependencies and save.  Add them after the existing devDependencies.  These are the additional dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the angular-eslint plugin:
 ``` json
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
-    "eslint": "8.24.0",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint": "8.31.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
+    "prettier": "2.8.2",
     "@angular-eslint/builder": "14.1.2",
     "@angular-eslint/eslint-plugin": "14.1.2",
     "@angular-eslint/eslint-plugin-template": "14.1.2",
@@ -30,18 +30,18 @@ These instructions only work in Visual Studio 2022 at present.  Visual Studio 20
 4. Install these npm packages.  Rightclick ClientApp in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project in the ClientApp folder.  To do this rightclick the ClientApp folder in Solution Explorer, Add/New Item..., JavaScript File, enter .eslintrc.js in the Name: box, and click Add.
 6. Copy the [file contents on this link](setupangularconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Angular plugin.  The actual changes made are [detailed in another article](setupangularchangestodefaultconfig.md).
-7. **Go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'. 
+7. **Go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',html' to the existing list.**  After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,html'.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True. 
 
 ### Testing the ASP.NET Core with Angular project
 
 You should now be set up correctly.  The remaining steps show this.
 
-1. Open any .html file, for example ClientApp/src/app/app.component.html, and paste the code below into it and save.
+1. Open any .html file, for example ClientApp/src/app/app.component.html, and paste the code below into it at the end and save.
 ``` lang-html
     <p *ngIf="forecasts==false"><em>Loading...</em></p>
     <app-sizer ([size])="fontSizePx"></app-sizer>
 ```
-If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'
+If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'.  Note that as usual clicking the link in the Code column in the Error List should take you to the help page for these errors.
 2. To test it's working with TypeScript, open a TypeScript file, for example ClientApp/src/app/app.component.ts and change the value of the selector to CamelCase.  For example change it from 'app-root' to 'AppRoot' in app.component.ts.  You should get a @angular-eslint/component-selector error 'The selector should be kebab-case'.
 3. To test it's working with inline HTML templates in TypeScript files in your component TypeScript file from 2 replace the entire @Component attribute on the class with the code below:
 ``` javascript
@@ -59,7 +59,22 @@ Note that there is a fixer for the template/banana-in-box rule, but the @angular
 
 ## Standalone TypeScript Angular Project
 
-The exact same steps as above will also work in Visual Studio's Standalone TypeScript Angular project type in Visual Studio 2022.
+Almost the same steps as above will also work in Visual Studio's Standalone TypeScript Angular project type in Visual Studio 2022.  The differences are:
+1. We are not working in a ClientApp folder but at the root of the project.
+2. The devDependencies that need to be added to those in package.json in step 3 are as below, rather than the ones above:
+``` json
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint": "8.31.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.8.2",
+    "@angular-eslint/builder": "13.3.0",
+    "@angular-eslint/eslint-plugin": "13.3.0",
+    "@angular-eslint/eslint-plugin-template": "13.3.0",
+    "@angular-eslint/schematics": "13.3.0",
+    "@angular-eslint/template-parser": "13.3.0"
+```
+This is because the project template is using an older version of Angular.
 
 ## Changes Made to Default Configuration File
 
