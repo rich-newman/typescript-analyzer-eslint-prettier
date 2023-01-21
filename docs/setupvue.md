@@ -31,9 +31,9 @@ If you run `npm run lint` from a terminal in the root of the project ESLint will
 
 **The TypeScript Analyzer can use this ESLint configuration, and show linting errors in the code windows and Error List.**
 
-**To enable this** you need to add .vue files to the list of files the Analyzer handles.  To do this go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.
+**To enable this** you need to add .vue files to the list of files the Analyzer handles.  To do this go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.
 
-**To test this is working**, in a Standalone JavaScript/TypeScript Vue Project open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html).
+**To test this is working**, in a Standalone JavaScript/TypeScript Vue Project open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html). Errors in the template or style section will also be shown correctly.
 
 Note that clicking the link in the Code column in the Error List should take you to the help page for this error. 
 
@@ -120,7 +120,7 @@ For a Standalone **TypeScript** Vue Project:
 2. Still in package.json, add the dependencies below to the end of the devDependencies section and save. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
 ``` json
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2"
+    "prettier": "2.7.1"
 ```
 3. Install the new npm packages. Rightclick the project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 

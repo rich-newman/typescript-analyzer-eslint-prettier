@@ -30,6 +30,6 @@ This means **the TypeScript Analyzer would fail in any new project if it didn't 
 
 ## How the TypeScript Analyzer Handles This
 
-For this reason the TypeScript Analyzer **disables the Microsoft ESLint implementation** if it has been enabled.  It does this naively by renaming c:\Users\\{username\}\.eslintrc to c:\Users\\{username\}\\.eslintrctsabackup.  It checks if it needs to do this at the start of every linting run.
+For this reason the TypeScript Analyzer **disables the Microsoft ESLint implementation** if it has been enabled.  It does this naively by renaming c:\Users\\{username\}\.eslintrc to c:\Users\\{username\}\.eslintrctsabackup.  It checks if it needs to do this at the start of every linting run.
 
 **If you disable the TypeScript Analyzer then the Microsoft ESLint implementation will be re-enabled** by renaming the file back to its original name.  You disable the TypeScript Analyzer by setting Tools/Options/TypeScript Analyzer/ESLint/'Enable TypeScript Analyzer (ESLint)' to False.

@@ -6,7 +6,7 @@ This document describes how to set up the TypeScript Analyzer to work with proje
 
 This is a legacy project template that has been around for a while.  We have [separate documentation for setting up the TypeScript Analyzer](setupvue.md) with the more recent 'Standalone Vue Project' template which is in Visual Studio 2022 only.
 
-There are different templates for both JavaScript and TypeScript in each of Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017, the exception being that there is no TypeScript template in Visual Studio 2022.
+There are different templates for both JavaScript and TypeScript in each of Visual Studio 2022, Visual Studio 2019 and Visual Studio 2017, the exception being that there is no TypeScript template in Visual Studio 2022.  
 
 This article deals separately with the templates for each Visual Studio version and language.
 
@@ -37,8 +37,8 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "eslint": "8.31.0",
-    "eslint-plugin-vue": "9.9.0",
+    "eslint": "8.24.0",
+    "eslint-plugin-vue": "9.6.0",
     "vue-eslint-parser": "9.1.0",
     "@babel/eslint-parser": "7.19.1"
  },
@@ -68,12 +68,12 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
 }
 ```
 3. Rightclick npm in Solution Explorer/Install npm packages.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.  Click OK.
+4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
 5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
 6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier)'.  You should see log output ending with 'RESULTS: no problems' if there are none.
-7. To test it works, in package.json change the line at the end `"vue/no-multiple-template-root": "off"` to `"vue/no-multiple-template-root": "warn"` and save.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/no-multiple-template-root rule you just enabled.  Doubleclicking the description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.
+7. To test it works in package.json change the line at the end `"vue/no-multiple-template-root": "off"` to `"vue/no-multiple-template-root": "warn"`.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/no-multiple-template-root rule you just enabled.  Doubleclicking the description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.
 8. Set the vue/no-multiple-template rule back to 'off' in package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
-9. Do Debug/'Start without Debugging' to do a build and run the project.  This should show the test web page and prove that the project still works.
+9. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
 
 ## Visual Studio 2019, TypeScript (Vue 2)
 
@@ -104,12 +104,12 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-service": "4.5.13",
     "vue-template-compiler": "2.6.12",
-	"eslint-plugin-vue": "9.9.0",
+	"eslint-plugin-vue": "9.6.0",
     "vue-eslint-parser": "9.1.0",
-	"@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
-    "typescript": "4.9.4",
+    "@typescript-eslint/eslint-plugin": "5.39.0",
+    "@typescript-eslint/parser": "5.39.0",
+    "eslint": "8.24.0",
+    "typescript": "4.8.4",
     "@vue/eslint-config-typescript": "11.0.2"
   },
   "postcss": {
@@ -146,7 +146,7 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
 }
 ```
 3. Rightclick npm in Solution Explorer/Install npm packages.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.  Click OK.
+4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
 5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
 6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
 7. To test it works in package.json delete the line towards the end `"vue/html-indent": [ "warn", 4 ]`.  Also delete the comma at the end of the line before.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see several warnings about the vue/html-indent rule you just deleted, in files App.vue and Home.vue.  Doubleclicking a description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.  In the Output window you should see the same warnings after RESULTS, under 'TypeScript Analyzer (ESLint, Prettier)' in the dropdown.
@@ -163,10 +163,10 @@ As a result of this the steps below do work to create a JavaScript project, but 
 
 Follow the steps below to enable the JavaScript Analyzer for a Basic vue.js Web Application project, JavaScript in Visual Studio 2019:
 
-1. Create a Basic Vue.js Web Application, JavaScript project in Visual Studio 2019.  Build it to make sure you can.  You need to wait for the npm packages to install.
+1. Create a Basic Vue.js Web Application, JavaScript project in Visual Studio 2019.
 2. In package.json change the line `"eslint": "6.8.0",` to `"eslint": "7.0.0",`.
 3. Rightclick the project name in Solution Explorer/Open in Terminal.  In the terminal that comes up execute the command `npm i -legacy-peer-deps`. We need to install with the additional flag so that npm doesn't enforce the peer dependencies discussed above.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True. Click OK.
+4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
 5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
 6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
 7. To test it works in package.json change the line `"rules": {},
@@ -179,13 +179,13 @@ Follow the steps below to enable the JavaScript Analyzer for a Basic vue.js Web 
       ]
     },
 ```
-Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/html-closing-bracket-spacing rule you just enabled.  Doubleclicking the description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.
+Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/html-closing-bracket-spacing rule you just enabled.  Doubleclicking the description will take you to the error in the code.    Clicking in the Code column should take you to the documentation page for the rule on the internet.
 8. Take the vue/html-closing-bracket-spacing rule out of package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
 9. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
 
 ## Visual Studio 2017, JavaScript and TypeScript
 
-Visual Studio 2017 is no longer supported by Microsoft.  **Neither of the Vue templates in Visual Studio 2017 for new projects works well, and we suggest you do not use them.**
+Visual Studio 2017 is no longer fully supported by Microsoft.  It is [in extended support.](https://devblogs.microsoft.com/visualstudio/support-ends-for-older-versions-of-visual-studio-feb2022/#:~:text=Visual%20Studio%202017%3A%20mainstream%20support,baseline%20to%20remain%20under%20support.)  **Neither of the Vue templates in Visual Studio 2017 for new projects works well, and we suggest you do not use them.**
 
 **Basic vue.js Web Application, TypeScript** will install and build, but will not run from Visual Studio.  If you can get it going, or have an old version that works, the Analyzer can be made to work with it by following the same steps as above for Visual Studio 2019, TypeScript: add in the same  ESLint npm packages and eslintConfig to the package.json that's created, leaving the other package versions as they are, and follow the rest of the steps.
 
