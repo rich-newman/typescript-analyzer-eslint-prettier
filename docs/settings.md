@@ -28,7 +28,7 @@ This is set up so it only runs when a file is explicitly saved using the menus, 
 
 #### <a name="runonbuild"></a>Run on Build
 
-The default for this is False.  If it is set to True then whenever a Visual Studio project or solution is built then the TypeScript Analyzer will run on whatever is being built before actual the build takes place.  
+The default for this is False.  If it is set to True then whenever a Visual Studio project or solution is built then the TypeScript Analyzer will run on whatever is being built before the build takes place.  
 
 If there are any linting errors then the build will not take place until they are fixed or until this option is turned off again.  There will be a 'Build failed because of ESLint errors' message in the status bar.
 

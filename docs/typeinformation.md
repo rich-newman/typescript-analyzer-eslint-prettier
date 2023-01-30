@@ -4,7 +4,7 @@
 
 The TypeScript ESLint plugin has two sorts of rules for linting TypeScript:
 - There are basic rules that don't need to know anything about the structure of the project they are in.  
-- There are rules that require type information that DO need to understand the project structure.  These rules are marked with a green checkbox on the [plugin's npm page](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).  These rules are also known as 'type-aware rules'.
+- There are rules that require type information that DO need to understand the project structure.  These rules are marked as 'requires type information' with a check in the final column on the [plugin's rules page](https://typescript-eslint.io/rules/).  These rules are also known as 'type-aware rules'.
 
 For the rules that require type information to work you have to be using tsconfig.json files to structure your project, and you have to tell the linter about the tsconfig.json files.
 
@@ -32,7 +32,7 @@ Whilst fixing the problem with a configuration file (option 2 above) is more dif
 
 ## Example of How to Lint with a Rule that Needs Type Information
 
-This example sets up a Node TypeScript Console Application in Visual Studio, and enables the rule '[unbound-method](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/unbound-method.md)' that needs type information.  We do this for both of the options described abvoe for getting the rules to work: setting the flag in Tools/Options or editing a .eslintrc.js file.
+This example sets up a Node TypeScript Console Application in Visual Studio, and enables the rule '[unbound-method](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/unbound-method.md)' that needs type information.  We do this for both of the options described above for getting the rules to work: setting the flag in Tools/Options or editing a .eslintrc.js file.
 
 ### Basic Set Up
 
