@@ -36,7 +36,8 @@ This example sets up a Node TypeScript Console Application in Visual Studio, and
 
 ### Basic Set Up
 
-- Create a new Blank Node.js Console Application with TypeScript in Visual Studio.  Note that this has a tsconfig.json file that includes app.ts by default.  It does NOT have a local .eslintrc.js file.
+- Create a new Blank Node.js Console Application with TypeScript in Visual Studio.  Note that this has a tsconfig.json file that includes app.ts by default.
+- If you are using Visual Studio 2022 after version 17.4 you will need to go to Tools/Options/TypeScript Analyzer and set both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' to False, which forces the TypeScript Analyzer to use its own configuration. [More information on this is available](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/noteonvs2022templates.html).
 - Go to Tools/TypeScript Analyzer (ESLint)/Edit Default Config.  This brings up the base .eslintrc.js configuration file for the Analyzer.  Search in this for 'unbound-method' rule, which is commented out.  Comment it back in (remove the //) and save the file. 
 - Open app.ts and paste the code below into app.ts after the existing code. This is taken from the [page on the unbound-method rule](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/unbound-method.md).
 ```typescript
@@ -56,7 +57,7 @@ As described above, there are two ways of fixing the webserver error:
 ### Fixing with the Analyzer Flag
 
 - Go to Tools/Options/TypeScript Analyzer/`TypeScript: lint using tsconfig.json` and set it to True.  Close the dialog.
-- Lint app.ts by rightclicking on it in Solution Explorer/Run TypeScript Analyzer (ESLint), or just save the file.  You should see `{ double } = arith` underlined in red and the associated error be the @typescript-eslint/unbound-method error.
+- Lint app.ts by rightclicking on it in Solution Explorer/Run TypeScript Analyzer (ESLint), or just save the file.  You should see 'double' in `const { double } = arith` underlined in red and the associated error be the @typescript-eslint/unbound-method error.
 
 ### Fixing with a Configuration File
 
@@ -64,12 +65,15 @@ As described above, there are two ways of fixing the webserver error:
 - Save app.ts or rightclick in Solution Explorer/Run TypeScript Analyzer.  We should get the webserver error again.
 - Create a new JavaScript file called .eslintrc.js in the root of your Node Console Application, at the same level as app.ts.
 - Copy the contents of the base .eslintrc.js file into this new file and save.  The base .eslintrc.js should already be open in the editor from above, or open it with Tools/TypeScript Analyzer (ESLint)/Edit Default Config.
-- Find the line `"files": ["*.ts", "*.tsx"],` in the new file you've created.  This is the section that sets up configuration for TypeScript files.  Underneath that line add the code below
+- Find the line `// TypeScript-only rules` in the new file you've created.  This is the section that sets up configuration for TypeScript files.  Underneath that line, and above the line `"files": ["*.ts", "*.tsx"],` add the code below
 ```json
 "parserOptions": {
     "tsconfigRootDir": "{Paste path to tsconfig.json folder here}",
     "project": ["./tsconfig.json"]
 },
 ```
-- Replace '{Paste path to tsconfig.json folder here}' in the code you just pasted in with the path to the folder your tsconfig.json is in.  Unfortunately this has to have forward slashes (or doubled backslashes) as separators to work.  So it will be something like `tsconfigRootDir: "C:/Dotnet/NodejsConsoleApp1/NodejsConsoleApp1",`.
-- Lint app.ts by rightclicking on it in Solution Explorer/Run TypeScript Analyzer (ESLint), or just save the file.  You should see `{ double } = arith` underlined in red and the associated error be the @typescript-eslint/unbound-method error.
+- Replace '{Paste path to tsconfig.json folder here}' in the code you just pasted in with the path to the folder your tsconfig.json is in.  Unfortunately this has to have forward slashes (or doubled backslashes) as separators to work.  It doesn't need to include the tsconfig.json file name, which is specified in the second line.  So it will be something like `tsconfigRootDir: "C:/Dotnet/NodejsConsoleApp1/NodejsConsoleApp1",`.  Save the file.
+- If you are using Visual Studio 2022 v17.4 or later go to Tools/Options/TypeScript Analyzer and set 'Enable local config (.eslintrc.js)' to True.  Leave 'Enable local node_modules' set to False.
+- Lint app.ts by rightclicking on it in Solution Explorer/Run TypeScript Analyzer (ESLint), or just save the file.  You should see 'double' in `const { double } = arith` underlined in red and the associated error be the @typescript-eslint/unbound-method error.
+
+#### 
