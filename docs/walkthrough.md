@@ -38,7 +38,7 @@ Linting errors and warnings in both projects are fixed where this is possible.  
 
 ## Stop a Build if There Are Linting Errors
 
-Hit ctrl-z to undo the last change in app2.ts.  You should again get a 'no-var' linting error.  Go to Tools/Options/TypeScript Analyzer (ESLint) and change the 'Run on Build' option to true:
+Hit ctrl-z to undo the last change in app2.ts.  You should again get a 'no-var' linting error.  Go to Tools/Options/TypeScript Analyzer/ESLint and change the 'Run on Build' option to true:
 
 ![walkthrough6](assets\images\walkthrough6.jpg)
 
@@ -64,11 +64,11 @@ Reset your configuration and options to the default by selecting Tools/TypeScrip
 
 ![walkthrough10](assets\images\walkthrough10.jpg)
 
-Go again to Tools/Options/TypeScript Analyzer (ESLint) and change the 'TypeScript: lint using tsconfig.json' option to true.  This allows rules that need type information to be used.
+Go again to Tools/Options/TypeScript Analyzer (ESLint) and change the 'TypeScript: lint using tsconfig.json' option to true.  This allows rules that need type information to be used.  If you are using Visual Studio 2022 after v17.4 then you will need to set both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' back to False as well.
 
 ![walkthrough11](assets\images\walkthrough11.jpg)
 
-Click OK.  Go to your .eslintrc.js configuration file, find the unbound-method rule.  This is commented out because by default the 'lint using tsconfig.json' setting is set to false.  Comment the rule in:
+Click OK.  Go to your .eslintrc.js configuration file, find the unbound-method rule.  This is commented out because by default the 'lint using tsconfig.json' setting is set to false.  Comment the rule in and save the changed .eslintrc.js file:
 
 ![walkthrough12](assets\images\walkthrough12.jpg)
 
