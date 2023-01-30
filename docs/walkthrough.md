@@ -4,9 +4,11 @@ This article walks you through the various things the TypeScript Analyzer can do
 
 ## Basic Lint
 
-Install the TypeScript Analyzer and create a new Node Console Application with TypeScript.  Type in `var x = 'Hello World'`.
+Install the TypeScript Analyzer and create a new Blank Node Console Application with TypeScript.  
 
-After a few seconds the TypeScript Analyzer will lint the code file and show appropriate errors and warnings.
+If you are using Visual Studio 2017, or Visual Studio 2019, or a version of Visual Studio 2022 before 17.4 then type in `var x = 'Hello World'` and after a few seconds the TypeScript Analyzer will lint the code file and show appropriate errors and warnings.
+
+Sadly in Visual Studio 2022 v17.4 and later Microsoft decided to configure ESLint locally to do nothing in a Node Console Application with TypeScript.  This rather spoiled this walkthrough.  The TypeScript Analyzer picks up and uses this local configuration and does nothing.  To force it to show errors go to Tools/Options/TypeScript Analyzer and set both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' to False.  This forces the TypeScript Analyzer to use its own default configuration.  Then type in `var x = 'Hello World'` and after a few seconds the TypeScript Analyzer will lint the code file and show appropriate errors and warnings.  [More information on this is available](https://rich-newman.github.io/typescript-analyzer-eslint-prettier/noteonvs2022templates.html).
 
 ![walkthrough1](assets\images\walkthrough1.jpg)
 
