@@ -22,4 +22,4 @@ However, as a simpler workaround we have made it possible to *force* the TypeScr
 
 **- Set 'Enable local node_modules' to False**
 
-You can test this has worked by running the TypeScript Analyzer in the default app.js/app.ts file in the project, which will have the line `console.log('Hello world');` in it.  To do this rightclick in the code window 'Run TypeScript Analyzer (ESLint) on Code File'.  This should give a a Prettier error in the Error List to update 'Hello world'); to "Hello world");CRLF.  'Hello world' should be underlined in green in the code editor.
+You can test this has worked by running the TypeScript Analyzer in the default app.js/app.ts file in the project, which will have the line `console.log('Hello world');` in it.  To do this rightclick in the code window 'Run TypeScript Analyzer (ESLint) on Code File'.  This should give a a Prettier error in the Error List to update `'Hello world');` to `"Hello world");CRLF`.  'Hello world' should be underlined in green in the code editor.
