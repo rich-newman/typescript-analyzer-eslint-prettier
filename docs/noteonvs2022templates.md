@@ -8,7 +8,7 @@ This behavior started in Visual Studio 2002 v17.4 and later.  Earlier versions, 
 
 The reason is that projects created with these templates include a local install of the ESLint npm package, and configuration for the package.  The TypeScript Analyzer will use a [local install](installs.md) and [configuration](localconfiguration.md) if it finds them.  However, **by default the configuration in these Visual Studio projects types includes no linting rules.**  This means the TypeScript Analyzer has no linting rules to apply, and cannot generate linting errors.
 
-Note that the situation is slightly worse in a 'JavaScript Console Application' project, as this installs ESLint locally and no other packages, and has no local configuration.  The TypeScript Analyzer tries to use the local 'install' of ESLint with its default .eslintrc.js configuration file, which expects Prettier and TypeScript packages to be installed alongside ESLint.  As a result we get errors.  The workaround below still works in this case however.
+Note that the situation is slightly worse in a 'JavaScript Console Application' project, as this installs ESLint locally and no other packages, and has no local configuration.  The TypeScript Analyzer tries to use the local 'install' of ESLint with its default .eslintrc.js configuration file, which expects Prettier and TypeScript packages to be installed alongside ESLint.  As a result we get 'Failed to load plugin' errors trying to run ESLint.  The workaround below still works in this case however.
 
 ## Workaround
 
