@@ -2,7 +2,7 @@
 
 The TypeScript Analyzer settings can be found in the same place as the settings for other things in Visual Studio.  This is on the menu Tools/Options/TypeScript Analyzer/ESLint:
 
-![Basic lint](assets\images\options.jpg)
+![Tools/Options/TypeScript Analyzer/ESLint](assets\images\options.jpg)
 
 ## Resetting the Settings to Defaults
 
@@ -64,11 +64,17 @@ The TypeScript Analyzer ignores files in [exactly the same confusing way ESLint 
 
 [More details on ignoring files is available.](ignoringfiles.md)
 
+#### Enable local config (.eslintrc.js)
+
+The TypeScript Analyzer install includes a file, .eslintrc.js, that is used to configure ESLint.  This file can be brought up and edited from the Visual Studio menu: Tools/TypeScript Analyzer (ESLint)/'Edit Default Config (c:\Users\{username}\TypeScriptAnalyzerConfig\\.eslintrc.js)'.  However, by default before linting the TypeScript Analyzer allows ESLint to look for local configuration to replace the configuration in this file.  [ESLint does this using its usual fairly complicated rules](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats).
+
+If this 'Enable local config' setting is set to False then the TypeScript Analyzer does NOT allow ESLint to use any local configuration, instead forcing ESLint to use the default configuration file mentioned above, c:\Users\{username}\TypeScriptAnalyzerConfig\\.eslintrc.js.  Technically the TypeScript Analyzer does this by setting the overrideConfigFile option in ESLint to point to the default file, and also setting the useEslintrc option to false.
+
 #### Enable local node_modules
 
 The TypeScript Analyzer install includes ESLint, TypeScript and associated npm packages to allow linting, all in a node_modules folder as usual.  However, by default before linting the TypeScript Analyzer searches for a local installation of ESLint, TypeScript etc. to use.
 
-If this setting is set to False the search for a local installation is NOT carried out, forcing the Analyzer to use its installed node_modules folder.  This can be useful if you're unsure if problems with local npm packages are causing issues with linting.
+If this 'Enable local node_modules' setting is set to False the search for a local installation is NOT carried out, forcing the Analyzer to use its installed node_modules folder.  This can be useful if you're unsure if problems with local npm packages are causing issues with linting.
 
 More details on [installs](installs.md) and [creating a local install](creatinglocalinstall.md) are available.
 

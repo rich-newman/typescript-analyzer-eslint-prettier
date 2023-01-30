@@ -30,6 +30,8 @@ The TypeScript Analyzer has the features below.  A [walk through showing these f
 - **A [default configuration file](defaultconfig.md) is provided** that explicitly enables all recommended rules separately, so you can see what's going on without having to find a list of rules on a website.  You can edit this for all your projects at once, or provide separate configuration for specific projects as necessary, as usual with ESLint. The Analyzer also respects .eslintignore files, as you'd expect.
 - The Analyzer **is reasonably performant**, although clearly it is limited by ESLint's own performance capabilities.
 
+**Note that in the latest versions of Visual Studio 2022 linting errors from the TypeScript Analyzer are not appearing in Node/JavaScript/TypeScript Console Applications.  [We have an explanation, and a workaround for this available.](noteonvs2022templates.md)**
+
 ## Documentation
 
 There is an abbreviated set of navigation links in the footer of this and every documentation page.  A full [table of contents for the documentation](contents.md) is also available.

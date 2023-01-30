@@ -7,20 +7,20 @@ ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmj
 ## Instructions
 
 1. Create a new Blank Node.js Console Application (JavaScript)
-2. Doubleclick package.json in Solution Explorer to edit it.  You need to create a new devDependencies entry at the same level as "author".  So just replace the `"author": {"name": ""},` entry with what's below.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-jsdoc:
+2. Doubleclick package.json in Solution Explorer to edit it.  You need to create a new devDependencies entry as below at the same level as "author" if there isn't one there already.  If there is one there already you need to update it as below.  If the package.json contains an empty eslintConfig section you can  remove this entire section.  The dependencies below are those that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-jsdoc:
 ``` json
 "author": {
     "name": ""
 },
 "devDependencies": {
-    "@types/node": "16.11.64",
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
-    "eslint": "8.24.0",
+    "@types/node": "18.11.18",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint": "8.31.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
-    "typescript": "4.8.4",
-    "eslint-plugin-jsdoc": "39.3.6"
+    "prettier": "2.8.2",
+    "typescript": "4.9.4",
+    "eslint-plugin-jsdoc": "39.6.4"
 }
 ```
 3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.

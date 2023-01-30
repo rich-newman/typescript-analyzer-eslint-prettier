@@ -6,7 +6,7 @@ For more details on general configuration see the [Configuration documentation p
 
 ## <a name="location" ></a>Location
 
-When the TypeScript Analyzer is installed this file can be found in its own folder at c:\Users\\{userName\}\TypeScriptAnalyzerConfig\.eslintrc.js.  
+When the TypeScript Analyzer is installed this file can be found in its own folder at c:\Users\\{userName\}\TypeScriptAnalyzerConfig\\.eslintrc.js.  
 
 It's in its own folder to prevent other instances of ESLint using it in error.  This is a problem with the default Microsoft .eslintrc file that gets installed with Visual Studio in c:\Users\\{userName\}\.eslintrc.  The Analyzer is programmed to never look at the Microsoft file, but other linting may well find it and try to use it.
 
