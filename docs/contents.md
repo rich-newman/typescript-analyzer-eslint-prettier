@@ -56,10 +56,6 @@
 
 ### Common Issues
 
-[Troubleshooting](troubleshooting.md)
-
-[VS2022 Console Applications Not Showing Linting Errors](noteonvs2022templates.md)
-
 [Setting Parsers](defaultparser.md)
 
 [JavaScript Virtual Machine Running Out of Memory](jvmmemory.md)
