@@ -38,6 +38,6 @@ Below are the detailed steps for creating a local configuration file that is a c
 - Open the default configuration file using Tools/TypeScript Analyzer (ESLint)/Edit Default Config.
 - Select the entire contents of the default configuration file (ctrl-a) and copy it (ctrl-c).  Paste it into your new local .eslintrc.js file (ctrl-v).  Save.
 - In your new local .eslintrc.js file find the no-var rule.  Replace `"no-var": "error",` with `"no-var": "off", `.  Save.
-- If you are using a version of Visual Studio 2022 after 17.4 go to Tools/Options/TypeScript Analyzer/ESLint and set 'Enable local config (.eslintrc.js)' back to True.
+- If you are using a version of Visual Studio 2022 after 17.4 go to Tools/Options/TypeScript Analyzer/ESLint and set 'Enable local config (.eslintrc.js)' back to True.  There is local configuration to do nothing in package.json under eslintConfig, but if there is a .eslintrc.js file locally then ESLint will use that in preference.
 - Go back to app.ts and explicitly run the TypeScript Analyzer by rightclicking/Run TypeScript Analyzer (ESLint) on Code File.
 - You should see that the no-var error disappears but the no-unused-vars warning remains: we are using a local configuration that overrides the default.
