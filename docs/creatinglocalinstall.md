@@ -29,7 +29,9 @@ If you want to use **additional ESLint plugins** with the TypeScript Analyzer ad
 
 To install the packages, depending on your project type, either rightclick package.json in Solution Explorer and select 'Restore packages', or rightclick the npm entry in Solution Explorer and select 'Install npm packages', or open a command prompt or Powershell terminal and run `npm i`.
 
-When the Analyzer next runs it will see the new folder and use that in preference to its own npm modules.  
+When the Analyzer next runs it will see the new folder and use that in preference to its own npm modules.
+
+Note that the TypeScript Analyzer will only use a local install if the 'Enable local node_modules' setting is True in Tools/Options/TypeScript Analyzer.  True is the default setting. 
 
 **It can be useful to turn logging on** in the Output window for this: Tools/Options/TypeScript Analyzer, set Logging Enabled to true.  When the Analyzer runs it will show which version of ESLint it is using in the logging output.  It will show the path used for a local install under 'Root directory for Node:'.  It will also usually show any problems with the new configuration.
 

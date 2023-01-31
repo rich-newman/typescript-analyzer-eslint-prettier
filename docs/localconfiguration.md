@@ -31,10 +31,13 @@ In general any local configuration should work with the [main install](installs.
 
 Below are the detailed steps for creating a local configuration file that is a copy of the default for a Node Console Application.
 
-- With the TypeScript Analyzer installed create a new Node Console Application with TypeScript.  Replace the default text in app.ts with `var x = true`.  You will get a no-unused-vars warning for the x not being used elsewhere, and a no-var error for using var instead of const.
+- With the TypeScript Analyzer installed create a new Node Console Application with TypeScript.    
+- If you are using VS2017, VS2019 or a version of VS2022 before 17.4 replace the default text in app.ts with `var x = true`. You will get a no-unused-vars warning for the x not being used elsewhere, and a no-var error for using var instead of const.  
+- If you are using a version of Visual Studio 2022 after 17.4 you will get no errors at this stage: Microsoft have changed the local template so ESLint is enabled locally, but no rules are in force, and the Analyzer uses the valid local configuration.  [More information on this is available.](noteonvs2022templates.md).  To change this go to Tools/Options/TypeScript Analyzer/ESLint on the Visual Studio menus, and set the two settings 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' to False.  Now replace the default text in app.ts with `var x = true`. You will get a no-unused-vars warning for the x not being used elsewhere, and a no-var error for using var instead of const. 
 - Create a JavaScript file called .eslintrc.js in the NodeConsoleApp folder.
 - Open the default configuration file using Tools/TypeScript Analyzer (ESLint)/Edit Default Config.
 - Select the entire contents of the default configuration file (ctrl-a) and copy it (ctrl-c).  Paste it into your new local .eslintrc.js file (ctrl-v).  Save.
 - In your new local .eslintrc.js file find the no-var rule.  Replace `"no-var": "error",` with `"no-var": "off", `.  Save.
+- If you are using a version of Visual Studio 2022 after 17.4 go to Tools/Options/TypeScript Analyzer/ESLint and set 'Enable local config (.eslintrc.js)' back to True.
 - Go back to app.ts and explicitly run the TypeScript Analyzer by rightclicking/Run TypeScript Analyzer (ESLint) on Code File.
 - You should see that the no-var error disappears but the no-unused-vars warning remains: we are using a local configuration that overrides the default.
