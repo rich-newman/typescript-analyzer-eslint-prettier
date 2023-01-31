@@ -20,13 +20,13 @@ Whilst this code looks quite scary this is mainly because it lists every rule th
 
 These rules are the recommended rules for ESLint, plus the recommended rules for the TypeScript ESLint plugin, plus the single rule for the Prettier ESLint plugin.
 
-There's a commented-out section for recommended TypeScript type-aware rules/rules that require type information.  These are commented out because we want the TypeScript Analyzer to work without additional configuration, and we need a tsconfig.json for these rules to function.  See the documentation on Type Aware Rules for more information.
+There's a commented-out section for recommended TypeScript type-aware rules/rules that require type information.  These are commented out because we want the TypeScript Analyzer to work without additional configuration, and we need a tsconfig.json for these rules to function.  See the [documentation on Type Aware Rules](typeinformation.md) for more information.
 
-Finally there's some code that allows Prettier to be disabled whilst retaining some formatting rules, see the documentation on Prettier for more details.
+Finally there's some code that allows Prettier to be disabled whilst retaining some formatting rules, see [the documentation on using Prettier for formatting](formatting.md) for more details.
 
 ## Structure
 
-There are no rules that apply to **all** file types.  All rules are in overrides sections that list a set of file extensions that they apply to in a "files" entry.  This is because we need to be able to easily extend the configuration to deal with files other than TypeScript and JavaScript.  See the documentation on using the linter with other plugins for more information on this.
+There are no rules that apply to **all** file types.  All rules are in overrides sections that list a set of file extensions that they apply to in a "files" entry.  This is because we need to be able to easily extend the configuration to deal with files other than TypeScript and JavaScript.  See the [documentation on using the linter with other plugins](plugins.md) for more information on this.
 
 Instead there are 'overrides' sections for rules that apply to TypeScript files only, to JavaScript files only and to both TypeScript and JavaScript files.
 
