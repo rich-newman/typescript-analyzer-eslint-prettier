@@ -120,7 +120,7 @@ For a Standalone **TypeScript** Vue Project:
 2. Still in package.json, add the dependencies below to the end of the devDependencies section and save. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
 ``` json
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1"
+    "prettier": "2.8.3"
 ```
 3. Install the new npm packages. Rightclick the project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 
