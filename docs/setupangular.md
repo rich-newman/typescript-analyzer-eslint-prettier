@@ -16,11 +16,11 @@ These instructions only work in Visual Studio 2022 at present.  Visual Studio 20
 2. Build the project to ensure it builds.
 3. Doubleclick package.json in Solution Explorer to edit it.  It's in the ClientApp folder.  Add the dependencies below into the devDependencies and save.  Add them after the existing devDependencies.  These are the additional dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the angular-eslint plugin:
 ``` json
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
-    "eslint": "8.24.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
+    "prettier": "2.8.3",
     "@angular-eslint/builder": "14.1.2",
     "@angular-eslint/eslint-plugin": "14.1.2",
     "@angular-eslint/eslint-plugin-template": "14.1.2",
