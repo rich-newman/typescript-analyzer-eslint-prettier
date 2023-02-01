@@ -78,6 +78,8 @@ Similar steps to above will also work in Visual Studio's Standalone TypeScript A
 - The .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.
 - The src folder mentioned elsewhere is also at the root of the project, not in the ClientApp folder.
 
+Testing the resulting project should work exactly as described above for the ASP.NET Core with Angular project.
+
 ## Changes Made to Default Configuration File
 
 To create the [configuration file for Angular](setupangularconfig.md) several changes were made to the [code in the default configuration file](defaultconfig.md#defaulteslintrc).  These are [detailed in a separate article](setupangularchangestodefaultconfig.md).
