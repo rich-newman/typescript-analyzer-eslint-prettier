@@ -59,7 +59,24 @@ Note that there is a fixer for the template/banana-in-box rule, but the @angular
 
 ## Standalone TypeScript Angular Project
 
-The exact same steps as above will also work in Visual Studio's Standalone TypeScript Angular project type in Visual Studio 2022.
+Similar steps to above will also work in Visual Studio's Standalone TypeScript Angular project type in Visual Studio 2022.  The differences are:
+
+- In step 3 the dependencies you need to add into devDependencies in package.json are as below.  The package.json file is in the root of the project.
+``` json
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.8.3",
+    "@angular-eslint/builder": "13.2.1",
+    "@angular-eslint/eslint-plugin": "13.2.1",
+    "@angular-eslint/eslint-plugin-template": "13.2.1",
+    "@angular-eslint/schematics": "13.2.1",
+    "@angular-eslint/template-parser": "13.2.1"
+```
+- In step 4, to install these you right click the project name in Solution Explorer, then 'Open in Terminal', and then execute command `npm i` in the window that appears.  
+- The .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.
+- The src folder mentioned elsewhere is also at the root of the project, not in the ClientApp folder.
 
 ## Changes Made to Default Configuration File
 
