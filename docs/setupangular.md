@@ -75,8 +75,8 @@ Similar steps to above will also work in Visual Studio's Standalone TypeScript A
     "@angular-eslint/template-parser": "13.2.1"
 ```
 - In step 4, to install these you right click the project name in Solution Explorer, then 'Open in Terminal', and then execute command `npm i` in the window that appears.  
-- The .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.
-- The src folder mentioned elsewhere is also at the root of the project, not in the ClientApp folder.
+- In step 5, the .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.
+- The src folder mentioned in the testing section is also at the root of the project, not in the ClientApp folder.
 
 Testing the resulting project should work exactly as described above for the ASP.NET Core with Angular project.
 
