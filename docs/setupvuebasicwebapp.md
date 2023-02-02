@@ -169,8 +169,7 @@ Follow the steps below to enable the JavaScript Analyzer for a Basic vue.js Web 
 4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
 5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
 6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
-7. To test it works in package.json change the line `"rules": {},
-` to the code below:
+7. To test it works in package.json change the line `"rules": {},` to the code below:
 ``` json
     "rules": {
       "vue/html-closing-bracket-spacing": [
@@ -190,4 +189,3 @@ Visual Studio 2017 is no longer fully supported by Microsoft.  It is [in extende
 **Basic vue.js Web Application, TypeScript** will install and build, but will not run from Visual Studio.  If you can get it going, or have an old version that works, the Analyzer can be made to work with it by following the same steps as above for Visual Studio 2019, TypeScript: add in the same  ESLint npm packages and eslintConfig to the package.json that's created, leaving the other package versions as they are, and follow the rest of the steps.
 
 **Basic vue.js Web Application, JavaScript** will not install correctly.  This is because its peer dependencies are inconsistent, and since version 7 of npm the installer will refuse to install if this is the case.  As in the instructions for Visual Studio 2019, JavaScript we can force an install with the `npm i -legacy-peer-deps` command, after which the project created will work.  However, the packages installed are quite old and will not work with the TypeScript Analyzer.
-
