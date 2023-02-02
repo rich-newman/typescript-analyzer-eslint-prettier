@@ -1352,6 +1352,16 @@
 		  <IncludeInVSIX>true</IncludeInVSIX>
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
+	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\key-spacing.js">
+		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\key-spacing.js</Link>
+		  <IncludeInVSIX>true</IncludeInVSIX>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\key-spacing.js.map">
+		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\key-spacing.js.map</Link>
+		  <IncludeInVSIX>true</IncludeInVSIX>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\keyword-spacing.js">
 		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\keyword-spacing.js</Link>
 		  <IncludeInVSIX>true</IncludeInVSIX>
@@ -2559,6 +2569,16 @@
 	  </Content>
 	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getOperatorPrecedence.js.map">
 		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getOperatorPrecedence.js.map</Link>
+		  <IncludeInVSIX>true</IncludeInVSIX>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getStringLength.js">
+		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getStringLength.js</Link>
+		  <IncludeInVSIX>true</IncludeInVSIX>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getStringLength.js.map">
+		  <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\util\getStringLength.js.map</Link>
 		  <IncludeInVSIX>true</IncludeInVSIX>
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
@@ -10609,6 +10629,11 @@
 	  </Content>
 	  <Content Include="..\Shared\Node\node_modules\eslint\lib\shared\deprecation-warnings.js">
 		  <Link>Node\node_modules\eslint\lib\shared\deprecation-warnings.js</Link>
+		  <IncludeInVSIX>true</IncludeInVSIX>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="..\Shared\Node\node_modules\eslint\lib\shared\directives.js">
+		  <Link>Node\node_modules\eslint\lib\shared\directives.js</Link>
 		  <IncludeInVSIX>true</IncludeInVSIX>
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
