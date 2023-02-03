@@ -10,7 +10,7 @@ number of 1.
 
 ## 2.6
 
-**To Be Decided**
+**2023-02-03**
 
 - Update to latest versions of dependent packages, including ESLint 8.33.0.
 - Clarify and improve documentation.
