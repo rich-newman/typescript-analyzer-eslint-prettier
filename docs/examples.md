@@ -14,4 +14,4 @@
 
 [Set Up for Node Plugin](setupnode.md)
 
-[Standalone TypeScript React Template & Create React App](setupreacttemplate.md)
+[Standalone TypeScript React Template & Standalone JavaScript React Template](setupreacttemplate.md)

@@ -52,7 +52,7 @@
 
 [Set Up for JSDoc Plugin](setupjsdoc.md)
 
-[Standalone TypeScript React Template & Create React App](setupreacttemplate.md)
+[Standalone TypeScript React Template & Standalone JavaScript React Template](setupreacttemplate.md)
 
 ### Common Issues
 

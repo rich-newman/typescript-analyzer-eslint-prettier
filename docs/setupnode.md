@@ -6,7 +6,7 @@ ESLint has a [plugin to lint and fix Node.js code in JavaScript and TypeScript f
 
 We can set up the TypeScript Analyzer to use this plugin on JavaScript and TypeScript files in Visual Studio projects.  Errors will be shown in the Visual Studio Error List and underlined in the code window.   This means setting up a [local install](creatinglocalinstall.md) with the plugin, and a [configuration file](configuration.md) with appropriate rules enabled.
 
-Detailed instructions on how to do this in a Node.js Console application are below, separately for [TypeScript](setupnode.md#typescript) and [JavaScript](setupnode.md#javascript) projects.
+Detailed instructions on how to do this in a Node.js Console application are below, separately for [TypeScript](setupnode.md#typescript) and [JavaScript](setupnode.md#javascript) projects.  These instructions work in Visual Studio 2017, Visual Studio 2019 and Visual Studio 2022.
 
 ## <a name="typescript"></a>Instructions for TypeScript
 
@@ -15,12 +15,12 @@ Detailed instructions on how to do this in a Node.js Console application are bel
 ``` json
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
     "eslint-plugin-node": "11.1.0"
 }
 ```
@@ -28,7 +28,8 @@ Detailed instructions on how to do this in a Node.js Console application are bel
 4. Install the npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
 5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
 6. Copy the [file contents on this link](setupnodeconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the Node.js rules in the plugin.  The actual changes made are [detailed at the end of this article](setupnode.md#changesmadetodefaultconfig).
-7. Test the rules work.  Open app.ts, and add the code below.  This is taken from the [plugin docs](https://github.com/mysticatea/eslint-plugin-node) for the [no-exports-assign rule](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md):
+7. On the Tools/Options/TypeScript Analyzer/ESLint screen, check that both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' are set to True, which is the default.
+8. Test the rules work.  Open app.ts, and add the code below.  This is taken from the [plugin docs](https://github.com/mysticatea/eslint-plugin-node) for the [no-exports-assign rule](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md):
 ``` javascript
   exports = {};
 ```
@@ -37,19 +38,19 @@ You should get a node/no-exports-assign error "Unexpected assignment to 'exports
 ## <a name="javascript"></a>Instructions for JavaScript
 
 1. Create a new Blank Node.js Console Application (JavaScript).
-2. Edit package.json.  You need to create a new devDependencies entry at the same level as "author".  So just replace the `"author": {"name": ""},` entry with what's below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
+2. Edit package.json.  You need to create a new devDependencies entry at the same level as "author".  So just replace the `"author": {"name": ""},` entry with what's below and save.  If the package.json contains an empty eslintConfig section you can  remove this entire section.  The dependencies below are those that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
 ``` json
 "author": {
     "name": ""
 },
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
     "eslint-plugin-node": "11.1.0"
 }
 ```

@@ -2,11 +2,11 @@
 
 ## Overview
 
-ESLint has a [plugin to lint and fix Markdown files](https://github.com/leo-buneev/eslint-plugin-md).  It lints Markdown, not JavaScript or TypeScript inside the markdown.  
+ESLint has a [plugin to lint and fix Markdown files](https://github.com/leo-buneev/eslint-plugin-md).  It lints Markdown, not JavaScript or TypeScript inside the Markdown.  
 
 We can set up the TypeScript Analyzer to use this plugin on Markdown files in Visual Studio projects.  This shows both how to use a plugin, and how to apply it to files that are not currently linted.  Errors will be shown in the Visual Studio Error List and underlined in the code window.
 
-Instructions on how to do this in a TypeScript Node.js Console Application are below.
+Instructions on how to do this in a TypeScript Node.js Console Application are below.  These instructions work in Visual Studio 2017, Visual Studio 2019 and Visual Studio 2022.
 
 ## Instructions
 
@@ -15,12 +15,12 @@ Instructions on how to do this in a TypeScript Node.js Console Application are b
 ``` json
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
     "eslint-plugin-md": "1.0.19"
 }
 ```

@@ -19,7 +19,8 @@ As discussed on the main Vue page, Prettier doesn't work particularly well with 
 Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web Application project, JavaScript in Visual Studio 2022:
 
 1. Create a Basic Vue.js Web Application, JavaScript project in Visual Studio 2022.
-2. Replace the contents of package.json with the JSON below.  You may want to only copy/replace from "version" onwards to keep the name unaltered.  Note that the non-ESLint packages in 'dependencies' and 'devDependencies' should be the same ones as are in the original package.json. The only changes we are making are to add in the packages for linting and an ESLint configuration section in eslintConfig. Also note that the 'rules' section has been created solely so that we get no warnings or errors with the base project.  If you want to use the full recommended set of rules the individual rules can be removed from this section, and the code fixed for the resulting linting errors.
+2. Do a build to ensure it will build and that the npm package install has completed successfully.
+3. Replace the contents of package.json with the JSON below.  You may want to only copy/replace from "version" onwards to keep the name unaltered.  Note that the non-ESLint packages in 'dependencies' and 'devDependencies' should be the same ones as are in the original package.json. The only changes we are making are to add in the packages for linting and an ESLint configuration section in eslintConfig. Also note that the 'rules' section has been created solely so that we get no warnings or errors with the base project.  If you want to use the full recommended set of rules the individual rules can be removed from this section, and the code fixed for the resulting linting errors.
 ``` json
 {
   "name": "vuejs-app1",
@@ -67,20 +68,21 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
   }
 }
 ```
-3. Rightclick npm in Solution Explorer/Install npm packages.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
-5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
-6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier)'.  You should see log output ending with 'RESULTS: no problems' if there are none.
-7. To test it works in package.json change the line at the end `"vue/no-multiple-template-root": "off"` to `"vue/no-multiple-template-root": "warn"`.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/no-multiple-template-root rule you just enabled.  Doubleclicking the description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.
-8. Set the vue/no-multiple-template rule back to 'off' in package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
-9. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
+4. Rightclick npm in Solution Explorer/Install npm packages.
+5. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.  Click OK.
+6. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
+7. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier)'.  You should see log output ending with 'RESULTS: no problems' if there are none.
+8. To test it works in package.json change the line at the end `"vue/no-multiple-template-root": "off"` to `"vue/no-multiple-template-root": "warn"`.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/no-multiple-template-root rule you just enabled.  Doubleclicking the description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.
+9. Set the vue/no-multiple-template rule back to 'off' in package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
+10. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
 
 ## Visual Studio 2019, TypeScript (Vue 2)
 
 Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web Application project, TypeScript in Visual Studio 2019:
 
 1. Create a Basic Vue.js Web Application, TypeScript project in Visual Studio 2019.
-2. Replace the contents of package.json with the JSON below.  You may want to only copy/replace from "author" onwards to keep the name and description unaltered.  Note that the non-ESLint packages in 'dependencies' and 'devDependencies' should be the same ones as are in the original package.json.  The only changes we are making are to add in the packages for linting and an ESLint configuration section in eslintConfig.  Also note that the 'rules' section has been created solely so that we get no warnings or errors with the base project.  If you want to use the full recommended set of rules the individual rules can be removed from this section, and the code fixed for the resulting linting errors.
+2. Do a build to ensure it will build and that the npm package install has completed successfully.
+3. Replace the contents of package.json with the JSON below.  You may want to only copy/replace from "author" onwards to keep the name and description unaltered.  Note that the non-ESLint packages in 'dependencies' and 'devDependencies' should be the same ones as are in the original package.json.  The only changes we are making are to add in the packages for linting and an ESLint configuration section in eslintConfig.  Also note that the 'rules' section has been created solely so that we get no warnings or errors with the base project.  If you want to use the full recommended set of rules the individual rules can be removed from this section, and the code fixed for the resulting linting errors.
 ``` json
 {
   "name": "vuejs-app1",
@@ -145,13 +147,13 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
   ]
 }
 ```
-3. Rightclick npm in Solution Explorer/Install npm packages.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
-5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
-6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
-7. To test it works in package.json delete the line towards the end `"vue/html-indent": [ "warn", 4 ]`.  Also delete the comma at the end of the line before.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see several warnings about the vue/html-indent rule you just deleted, in files App.vue and Home.vue.  Doubleclicking a description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.  In the Output window you should see the same warnings after RESULTS, under 'TypeScript Analyzer (ESLint, Prettier)' in the dropdown.
-8. Add the line `"vue/html-indent": [ "warn", 4 ]` back into package.json.  If you haven't restarted Visual Studio you can do this by hitting Ctrl-z (undo) a few times.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
-9. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
+4. Rightclick npm in Solution Explorer/Install npm packages.
+5. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.  Click OK.
+6. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
+7. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
+8. To test it works in package.json delete the line towards the end `"vue/html-indent": [ "warn", 4 ]`.  Also delete the comma at the end of the line before.  Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see several warnings about the vue/html-indent rule you just deleted, in files App.vue and Home.vue.  Doubleclicking a description will take you to the error in the code.  Clicking in the Code column should take you to the documentation page for the rule on the internet.  In the Output window you should see the same warnings after RESULTS, under 'TypeScript Analyzer (ESLint, Prettier)' in the dropdown.
+9. Add the line `"vue/html-indent": [ "warn", 4 ]` back into package.json.  If you haven't restarted Visual Studio you can do this by hitting Ctrl-z (undo) a few times.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
+10. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
 
 ## Visual Studio 2019, JavaScript (Vue 2)
 
@@ -164,12 +166,13 @@ As a result of this the steps below do work to create a JavaScript project, but 
 Follow the steps below to enable the JavaScript Analyzer for a Basic vue.js Web Application project, JavaScript in Visual Studio 2019:
 
 1. Create a Basic Vue.js Web Application, JavaScript project in Visual Studio 2019.
-2. In package.json change the line `"eslint": "6.8.0",` to `"eslint": "7.0.0",`.
-3. Rightclick the project name in Solution Explorer/Open in Terminal.  In the terminal that comes up execute the command `npm i -legacy-peer-deps`. We need to install with the additional flag so that npm doesn't enforce the peer dependencies discussed above.
-4. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked. Click OK.
-5. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
-6. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
-7. To test it works in package.json change the line `"rules": {},` to the code below:
+2. Do a build to ensure it will build and that the npm package install has completed successfully.
+3. In package.json change the line `"eslint": "6.8.0",` to `"eslint": "7.0.0",`.
+4. Rightclick the project name in Solution Explorer/Open in Terminal.  In the terminal that comes up execute the command `npm i -legacy-peer-deps`. We need to install with the additional flag so that npm doesn't enforce the peer dependencies discussed above.
+5. Go to the menu option Tools/Options/TypeScript Analyzer.  Under 'File Extensions to lint' add ',vue' at the end, if vue is not already in the list.  It's also worth setting Logging/Enable Logging to True so you can see if it's worked.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.  Click OK.
+6. Rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).
+7. On the View menu select Output to bring up the Output window if it's not already open.  In the 'Show output form:' dropdown select 'TypeScript Analyzer (ESLint, Prettier) 2019'.  You should see log output ending with 'RESULTS: no problems' if there are none.
+8. To test it works in package.json change the line `"rules": {},` to the code below:
 ``` json
     "rules": {
       "vue/html-closing-bracket-spacing": [
@@ -179,8 +182,8 @@ Follow the steps below to enable the JavaScript Analyzer for a Basic vue.js Web 
     },
 ```
 Again rightclick the project name in Solution Explorer/Run TypeScript Analyzer (ESLint).  In the Error List you should see a warning about the vue/html-closing-bracket-spacing rule you just enabled.  Doubleclicking the description will take you to the error in the code.    Clicking in the Code column should take you to the documentation page for the rule on the internet.
-8. Take the vue/html-closing-bracket-spacing rule out of package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
-9. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
+9. Take the vue/html-closing-bracket-spacing rule out of package.json.  On Tools/Options/TypeScript Analyzer (ESLint) set Logging/Enable Logging back to False.
+10. Do Debug/Start without Debugging to do a build and run the project.  This should show the test web page and prove that the project still works.
 
 ## Visual Studio 2017, JavaScript and TypeScript
 

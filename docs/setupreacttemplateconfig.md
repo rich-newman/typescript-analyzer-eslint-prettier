@@ -1,6 +1,6 @@
 ﻿# Configuration for a Standalone TypeScript React Project in Visual Studio
 
-See [the article 'Standalone JavaScript/TypeScript React Template: Create React App and the TypeScript Analyzer'](setupreacttemplate.md) for further discussion on this.
+See [the article 'Standalone TypeScript React Template & Standalone JavaScript React Template'](setupreacttemplate.md) for further discussion on this.
 
 ``` javascript
 {

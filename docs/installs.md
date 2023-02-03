@@ -15,12 +15,12 @@ As usual for Visual Studio extensions the TypeScript Analyzer (ESLint) install c
 The current npm packages that are installed with the TypeScript Analyzer are as below.
 
 ```json
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4"
+    "prettier": "2.8.3",
+    "typescript": "4.9.5"
 ```
 
 These packages can be seen in a package.json in the code base.  Note that the extension does not use this package.json to do an install when the extension is started or installed.  The exact versions are distributed with the extension.
@@ -51,6 +51,6 @@ If you are working in a project that already has npm packages installed it shoul
 
 ### Using a Local Install
 
-Whenever the TypeScript Analyzer is asked to lint it looks for a local install of these npm packages. **If the TypeScript Analyzer finds a local install it uses it in preference to its own install**.  
+Whenever the TypeScript Analyzer is asked to lint it looks for a local install of these npm packages, assuming this is enabled, which it is by default. **If the TypeScript Analyzer finds a local install it uses it in preference to its own install**.  This search for a local install can be disabled by going to  Tools/Options/TypeScript Analyzer/ESLint and setting 'Enable local node_modules' to False.
 
 This search for a local install is quite naive.  The Analyzer looks in the folder it is run in for a package.json, and then for a node_modules folder with an eslint folder beneath that folder.  If it finds such a node_modules folder then it will use it for all npm packages.  If it can't find one it looks in the parent folder for the same, and then up the folder tree to the root.  If it can't find an appropriate node_modules folder then it will use its own install.

@@ -30,4 +30,4 @@ By default the TypeScript Analyzer only passes files with extensions in the list
 
 ## Examples
 
-The [detailed instructions for using the Markdown plugin](setupmarkdown.md) show how to do all three of the steps above.  The other [examples](examples.md) don't require step 3.
+The [detailed instructions for using the Markdown plugin](setupmarkdown.md) show how to do all three of the steps above.  There are other [examples](examples.md), although these don't all require step 3.

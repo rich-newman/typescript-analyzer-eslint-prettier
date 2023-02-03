@@ -4,7 +4,9 @@
 
 To lint a React project we need to set up the [React plugin for ESLint](https://github.com/jsx-eslint/eslint-plugin-react).  For the TypeScript Analyzer this means setting up a [local install](creatinglocalinstall.md) with the plugin, and a [configuration file](configuration.md) with appropriate rules enabled.
 
-Detailed instructions on how to do this in a Node.js Console application are below, separately for [TypeScript](setupreact.md#typescript) and [JavaScript](setupreact.md#javascript) projects.
+Detailed instructions on how to do this in a Node.js Console application are below, separately for [TypeScript](setupreact.md#typescript) and [JavaScript](setupreact.md#javascript) projects.  These instructions work for Visual Studio 2022, Visual Studio 2019, and Visual Studio 2017.
+
+Visual Studio 2022 has a 'Standalone TypeScript React Project' and a 'Standalone JavaScript React Project'.  Setting up these to work with the TypeScript Analyzer is explained in [a separate article](setupreacttemplate.md).
 
 ## <a name="typescript"></a>Instructions for TypeScript
 
@@ -13,20 +15,21 @@ Detailed instructions on how to do this in a Node.js Console application are bel
 ``` json
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
-    "eslint-plugin-react": "7.32.0"
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
+    "eslint-plugin-react": "7.32.2"
 }
 ```
 3. If the package.json contains an eslintConfig section you can optionally remove this entire section.  If you create a local configuration file as described below it will override this in any case, but it can be distracting to have unused configuration in your project.  You will only have a eslintConfig section if you are using Visual Studio 2022 v17.4 or later.
 4. Install the npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
 5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
 6. Copy the [file contents on this link](setupreactconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable React.  The actual changes made are [detailed at the end of this article](setupreact.md#changesmadetodefaultconfig).
-7. Test the rules work.  Add a new 'TypeScript JSX File' to the project and add the code below to that.  To do this rightclick the project in Solution Explorer, Add/New Item..., 'TypeScript JSX File', and accept the default name by clicking the Add button.
+7. On the Tools/Options/TypeScript Analyzer/ESLint screen check that both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' are set to True, which is the default.
+8. Test the rules work.  Add a new 'TypeScript JSX File' to the project and add the code below to that.  To do this rightclick the project in Solution Explorer, Add/New Item..., 'TypeScript JSX File', and accept the default name by clicking the Add button.
 ``` jsx
 function Hello({ name }) {
   return <div>Hello {name}</div>;
@@ -44,19 +47,20 @@ You should get a react/prop-types error in the Error List, with underlining on t
 },
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
-    "eslint-plugin-react": "7.32.0"
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
+    "eslint-plugin-react": "7.32.2"
 }
 ```
 3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
 4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
 5. Copy the [file contents on this link](setupreactconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable React.  The actual changes made are [detailed at the end of this article](setupreact.md#changesmadetodefaultconfig).
-6. Test the rules work.  In app.js paste in the code below:
+6. On the Tools/Options/TypeScript Analyzer/ESLint screen check that both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' are set to True, which is the default.
+7. Test the rules work.  In app.js paste in the code below:
 ``` tsx
 function Hello({ name }) {
   return <div>Hello {name}</div>;

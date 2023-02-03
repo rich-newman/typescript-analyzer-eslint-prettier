@@ -6,7 +6,7 @@ ESLint has a [plugin for linting and fixing in Angular projects](https://github.
 
 We can set up the TypeScript Analyzer to use this plugin in Visual Studio projects.  This shows both how to use a plugin, and how to apply it to files that are not currently linted.  Errors will be shown in the Visual Studio Error List and underlined in the code window.
 
-Instructions on how to do this in a **ASP.NET Core with Angular project in Visual Studio 2022** are below.
+Instructions on how to do this in both a 'ASP.NET Core with Angular project' and a 'Standalone TypeScript Angular project' in Visual Studio 2022 are below.
 
 ## Instructions for a ASP.NET Core with Angular project in Visual Studio 2022
 
@@ -42,7 +42,7 @@ You should now be set up correctly.  The remaining steps show this.
     <p *ngIf="forecasts==false"><em>Loading...</em></p>
     <app-sizer ([size])="fontSizePx"></app-sizer>
 ```
-If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'
+If the Analyzer is working correctly you should see two @angular-eslint errors, one per line.  The first line should have a @angular-eslint/template/eqeqeq error on 'forecasts==false', the second line should have a @angular-eslint/template/banana-in-box error on '([size])="fontSizePx"'
 2. To test it's working with TypeScript, open a TypeScript file, for example ClientApp/src/app/app.component.ts and change the value of the selector to CamelCase.  For example change it from 'app-root' to 'AppRoot' in app.component.ts.  You should get a @angular-eslint/component-selector error 'The selector should be kebab-case'.
 3. To test it's working with inline HTML templates in TypeScript files in your component TypeScript file from 2 replace the entire @Component attribute on the class with the code below:
 ``` javascript
@@ -76,7 +76,7 @@ Similar steps to above will also work in Visual Studio's Standalone TypeScript A
     "@angular-eslint/template-parser": "13.2.1"
 ```
 - In step 4, to install these you right click the project name in Solution Explorer, then 'Open in Terminal', and then execute command `npm i` in the window that appears.  
-- In step 5, the .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.
+- In step 5, the .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.  There is no ClientApp folder in the project.
 - The src folder mentioned in the testing section is also at the root of the project, not in the ClientApp folder.
 
 Testing the resulting project should work exactly as described above for the ASP.NET Core with Angular project.

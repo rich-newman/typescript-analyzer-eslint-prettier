@@ -10,12 +10,12 @@ You need a devDependencies section in your package.json that contains the npm pa
 ``` json
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4"
+    "prettier": "2.8.3",
+    "typescript": "4.9.5"
 }
 ```
 

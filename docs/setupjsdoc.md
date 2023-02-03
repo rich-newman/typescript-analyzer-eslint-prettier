@@ -2,7 +2,7 @@
 
 ## Overview
 
-ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmjs.com/package/eslint-plugin-jsdoc).  The instructions below show how to set this up so it can be used in the TypeScript Analyzer.
+ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmjs.com/package/eslint-plugin-jsdoc).  The instructions below show how to set this up so it can be used in the TypeScript Analyzer.  These instructions work in Visual Studio 2017, Visual Studio 2019 and Visual Studio 2022.
 
 ## Instructions
 
@@ -14,19 +14,20 @@ ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmj
 },
 "devDependencies": {
     "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.48.1",
-    "@typescript-eslint/parser": "5.48.1",
-    "eslint": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.2",
-    "typescript": "4.9.4",
-    "eslint-plugin-jsdoc": "39.6.4"
+    "prettier": "2.8.3",
+    "typescript": "4.9.5",
+    "eslint-plugin-jsdoc": "39.7.5"
 }
 ```
 3. Install these npm packages by rightclicking 'npm' in Solution Explorer and running 'Install npm Packages' in VS2019 or VS2022, or 'Install Missing npm Packages' in VS2017.
 4. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project.  To do this rightclick the project name, Add/New File..., enter .eslintrc.js, and click OK.
 5. Copy the [file contents on this link](setupjsdocconfig.md) into your new file and save.  This is the usual default configuration file for the TypeScript Analyzer modified to enable the JSDoc plugin.  The actual changes made are [detailed at the end of this article](setupjsdoc.md#changesmadetodefaultconfig).
-6. Test the rules work.  Open app.js, and replace the code with the code below.  This is taken from the [plugin docs](https://www.npmjs.com/package/eslint-plugin-jsdoc#rules), and is the first example of code that fails with the plugin enabled.
+6. On the Tools/Options/TypeScript Analyzer/ESLint screen, check that both 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' are set to True, which is the default.
+7. Test the rules work.  Open app.js, and replace the code with the code below.  This is taken from the [plugin docs](https://www.npmjs.com/package/eslint-plugin-jsdoc#rules), and is the first example of code that fails with the plugin enabled.
 
 ``` javascript
 /**
