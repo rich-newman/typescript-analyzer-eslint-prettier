@@ -8,15 +8,7 @@ To create a local install you first need to [add appropriate dependencies to a p
 
 You need a devDependencies section in your package.json that contains the npm packages below:
 ``` json
-"devDependencies": {
-    "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.3",
-    "typescript": "4.9.5"
-}
+{{site.versions.devdependencies}}
 ```
 
 If you don't have a package.json in your project you need [to create one](https://docs.npmjs.com/creating-a-package-json-file#creating-a-default-packagejson-file).  You can do this by starting a command prompt in the root of your project and executing the command `npm init -y`.  This assumes you have node and npm installed.  If you don't [you need to install them](https://nodejs.org/en/download/).
