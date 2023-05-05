@@ -8,7 +8,15 @@ To create a local install you first need to [add appropriate dependencies to a p
 
 You need a devDependencies section in your package.json that contains the npm packages below:
 ``` json
-{{site.versions.devdependencies}}
+"devDependencies": {
+    {{site.packageversions.typesnode}}
+    {{site.packageversions.typescripteslintplugin}}
+    {{site.packageversions.typescripteslintparser}}
+    {{site.packageversions.eslint}}
+    {{site.packageversions.elslintpluginprettier}}
+    {{site.packageversions.prettier}}
+    {{site.packageversions.typescript}}
+}
 ```
 
 If you don't have a package.json in your project you need [to create one](https://docs.npmjs.com/creating-a-package-json-file#creating-a-default-packagejson-file).  You can do this by starting a command prompt in the root of your project and executing the command `npm init -y`.  This assumes you have node and npm installed.  If you don't [you need to install them](https://nodejs.org/en/download/).
