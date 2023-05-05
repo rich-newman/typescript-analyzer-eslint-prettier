@@ -18,7 +18,7 @@ The current npm packages that are installed with the TypeScript Analyzer are as 
     {{site.packageversions.typescripteslintplugin}}
     {{site.packageversions.typescripteslintparser}}
     {{site.packageversions.eslint}}
-    {{site.packageversions.elslintpluginprettier}}
+    {{site.packageversions.eslintpluginprettier}}
     {{site.packageversions.prettier}}
     {{site.packageversions.typescript}}
 ```

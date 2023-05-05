@@ -12,11 +12,27 @@ packageversions:
         "@typescript-eslint/parser": "5.50.0",
     eslint: |-
         "eslint": "8.33.0",
-    elslintpluginprettier: |-
+    eslintpluginprettier: |-
         "eslint-plugin-prettier": "4.2.1",
     prettier: |-
         "prettier": "2.8.3",
-    typescript: |-
-        "typescript": "4.9.5"
     comma: |-
         ,
+    typescript: |-
+        "typescript": "4.9.5"
+    eslintpluginjsdoc: |-
+        "eslint-plugin-jsdoc": "39.7.5"
+    eslintpluginmarkdown: |-
+        "eslint-plugin-md": "1.0.19"
+    eslintpluginnode: |-
+        "eslint-plugin-node": "11.1.0"
+    eslintpluginreact: |-
+        "eslint-plugin-react": "7.32.2"
+    eslintpluginvue: |-
+        "eslint-plugin-vue": "9.9.0",
+    vueeslintparser: |-
+        "vue-eslint-parser": "9.1.0",
+    babeleslintparser: |-
+        "@babel/eslint-parser": "7.19.1"
+    vueeslintconfigtypescript: |-
+        "@vue/eslint-config-typescript": "11.0.2"

@@ -14,14 +14,14 @@ Instructions on how to do this in a TypeScript Node.js Console Application are b
 2. Doubleclick package.json in Solution Explorer to edit it.  Replace the existing devDependencies section with the code below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-md:
 ``` json
 "devDependencies": {
-    "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.3",
-    "typescript": "4.9.5",
-    "eslint-plugin-md": "1.0.19"
+    {{site.packageversions.typesnode}}
+    {{site.packageversions.typescripteslintplugin}}
+    {{site.packageversions.typescripteslintparser}}
+    {{site.packageversions.eslint}}
+    {{site.packageversions.eslintpluginprettier}}
+    {{site.packageversions.prettier}}
+    {{site.packageversions.typescript}},
+    {{site.packageversions.eslintpluginmarkdown}}
 }
 ```
 3. If the package.json contains an eslintConfig section you can optionally remove this entire section.  If you create a local configuration file as described below it will override this in any case, but it can be distracting to have unused configuration in your project.  You will only have a eslintConfig section if you are using Visual Studio 2022 v17.4 or later.

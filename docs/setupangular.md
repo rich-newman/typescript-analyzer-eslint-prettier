@@ -16,11 +16,11 @@ These instructions only work in Visual Studio 2022 at present.  Visual Studio 20
 2. Build the project to ensure it builds.
 3. Doubleclick package.json in Solution Explorer to edit it.  It's in the ClientApp folder.  Add the dependencies below into the devDependencies and save.  Add them after the existing devDependencies.  These are the additional dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the angular-eslint plugin:
 ``` json
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.3",
+    {{site.packageversions.typescripteslintplugin}}
+    {{site.packageversions.typescripteslintparser}}
+    {{site.packageversions.eslint}}
+    {{site.packageversions.eslintpluginprettier}}
+    {{site.packageversions.prettier}}
     "@angular-eslint/builder": "14.1.2",
     "@angular-eslint/eslint-plugin": "14.1.2",
     "@angular-eslint/eslint-plugin-template": "14.1.2",
@@ -64,11 +64,11 @@ Similar steps to above will also work in Visual Studio's Standalone TypeScript A
 
 - In step 3 the dependencies you need to add into devDependencies in package.json are as below.  The package.json file is in the root of the project.
 ``` json
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.3",
+    {{site.packageversions.typescripteslintplugin}}
+    {{site.packageversions.typescripteslintparser}}
+    {{site.packageversions.eslint}}
+    {{site.packageversions.eslintpluginprettier}}
+    {{site.packageversions.prettier}}
     "@angular-eslint/builder": "13.2.1",
     "@angular-eslint/eslint-plugin": "13.2.1",
     "@angular-eslint/eslint-plugin-template": "13.2.1",

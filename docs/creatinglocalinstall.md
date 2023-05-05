@@ -13,7 +13,7 @@ You need a devDependencies section in your package.json that contains the npm pa
     {{site.packageversions.typescripteslintplugin}}
     {{site.packageversions.typescripteslintparser}}
     {{site.packageversions.eslint}}
-    {{site.packageversions.elslintpluginprettier}}
+    {{site.packageversions.eslintpluginprettier}}
     {{site.packageversions.prettier}}
     {{site.packageversions.typescript}}
 }

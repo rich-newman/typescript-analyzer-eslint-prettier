@@ -38,10 +38,10 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "eslint": "8.31.0",
-    "eslint-plugin-vue": "9.9.0",
-    "vue-eslint-parser": "9.1.0",
-    "@babel/eslint-parser": "7.19.1"
+    {{site.packageversions.eslint}}
+    {{site.packageversions.eslintpluginvue}}
+    {{site.packageversions.vueeslintparser}}
+    {{site.packageversions.babeleslintparser}}
   },
   "eslintConfig": {
     "root": true,
@@ -106,13 +106,13 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-service": "4.5.13",
     "vue-template-compiler": "2.6.12",
-    "eslint-plugin-vue": "9.9.0",
-    "vue-eslint-parser": "9.1.0",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "typescript": "4.9.5",
-    "@vue/eslint-config-typescript": "11.0.2"
+    {{site.packageversions.eslintpluginvue}}
+    {{site.packageversions.vueeslintparser}}
+    {{site.packageversions.typescripteslintplugin}}
+    {{site.packageversions.typescripteslintparser}}
+    {{site.packageversions.eslint}}
+    {{site.packageversions.typescript}},
+    {{site.packageversions.vueeslintconfigtypescript}}
   },
   "postcss": {
     "plugins": {
