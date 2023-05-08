@@ -14,12 +14,12 @@ Visual Studio 2022 has a 'Standalone TypeScript React Project' and a 'Standalone
 2. Doubleclick package.json in Solution Explorer to edit it.  Replace the existing devDependencies section with the code below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-react:
 ``` json
 "devDependencies": {
-    {{site.packageversions.typesnode}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginprettier}}
-    {{site.packageversions.prettier}}
+    {{site.packageversions.typesnode}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginprettier}},
+    {{site.packageversions.prettier}},
     {{site.packageversions.typescript}},
     {{site.packageversions.eslintpluginreact}}
 }

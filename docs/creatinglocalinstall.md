@@ -9,12 +9,12 @@ To create a local install you first need to [add appropriate dependencies to a p
 You need a devDependencies section in your package.json that contains the npm packages below:
 ``` json
 "devDependencies": {
-    {{site.packageversions.typesnode}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginprettier}}
-    {{site.packageversions.prettier}}
+    {{site.packageversions.typesnode}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginprettier}},
+    {{site.packageversions.prettier}},
     {{site.packageversions.typescript}}
 }
 ```

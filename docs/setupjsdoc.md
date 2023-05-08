@@ -13,12 +13,12 @@ ESLint has a [plugin to lint JSDoc comments in JavaScript code](https://www.npmj
     "name": ""
 },
 "devDependencies": {
-    {{site.packageversions.typesnode}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginprettier}}
-    {{site.packageversions.prettier}}
+    {{site.packageversions.typesnode}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginprettier}},
+    {{site.packageversions.prettier}},
     {{site.packageversions.typescript}},
     {{site.packageversions.eslintpluginjsdoc}}
 }

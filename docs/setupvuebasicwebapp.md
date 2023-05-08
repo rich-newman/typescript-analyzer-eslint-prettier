@@ -38,9 +38,9 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginvue}}
-    {{site.packageversions.vueeslintparser}}
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginvue}},
+    {{site.packageversions.vueeslintparser}},
     {{site.packageversions.babeleslintparser}}
   },
   "eslintConfig": {
@@ -106,11 +106,11 @@ Follow the steps below to enable the TypeScript Analyzer for a Basic vue.js Web 
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-service": "4.5.13",
     "vue-template-compiler": "2.6.12",
-    {{site.packageversions.eslintpluginvue}}
-    {{site.packageversions.vueeslintparser}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
+    {{site.packageversions.eslintpluginvue}},
+    {{site.packageversions.vueeslintparser}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
     {{site.packageversions.typescript}},
     {{site.packageversions.vueeslintconfigtypescript}}
   },

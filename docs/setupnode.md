@@ -14,12 +14,12 @@ Detailed instructions on how to do this in a Node.js Console application are bel
 2. Doubleclick package.json in Solution Explorer to edit it.  Replace the existing devDependencies section with the code below and save.  These are the dependencies that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
 ``` json
 "devDependencies": {
-    {{site.packageversions.typesnode}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginprettier}}
-    {{site.packageversions.prettier}}
+    {{site.packageversions.typesnode}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginprettier}},
+    {{site.packageversions.prettier}},
     {{site.packageversions.typescript}},
     {{site.packageversions.eslintpluginnode}}
 }
@@ -44,12 +44,12 @@ You should get a node/no-exports-assign error "Unexpected assignment to 'exports
     "name": ""
 },
 "devDependencies": {
-    {{site.packageversions.typesnode}}
-    {{site.packageversions.typescripteslintplugin}}
-    {{site.packageversions.typescripteslintparser}}
-    {{site.packageversions.eslint}}
-    {{site.packageversions.eslintpluginprettier}}
-    {{site.packageversions.prettier}}
+    {{site.packageversions.typesnode}},
+    {{site.packageversions.typescripteslintplugin}},
+    {{site.packageversions.typescripteslintparser}},
+    {{site.packageversions.eslint}},
+    {{site.packageversions.eslintpluginprettier}},
+    {{site.packageversions.prettier}},
     {{site.packageversions.typescript}},
     {{site.packageversions.eslintpluginnode}}
 }
