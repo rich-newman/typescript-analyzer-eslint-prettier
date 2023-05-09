@@ -8,7 +8,7 @@ namespace TypeScriptAnalyzerEslintTest
     {
         private string result;
         private int pathLocation;
-        [TestMethod, TestCategory("zzRelease Support Only")]
+        // [TestMethod, TestCategory("zzRelease Support Only")]
         public void GenerateNodeFileEntriesInCsproj()
         {
             // Results are in typescript-analyzer\src\Shared\Node\temp.txt

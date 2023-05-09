@@ -21,7 +21,7 @@ namespace TypeScriptAnalyzerEslintTest
         private readonly string configLineTemplate = "        \"[0]\": \"[1]\"";
         private readonly string packageJsonLineTemplate = "    \"[0]\": \"[1]\",";
 
-        [TestMethod, TestCategory("zzRelease Support Only")]
+        // [TestMethod, TestCategory("zzRelease Support Only")]
         public void UpdateNpmVersionsInConfigFiles()
         {
             string executionPath = TypeScriptAnalyzerEslintLinter.NodeServer.ExecutionPath;
