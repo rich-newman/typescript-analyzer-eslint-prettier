@@ -21,11 +21,11 @@ These instructions only work in Visual Studio 2022 at present.  Visual Studio 20
     {{site.packageversions.eslint}},
     {{site.packageversions.eslintpluginprettier}},
     {{site.packageversions.prettier}},
-    "@angular-eslint/builder": "14.1.2",
-    "@angular-eslint/eslint-plugin": "14.1.2",
-    "@angular-eslint/eslint-plugin-template": "14.1.2",
-    "@angular-eslint/schematics": "14.1.2",
-    "@angular-eslint/template-parser": "14.1.2"
+    "@angular-eslint/builder": "^15.1.6",
+    "@angular-eslint/eslint-plugin": "^15.1.6",
+    "@angular-eslint/eslint-plugin-template": "^15.1.6",
+    "@angular-eslint/schematics": "^15.1.6",
+    "@angular-eslint/template-parser": "^15.1.6"
 ```
 4. Install these npm packages.  Rightclick ClientApp in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project in the ClientApp folder.  To do this rightclick the ClientApp folder in Solution Explorer, Add/New Item..., JavaScript File, enter .eslintrc.js in the Name: box, and click Add.
@@ -69,11 +69,11 @@ Similar steps to above will also work in Visual Studio's Standalone TypeScript A
     {{site.packageversions.eslint}},
     {{site.packageversions.eslintpluginprettier}},
     {{site.packageversions.prettier}},
-    "@angular-eslint/builder": "13.2.1",
-    "@angular-eslint/eslint-plugin": "13.2.1",
-    "@angular-eslint/eslint-plugin-template": "13.2.1",
-    "@angular-eslint/schematics": "13.2.1",
-    "@angular-eslint/template-parser": "13.2.1"
+    "@angular-eslint/builder": "13.3.0",
+    "@angular-eslint/eslint-plugin": "13.3.0",
+    "@angular-eslint/eslint-plugin-template": "13.3.0",
+    "@angular-eslint/schematics": "13.3.0",
+    "@angular-eslint/template-parser": "13.3.0"
 ```
 - In step 4, to install these you right click the project name in Solution Explorer, then 'Open in Terminal', and then execute command `npm i` in the window that appears.  
 - In step 5, the .eslintrc.js file needs to be created at the root of the project, not in the ClientApp folder.  There is no ClientApp folder in the project.
