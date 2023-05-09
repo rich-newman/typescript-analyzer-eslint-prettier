@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TypeScriptAnalyzerEslintTest
 {
@@ -13,8 +8,8 @@ namespace TypeScriptAnalyzerEslintTest
     {
         private string result;
         private int pathLocation;
-        [TestMethod]
-        public void GenerateEntries()
+        [TestMethod, TestCategory("zzRelease Support Only")]
+        public void GenerateNodeFileEntriesInCsproj()
         {
             // Results are in typescript-analyzer\src\Shared\Node\temp.txt
             // and need to be used to update TypeScriptAnalyzerEslintVsix.csproj and TypeScriptAnalyzerEslintVsix64.csproj

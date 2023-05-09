@@ -70,7 +70,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             if (solution != null) { solution.Close(); solution = null; }
-            if (dte != null) dte.Quit();
+            dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Settings = null;
             TypeScriptAnalyzerEslintVsix.Package.Dte = null;
             MessageFilter.Revoke();

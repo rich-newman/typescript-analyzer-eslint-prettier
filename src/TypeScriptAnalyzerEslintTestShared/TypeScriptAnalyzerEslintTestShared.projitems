@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TsconfigLocationsTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VisualStudioVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)zzGenerateCsprojEntries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)zzNpmPackageUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)app.config" />
