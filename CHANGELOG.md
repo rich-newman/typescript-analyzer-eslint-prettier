@@ -8,6 +8,12 @@ TypeScript Analyzer which was based on TSLint rather than ESLint.
 The old TypeScript Analyzer had version numbers with major version 
 number of 1.
 
+## 2.7
+
+**2023-05-09**
+
+- Update to latest versions of dependent packages, including ESLint 8.40.0.
+
 ## 2.6
 
 **2023-02-03**
