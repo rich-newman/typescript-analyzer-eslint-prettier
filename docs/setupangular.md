@@ -21,11 +21,11 @@ These instructions only work in Visual Studio 2022 at present.  Visual Studio 20
     {{site.packageversions.eslint}},
     {{site.packageversions.eslintpluginprettier}},
     {{site.packageversions.prettier}},
-    "@angular-eslint/builder": "^15.1.6",
-    "@angular-eslint/eslint-plugin": "^15.1.6",
-    "@angular-eslint/eslint-plugin-template": "^15.1.6",
-    "@angular-eslint/schematics": "^15.1.6",
-    "@angular-eslint/template-parser": "^15.1.6"
+    "@angular-eslint/builder": "15.1.6",
+    "@angular-eslint/eslint-plugin": "15.1.6",
+    "@angular-eslint/eslint-plugin-template": "15.1.6",
+    "@angular-eslint/schematics": "15.1.6",
+    "@angular-eslint/template-parser": "15.1.6"
 ```
 4. Install these npm packages.  Rightclick ClientApp in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 5. Create a new [local configuration file](localconfiguration.md) called .eslintrc.js in the project in the ClientApp folder.  To do this rightclick the ClientApp folder in Solution Explorer, Add/New Item..., JavaScript File, enter .eslintrc.js in the Name: box, and click Add.
