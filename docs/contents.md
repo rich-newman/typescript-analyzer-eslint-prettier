@@ -42,9 +42,7 @@
 
 [Set Up for Angular Plugin](setupangular.md)
 
-[Set Up for Vue Plugin - Standard Vue Project](setupvue.md)
-
-[Set Up for Vue Plugin - Basic vue.js Web Application](setupvuebasicwebapp.md)
+[Set Up for Vue Plugin](setupvue.md)
 
 [Set Up for Markdown Plugin](setupmarkdown.md)
 
