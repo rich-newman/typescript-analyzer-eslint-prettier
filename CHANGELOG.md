@@ -10,7 +10,7 @@ number of 1.
 
 ## 2.7
 
-**2023-05-09**
+**2023-05-10**
 
 - Update to latest versions of dependent packages, including ESLint 8.40.0.
 
