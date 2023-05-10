@@ -6,8 +6,6 @@
 
 [Set Up for Vue Plugin - Standard Vue Project](setupvue.md)
 
-[Set Up for Vue Plugin - Basic vue.js Web Application](setupvuebasicwebapp.md)
-
 [Set Up for Markdown Plugin](setupmarkdown.md)
 
 [Set Up for JSDoc Plugin](setupjsdoc.md)

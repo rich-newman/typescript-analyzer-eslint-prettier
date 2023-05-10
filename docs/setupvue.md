@@ -13,9 +13,9 @@ Visual Studio has several Vue project templates, of two basic types:
 1. 'Standalone JavaScript Vue Project' and 'Standalone TypeScript Vue Project'.  These project templates are only available in Visual Studio 2022.  The project created here is Vue 3.
 2. 'Basic vue.js Web Application'.  These project templates available in Visual Studio 2017, 2019 and 2022, and in JavaScript or TypeScript versions, although there's no TypeScript version in Visual Studio 2022.  All of these templates are different, but similar obviously.  The JavaScript template in Visual Studio 2022 is Vue 3, and the rest are Vue 2.
 
-Enabling the TypeScript Analyzer for the Standalone JavaScript/TypeScript Vue Projects is relatively straightforward and is described below.
+Enabling the TypeScript Analyzer for the Standalone JavaScript/TypeScript Vue Projects is described below.
 
-The situation is more complex for Basic vue.js Web Applications.  Setting up the TypeScript Analyzer for these project types is described on a [separate page](setupvuebasicwebapp.md).
+None of the Basic vue.js Web Application types works at the time of writing, and as a result we recommend you don't attempt to use these templates.  More details on this are on a [separate page](setupvuebasicwebapp.md).
 
 ## Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022
 
@@ -125,7 +125,3 @@ For a Standalone **TypeScript** Vue Project:
 3. Install the new npm packages. Rightclick the project in Solution Explorer/Open in Terminal, then in the terminal that appears execute the command `npm i`.
 
 Now if you lint a .vue file in the project you will probably get some Prettier warnings.  As usual, you can rightclick/Fix TypeScript Analyzer (ESLint) Errors to format the file and remove these errors.
-
-## Basic vue.js Web Application
-
-Set up for the TypeScript Analyzer for Basic vue.js Web Applications is in a [separate document](setupvuebasicwebapp.md).
