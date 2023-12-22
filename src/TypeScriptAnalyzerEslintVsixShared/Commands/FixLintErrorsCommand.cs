@@ -12,7 +12,7 @@ namespace TypeScriptAnalyzerEslintVsix
             {
                 var menuCommandID = new CommandID(PackageGuids.SolutionExplorerGuid, PackageIds.FixLintErrorsCommand);
                 var menuItem = new OleMenuCommand((s, e) => package.JoinableTaskFactory.RunAsync(
-                    () => LintItemsSelectedInSolutionExplorerAsync(fixErrors: true)) , menuCommandID);
+                    () => LintItemsSelectedInSolutionExplorerAsync(fixErrors: true)).Forget() , menuCommandID);
                 menuItem.BeforeQueryStatus += BeforeQueryStatus;
                 commandService.AddCommand(menuItem);
             }
