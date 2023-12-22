@@ -127,6 +127,7 @@ namespace TypeScriptAnalyzerEslintVsix
             }
         }
 
+
         private static readonly EventHandler<TextContentChangedEventArgs> textBufferChangedEventHandler =
             (s, e) => Package.Jtf.RunAsync(() => OnTextBufferChangedAsync(s, e)).Forget();
 
