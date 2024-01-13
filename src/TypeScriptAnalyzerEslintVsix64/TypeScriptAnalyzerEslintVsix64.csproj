@@ -16088,6 +16088,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.Workspace">
+      <HintPath>..\..\lib\Microsoft.VisualStudio.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Workspace.Extensions.VS">
+      <HintPath>..\..\lib\Microsoft.VisualStudio.Workspace.Extensions.VS.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
