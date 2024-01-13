@@ -16101,15 +16101,6 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK">
       <Version>17.1.32210.191</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Workspace">
-      <Version>17.2.9-preview-0002</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Workspace.Extensions.VS">
-      <Version>17.2.9-preview-0002</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Workspace.VSIntegration">
-      <Version>17.2.9-preview-0002</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>17.1.4054</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

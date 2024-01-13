@@ -214,7 +214,9 @@ namespace TypeScriptAnalyzerEslintVsix
                 Linter.Server.Down();
             }
             Package.TaggerProvider?.RefreshTags();
+ #if !VS2022
             LintableFileContextProviderFactory.RefreshContexts();
+#endif
         }
 
         private void SetTsConfigPattern()

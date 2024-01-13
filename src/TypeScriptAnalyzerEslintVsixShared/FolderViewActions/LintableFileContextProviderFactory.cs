@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !VS2022
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,11 +53,11 @@ namespace TypeScriptAnalyzerEslintVsix
         private class LintableFileContextProvider : IFileContextProvider
         {
 
-            public async Task<IReadOnlyCollection<FileContext>> GetContextsForFileAsync(string filePath, 
+            public async Task<IReadOnlyCollection<FileContext>> GetContextsForFileAsync(string filePath,
                 CancellationToken cancellationToken)
             {
                 var fileContexts = new List<FileContext>();
-                if (Package.Settings.ESLintEnable && 
+                if (Package.Settings.ESLintEnable &&
                     (LintableFiles.IsLintableFile(filePath) || System.IO.Directory.Exists(filePath) ||
                     (Package.Settings.UseTsConfig && LintableFiles.IsLintableTsconfig(filePath))))
                 {
@@ -71,3 +72,4 @@ namespace TypeScriptAnalyzerEslintVsix
         }
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !VS2022
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ using System.ComponentModel.Design;
 
 namespace TypeScriptAnalyzerEslintVsix
 {
-    [ExportFileContextActionProvider((FileContextActionProviderOptions)VsCommandActionProviderOptions.SupportVsCommands, 
+    [ExportFileContextActionProvider((FileContextActionProviderOptions)VsCommandActionProviderOptions.SupportVsCommands,
         ProviderType, ProviderPriority.Normal, LintableFileContextProviderFactory.LintableFileContextType)]
     public class LintActionProviderFactory : IWorkspaceProviderFactory<IFileContextActionProvider>, IVsCommandActionProvider
     {
@@ -68,7 +69,7 @@ namespace TypeScriptAnalyzerEslintVsix
                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
                 IVsOutputWindowPane outputPane = null;
-                if (ServiceProvider.GlobalProvider.GetService(typeof(SVsOutputWindow)) is IVsOutputWindow outputWindow 
+                if (ServiceProvider.GlobalProvider.GetService(typeof(SVsOutputWindow)) is IVsOutputWindow outputWindow
                     && ErrorHandler.Failed(outputWindow.GetPane(ActionOutputWindowPane, out outputPane)))
                 {
                     if (ServiceProvider.GlobalProvider.GetService(typeof(SVsUIShell)) is IVsUIShell vsUiShell)
@@ -117,3 +118,4 @@ namespace TypeScriptAnalyzerEslintVsix
         }
     }
 }
+#endif
