@@ -1,4 +1,4 @@
-﻿#if !VS2022
+﻿#if !VS2022x
 using System;
 using System.Collections.Generic;
 using System.Threading;
