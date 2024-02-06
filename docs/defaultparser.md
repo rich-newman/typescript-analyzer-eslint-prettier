@@ -8,10 +8,14 @@ As a result we set it in code on every linting run.  To do this we use the [base
 
 ```javascript
     options.baseConfig = {
-        parser: dirName + "\\node_modules\\@typescript-eslint\\parser",
+        parser: dirName + "\\node_modules\\@typescript-eslint\\parser\\dist\\index.js",
     };
 ```
 
 This is a longwinded way of saying that the **TypeScript Analyzer sets the parser explicitly to the TypeScript ESLint parser included with its own install, even though this isn't in the default configuration file**. 
 
 Of course **a different parser can be specified**, either in the default configuration file or in a local file.  It can be specified for all files, or for individual sets of files separately.  The baseConfig above is immediately overridden if ESLint finds any property to override it in non-base configuration.
+
+## Note re Path for Setting Parsers
+
+Note that in version 6.0 and later of typescript-eslint (which the Analyzer now uses) the typescript-eslint package was changed so that simply referencing the parser folder no longer worked.  That is, if we'd put "\\node_modules\\@typescript-eslint\\parser" in the code above then ESLint would not be able to find a parser.  You need to add the "\\dist\\index.js".  This is only true of the typescript-eslint parser if you are setting it by path.  For other parsers the root folder of the package should work in the syntax above.

@@ -10,7 +10,6 @@ module.exports = {
             "jsx": true // Allows support of JSX, but use of React plugin is required to support React semantics
         }
     },
-    "parser": "../../../Shared/Node/node_modules/@typescript-eslint/parser", // TypeScript parser used for both .js and .ts files
     "plugins": [
         "@typescript-eslint",
     ],

@@ -10,6 +10,9 @@ module.exports = {
             "jsx": true // Allows support of JSX, but use of React plugin is required to support React semantics
         }
     },
+	// Incorrect parser specification as of v6.0.0 of @typescript-eslint, which removed the main setting from its
+	// package.json, meaning ESLint can't interpret a path as below
+    "parser": "../../../Shared/Node/node_modules/@typescript-eslint/parser", 
     "plugins": [
         "@typescript-eslint",
         "prettier"
@@ -89,22 +92,7 @@ module.exports = {
         "default-param-last": "warn",             // https://eslint.org/docs/rules/default-param-last
         "eqeqeq": "warn",                         // https://eslint.org/docs/rules/eqeqeq
 
-        // We explicitly set prettier options to prettier defaults, apart from tabWidth and endOfLine which are set to not conflict with 
-        // the Visual Studio defaults.  With prettier's defaults we get Visual Studio into a fight about opinions with prettier.
-        // All options are described on https://prettier.io/docs/en/options.html
-        "prettier/prettier": ["warn", {
-            "tabWidth": 4,
-            "endOfLine": "crlf",
-            "printWidth": 80,
-            "semi": true,
-            "singleQuote": false,
-            "quoteProps": "as-needed",
-            "jsxSingleQuote": false,
-            "trailingComma": "es5",
-            "bracketSpacing": true,
-            "jsxBracketSameLine": false,
-            "arrowParens": "always"
-        }]
+        "prettier/prettier": ["off", { "tabWidth": 4 }]
     },
 
     "overrides": [
@@ -163,7 +151,7 @@ module.exports = {
                 "@typescript-eslint/prefer-as-const": "error",                     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-as-const.md
                 "@typescript-eslint/prefer-namespace-keyword": "error",            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-namespace-keyword.md
                 "@typescript-eslint/triple-slash-reference": "error",              // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/triple-slash-reference.md
-                "@typescript-eslint/no-unnecessary-type-assertion": "error",     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
+                //"@typescript-eslint/no-unnecessary-type-assertion": "error",     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
             }
         }
     ]

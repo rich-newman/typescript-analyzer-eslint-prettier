@@ -14,4 +14,6 @@ let more = "hello"
 function testie2() { var a = 5 }
 console.log(testie);
 { };
+type GreetingLike = string | (() => string);
+const a: string = "";
 console.log(foo());

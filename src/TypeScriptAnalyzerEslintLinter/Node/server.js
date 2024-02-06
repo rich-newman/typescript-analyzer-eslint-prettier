@@ -241,7 +241,7 @@ function createOptions(data, dirName, log, parserOptions) {
     // This is because the typescript-eslint plugin needs it specified even if it's in the same node_modules as its own code
     // Any parser at top-level in actual config will override this
     options.baseConfig = {
-        parser: dirName + "\\node_modules\\@typescript-eslint\\parser",
+        parser: dirName + "\\node_modules\\@typescript-eslint\\parser\\dist\\index.js",
     };
     if (data.fixerrors) {
         options.fix = true;
@@ -337,12 +337,8 @@ async function testServer() {
     const data = JSON.stringify({
         configfolder: "C:\\Users\\Rich Newman\\TypeScriptAnalyzerConfig",
         msconfigfile: "C:\\Users\\Rich Newman\\.eslintrc",
-        //configFolder: "",
-        //files: ["C:\\Dotnet\\NodejsConsoleApp3TestTypeScript\\NodejsConsoleApp3TestTypeScript\\JavaScript1.js",
-        //    "C:\\Dotnet\\NodejsConsoleApp3TestTypeScript\\NodejsConsoleApp3TestTypeScript\\TypeScript1.ts"],
         text: null, // Make null to read the file from disk
         //projectfiles: ["C:\\Dotnet\\NodejsConsoleApp3TestTypeScript\\NodejsConsoleApp3TestTypeScript\\tsconfig.json"],
-        //files: [],
         files: [
             "C:\\Dotnet\\NodejsConsoleApp9\\NodejsConsoleApp9\\app.js",
             "C:\\Dotnet\\NodejsConsoleApp9\\NodejsConsoleApp9\\test\\apptest.js",

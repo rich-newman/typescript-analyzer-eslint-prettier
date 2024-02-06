@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)EslintConfigWithTypeInfoTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BuildSelectedItemsTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyUnloadedProjectsTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ParserTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EslintTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EsLintTextTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EslintWithTsconfigTest.cs" />
