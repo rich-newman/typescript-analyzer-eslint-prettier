@@ -1,5 +1,4 @@
-﻿#if !VS2022x
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -72,4 +71,3 @@ namespace TypeScriptAnalyzerEslintVsix
         }
     }
 }
-#endif
