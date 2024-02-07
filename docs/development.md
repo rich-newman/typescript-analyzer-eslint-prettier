@@ -52,11 +52,11 @@ The debugger will reconnect on a later run if you leave it open.
 
 ## Running the GitHub Pages Site Locally
 
-May 2023 Edit: DON'T INSTALL Ruby 3.2 when following the instructions below, as at the time of writing the Slate template used by the site doesn't work with it.  The instructions below work if you install Ruby 3.1.4 instead.
+Feb 2024 Edit: DON'T INSTALL a later version of Ruby than 3.1.4 when following the instructions below, as at the time of writing the Slate template used by the site doesn't work with it.  The instructions below work if you install Ruby 3.1.4 instead.
 
 The docs project in this solution is our GitHub pages site.  You can make changes to this and preview them locally if you have Jekyll installed.
 
-To install Jekyll there are [instructions on the Jekyll site](https://jekyllrb.com/docs/installation/windows/). Follow ‘Installation via RubyInstaller’, steps 1-4. Basically you run the installer, including the optional bit at the end where you accept the defaults by hitting Enter in the Command Prompt that appears.  Then you do `gem install jekyll bundler`. And then `jekyll -v`.
+To install Jekyll there are [instructions on the Jekyll site](https://jekyllrb.com/docs/installation/windows/). Follow ‘Installation via RubyInstaller’, steps 1-4. Basically you run the installer for Ruby+Devkit 3.1.4-1, including the optional bit at the end where you accept the defaults by hitting Enter in the Command Prompt that appears.  Then you do `gem install jekyll bundler`. And then `jekyll -v`.
 
 Once Jekyll is installed, and assuming you have the code checked out locally and loaded in Visual Studio, you can launch the site locally in a browser.
 
