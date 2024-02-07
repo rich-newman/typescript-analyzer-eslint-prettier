@@ -2433,6 +2433,16 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-find.js">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-find.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-find.js.map">
+      <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-find.js.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-for-of.js">
       <Link>Node\node_modules\@typescript-eslint\eslint-plugin\dist\rules\prefer-for-of.js</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -14383,6 +14393,11 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Shared\Node\node_modules\ts-api-utils\lib\index.cjs.map">
+      <Link>Node\node_modules\ts-api-utils\lib\index.cjs.map</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Shared\Node\node_modules\ts-api-utils\lib\index.d.cts">
       <Link>Node\node_modules\ts-api-utils\lib\index.d.cts</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -14395,6 +14410,11 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\ts-api-utils\lib\index.js">
       <Link>Node\node_modules\ts-api-utils\lib\index.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\ts-api-utils\lib\index.js.map">
+      <Link>Node\node_modules\ts-api-utils\lib\index.js.map</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

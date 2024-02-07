@@ -7,19 +7,19 @@ packageversions:
     typesnode: |- 
         "@types/node": "20.11.0"
     typescripteslintplugin: |-
-        "@typescript-eslint/eslint-plugin": "6.20.0"
+        "@typescript-eslint/eslint-plugin": "6.21.0"
     typescripteslintparser: |-
-        "@typescript-eslint/parser": "6.20.0"
+        "@typescript-eslint/parser": "6.21.0"
     eslint: |-
         "eslint": "8.56.0"
     eslintpluginprettier: |-
         "eslint-plugin-prettier": "5.1.3"
     prettier: |-
-        "prettier": "3.2.4"
+        "prettier": "3.2.5"
     typescript: |-
         "typescript": "5.3.3"
     eslintpluginjsdoc: |-
-        "eslint-plugin-jsdoc": "48.0.4"
+        "eslint-plugin-jsdoc": "48.0.6"
     eslintpluginmarkdown: |-
         "eslint-plugin-md": "1.0.19"
     eslintpluginnode: |-
@@ -27,10 +27,10 @@ packageversions:
     eslintpluginreact: |-
         "eslint-plugin-react": "7.33.2"
     eslintpluginvue: |-
-        "eslint-plugin-vue": "9.20.1"
+        "eslint-plugin-vue": "9.21.1"
     vueeslintparser: |-
         "vue-eslint-parser": "9.4.2"
     babeleslintparser: |-
-        "@babel/eslint-parser": "7.23.9"
+        "@babel/eslint-parser": "7.23.10"
     vueeslintconfigtypescript: |-
         "@vue/eslint-config-typescript": "12.0.0"
