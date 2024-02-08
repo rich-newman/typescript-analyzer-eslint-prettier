@@ -23,7 +23,7 @@ None of the Basic vue.js Web Application types works at the time of writing, and
 
 If in Visual Studio 2022 you create a Standalone JavaScript Vue Project or a Standalone TypeScript Vue Project then linting from a terminal window is set up for you as part of the project creation. 
 
-ESLint and the eslint-plugin-vue plugin are installed for you, and ESLint is configured via an 'eslintConfig' property in package.json.  
+ESLint and the eslint-plugin-vue plugin are installed for you, and ESLint is configured via a .eslintrc.cjs file in the root of the project.
 
 If you run `npm run lint` from a terminal in the root of the project ESLint will run and show any errors.
 
@@ -33,9 +33,21 @@ If you run `npm run lint` from a terminal in the root of the project ESLint will
 
 **To enable this** you need to add .vue files to the list of files the Analyzer handles.  To do this go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.
 
-**To test this is working**, in a Standalone JavaScript/TypeScript Vue Project open file src/App.vue.  On lines 12-14 currently there is a 'components' property of an object defined, with value `{ HelloWorld }`.  If you change the name here to, say, `HelloVueWorld` then you should see linting errors for the file including a [vue/no-unused-components error which comes from the plugin](https://eslint.vuejs.org/rules/no-unused-components.html). Errors in the template or style section will also be shown correctly.
+You also need to have built the project at least once to ensure it works and to install the npm packages.
 
-Note that clicking the link in the Code column in the Error List should take you to the help page for this error. 
+**To test this is working**, in a Standalone JavaScript/TypeScript Vue Project open file src/App.vue.  On line 11 currently there is a 'HelloWorld' component declared with attribute msg:
+
+```html
+      <HelloWorld msg="You did it!" />
+```
+
+An easy way to generate an error from the eslint-plugin-vue is to simply duplicate the attribute.  That is, change this code to:
+
+```html
+      <HelloWorld msg="You did it!" msg="You did it!" />
+```
+
+If you do this change you should get a [vue/no-duplicate-attributes](https://eslint.vuejs.org/rules/no-duplicate-attributes.html) and a [vue/no-parsing-error](https://eslint.vuejs.org/rules/no-parsing-error.html) error on the second msg attribute.  As usual, clicking on the Code in the Error List will take you to the documentation for these errors.
 
 ### Enabling Prettier
 
@@ -43,81 +55,78 @@ Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript pro
 
 Please note you may not want to do this: Prettier doesn't work too well with .vue files, and the plugins that attempt to mitigate this have [issues on Windows](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/29).
 
-1. Doubleclick package.json in Solution Explorer to edit it.  Find the "eslintconfig" property.  This is the configuration for ESLint which the TypeScript Analyzer usually has in a .eslintrc.js file.  Replace the entire property and value with the code below.
+1. Doubleclick .eslintrc.cjs in Solution Explorer to edit it.  Replace the entire contents of the file with the code below.
 For a Standalone **JavaScript** Vue Project:
-``` json
-"eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "plugins": [
-      "prettier"
+``` javascript
+/* eslint-env node */
+module.exports = {
+  root: true,
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended'],
+  env: {
+    node: true,
+  },
+  plugins: ['prettier'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
+  rules: {
+    'prettier/prettier': [
+      'warn',
+      {
+        tabWidth: 2,
+        endOfLine: 'lf',
+        printWidth: 80,
+        semi: true,
+        singleQuote: true,
+        quoteProps: 'as-needed',
+        jsxSingleQuote: false,
+        trailingComma: 'es5',
+        bracketSpacing: true,
+        arrowParens: 'always',
+      },
     ],
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {
-      "prettier/prettier": [
-        "warn",
-        {
-          "tabWidth": 2,
-          "endOfLine": "lf",
-          "printWidth": 80,
-          "semi": true,
-          "singleQuote": true,
-          "quoteProps": "as-needed",
-          "jsxSingleQuote": false,
-          "trailingComma": "es5",
-          "bracketSpacing": true,
-          "arrowParens": "always"
-        }
-      ]
-    }
-},
+  },
+};
 ```
 For a Standalone **TypeScript** Vue Project:
-``` json
-"eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "plugins": [
-      "prettier"
+``` javascript
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
+module.exports = {
+  root: true,
+  extends: [
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript',
+  ],
+  env: {
+    node: true,
+  },
+  plugins: ['prettier'],
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 'latest',
+  },
+  rules: {
+    'prettier/prettier': [
+      'warn',
+      {
+        tabWidth: 2,
+        endOfLine: 'lf',
+        printWidth: 80,
+        semi: true,
+        singleQuote: true,
+        quoteProps: 'as-needed',
+        jsxSingleQuote: false,
+        trailingComma: 'es5',
+        bracketSpacing: true,
+        arrowParens: 'always',
+      },
     ],
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript"
-    ],
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
-    "rules": {
-      "prettier/prettier": [
-        "warn",
-        {
-          "tabWidth": 2,
-          "endOfLine": "lf",
-          "printWidth": 80,
-          "semi": true,
-          "singleQuote": true,
-          "quoteProps": "as-needed",
-          "jsxSingleQuote": false,
-          "trailingComma": "es5",
-          "bracketSpacing": true,
-          "arrowParens": "always"
-        }
-      ]
-    }
-},
+  },
+};
 ```
-2. Still in package.json, add the dependencies below to the end of the devDependencies section and save. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
+2. Doubleclick package.json to open it and add the dependencies below to the end of the devDependencies section and save. These are the additional npm package dependencies that the TypeScript Analyzer needs to get Prettier to run:
 ``` json
     {{site.packageversions.eslintpluginprettier}},
     {{site.packageversions.prettier}}
