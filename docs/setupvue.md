@@ -10,22 +10,26 @@ We can set up the TypeScript Analyzer to use this plugin in Visual Studio projec
 
 Visual Studio has several Vue project templates, of two basic types:
 
-1. 'Standalone JavaScript Vue Project' and 'Standalone TypeScript Vue Project'.  These project templates are only available in Visual Studio 2022.  The project created here is Vue 3.
-2. 'Basic vue.js Web Application'.  These project templates available in Visual Studio 2017, 2019 and 2022, and in JavaScript or TypeScript versions, although there's no TypeScript version in Visual Studio 2022.  All of these templates are different, but similar obviously.  The JavaScript template in Visual Studio 2022 is Vue 3, and the rest are Vue 2.
+1. 'Standalone JavaScript/TypeScript Vue Project' and 'Vue and ASP.NET Core', again in JavaScript and TypeScript versions.  These project templates are only available in Visual Studio 2022.  The project created here is Vue 3.  Here the Standalone projects are just client projects, whereas the 'Vue and ASP.NET Core' projects have the same client project but also a C# ASP.NET Core project in the created solution.
+2. 'Basic vue.js Web Application'.  These project templates available in Visual Studio 2017 and 2019, and in JavaScript or TypeScript versions.  They used to be in Visual Studio 2022 but have been removed.  All of these templates are different, but similar obviously.  They are Vue 2.
 
-Enabling the TypeScript Analyzer for the Standalone JavaScript/TypeScript Vue Projects is described below.
+Enabling the TypeScript Analyzer for the 'Standalone JavaScript/TypeScript Vue Projects' and 'Vue and ASP.NET Core' projects is described below.
 
-None of the Basic vue.js Web Application types works at the time of writing, and as a result we recommend you don't attempt to use these templates.  More details on this are on a [separate page](setupvuebasicwebapp.md).
+**We recommend you don't use the Basic vue.js Web Application project templates.**  None of them works well.  They are very old, target an old version of Vue, and the npm packages won't even install with the latest versions Node.  Even if you coerce them into installing they are liable to break when you run them.  As a result configuring them for use with the TypeScript Analyzer is no longer covered here.
 
-## Standalone JavaScript/TypeScript Vue Project in Visual Studio 2022
+## Standalone JavaScript/TypeScript Vue Project or Vue and ASP.NET Core Project in Visual Studio 2022
+
+### Which Project Are We Setting Up ESLint In?
+
+In the discussion below we will refer to the 'client project', which is the JavaScript or TypeScript project in which we are setting up ESLint.  With the Standalone projects this is the sole project in the solution.  However, as mentioned, with the Vue and ASP.NET Core project we have two projects in our solution: an ASP.NET Core project in C#, which we can't lint with ESLint because it's the wrong language, and a JavaScript or TypeScript project.  Here, obviously, the client project is the JavaScript or TypeScript project.
 
 ### Using the Default Linting from a Terminal
 
-If in Visual Studio 2022 you create a Standalone JavaScript Vue Project or a Standalone TypeScript Vue Project then linting from a terminal window is set up for you as part of the project creation. 
+If in Visual Studio 2022 you create any of these project types then linting from a terminal window is set up for you as part of the project creation. 
 
 ESLint and the eslint-plugin-vue plugin are installed for you, and ESLint is configured via a .eslintrc.cjs file in the root of the project.
 
-If you run `npm run lint` from a terminal in the root of the project ESLint will run and show any errors.
+If you run `npm run lint` from a terminal in the root of the client project ESLint will run and show any errors.
 
 ### Enabling TypeScript Analyzer To Use the Default Linting
 
@@ -33,9 +37,9 @@ If you run `npm run lint` from a terminal in the root of the project ESLint will
 
 **To enable this** you need to add .vue files to the list of files the Analyzer handles.  To do this go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.
 
-You also need to have built the project at least once to ensure it works and to install the npm packages.
+You also need to have built the solution at least once to ensure it works and to install the npm packages.
 
-**To test this is working**, in a Standalone JavaScript/TypeScript Vue Project open file src/App.vue.  On line 11 currently there is a 'HelloWorld' component declared with attribute msg:
+**To test this is working**, open file src/App.vue in the client project.  On line 11 currently there is a 'HelloWorld' component declared with attribute msg:
 
 ```html
       <HelloWorld msg="You did it!" />
@@ -51,9 +55,9 @@ If you do this change you should get a [vue/no-duplicate-attributes](https://esl
 
 ### Enabling Prettier
 
-Prettier is **not** enabled by default in a Standalone JavaScript/TypeScript project.  We can enable it by following the steps below, which extend the existing configuration.
+Prettier is **not** enabled by default in these client projects.  We can enable it by following the steps below, which extend the existing configuration.
 
-Please note you may not want to do this: Prettier doesn't work too well with .vue files, and the plugins that attempt to mitigate this have [issues on Windows](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/29).
+**Please note you may not want to do this**: Prettier doesn't work too well with .vue files, and the plugins that attempt to mitigate this have [issues on Windows](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/29).
 
 1. Doubleclick .eslintrc.cjs in Solution Explorer to edit it.  Replace the entire contents of the file with the code below.
 For a Standalone **JavaScript** Vue Project:
