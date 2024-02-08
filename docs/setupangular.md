@@ -63,7 +63,7 @@ Note that there is a fixer for the template/banana-in-box rule. To see this fix 
 Almost the exact same steps above will also work in Visual Studio's Standalone TypeScript Angular project type in Visual Studio 2022.  The differences are:
 
 - You need to create a Standalone TypeScript Angular project type in Visual Studio 2022, clearly, then follow the same steps as above.
-- In step 4, to install the npm packages you right click the project name in Solution Explorer not the {appName}.client folder, then 'Open in Terminal', and then execute command `npm i` in the window that appears.  There is no {appName}.client folder in the project.  
+- In step 4, to install the npm packages you right click the project name in Solution Explorer not the {appName}.client folder.  There is no {appName}.client folder in the project.  Then, as above, click 'Open in Terminal', and then execute command `npm i` in the window that appears.    
 - In step 5, the .eslintrc.js file needs to be created at the root of the project, not in the {appName}.client folder.
 - The src folder mentioned in the testing section is also at the root of the project, not in the {appName}.client folder.
 
