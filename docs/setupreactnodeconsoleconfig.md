@@ -1,6 +1,6 @@
 ﻿# Configuration File (.eslintrc.js) for React Plugin
 
-See the article on [Set Up for React Plugin](setupreact.md) for instructions on how to use this.
+See the article on [Setting Up for React in Node Console Applications](setupreactnodeconsole.md) for instructions on how to use this.
 
 ``` javascript
 // This file is the default configuration file for TypeScript Analyzer (ESLint)

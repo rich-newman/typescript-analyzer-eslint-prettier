@@ -38,7 +38,7 @@ You should get a node/no-exports-assign error "Unexpected assignment to 'exports
 ## <a name="javascript"></a>Instructions for JavaScript
 
 1. Create a new Blank Node.js Console Application (JavaScript).
-2. Edit package.json.  You need to create a new devDependencies entry at the same level as "author".  So just replace the `"author": {"name": ""},` entry with what's below and save.  If the package.json contains an empty eslintConfig section you can  remove this entire section.  The dependencies below are those that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
+2. Edit package.json.  You need to create a new devDependencies entry at the same level as "author", or amend the existing devDependencies entry if one exists already.  So replace the `"author": {"name": ""},` entry, or that plus any existing devDependencies, with what's below and save.  If the package.json contains an empty eslintConfig section you can remove this entire section as well.  The dependencies below are those that the [TypeScript Analyzer needs locally](installs.md#localinstall), plus the new plugin, eslint-plugin-node:
 ``` json
 "author": {
     "name": ""

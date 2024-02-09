@@ -1,56 +1,56 @@
-﻿# Standalone TypeScript React Template and Standalone JavaScript React Template
+﻿# Standalone React Projects/React and ASP.NET Core Projects
 
 ## Background
 
-Some [new project templates for JavaScript and TypeScript projects](https://devblogs.microsoft.com/visualstudio/the-new-javascript-typescript-experience-in-vs-2022-preview-3/) were added to Visual Studio 2022.
+Visual Studio 2022 has a 'Standalone JavaScript React Project' template, a 'Standalone TypeScript React Project' template, and 'React and ASP.NET Core' templates for both JavaScript and TypeScript.
 
-This article looks at the Standalone TypeScript React Template and the Standalone JavaScript React Template, and how the TypeScript Analyzer works with them.
+If you create a solution from any of these templates then ESLint is configured in the resulting solution, including rules from [react-hooks](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md) and [react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh).  The TypeScript Analyzer can use this configuration.  Note that this configuration does not include more general rules from eslint-plugin-react.  
 
-## Standalone TypeScript React Project and ESLint
+More details are below.
 
-If you create a Standalone TypeScript React project or Standalone JavaScript React project in Visual Studio 2022 then it is already set up to lint using ESLint.  The npm packages needed (ESLint and various plugins) will be installed from package.json.  The ESLint configuration is hidden in the package.json file, where there is an 'eslintconfig' section as below.
-``` json
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-```
-These project templates are based on [create-react-app](https://create-react-app.dev/), which is a project that allows you to easily create a new React development set up in a standard format.  The Create React App project has [a page](https://create-react-app.dev/docs/setting-up-your-editor/) that shows how to make the ESLint set up above work with various integrated development environments.
+## Which Project Are We Setting Up ESLint In?
+
+In the discussion below we will refer to the 'client project', which is the JavaScript or TypeScript project in which we are setting up ESLint.  With the Standalone projects this is the sole project in the solution.  However, with the React and ASP.NET Core project we have two projects in our solution: an ASP.NET Core project in C#, which we can't lint with ESLint because it's the wrong language, and a JavaScript or TypeScript project.  Here, obviously, the client project is the JavaScript or TypeScript project.
+
+## Using the Default Linting from a Terminal
+
+If in Visual Studio 2022 you create any of these project types then linting from a terminal window is set up for you as part of the project creation. 
+
+ESLint and the associated plugins are installed for you, and ESLint is configured via a .eslintrc.cjs file in the root of the project.
+
+If you run `npm run lint` from a terminal in the root of the client project ESLint will run and show any errors.
 
 ## TypeScript Analyzer Works with No Further Configuration
 
-**For the TypeScript Analyzer no further configuration is necessary for linting to work**.  The TypeScript Analyzer will see the configuration in package.json and the installed npm packages and use those to lint, displaying any errors in the Visual Studio code editor and Error List.
+**For the TypeScript Analyzer no further configuration is necessary for linting to work**.  The TypeScript Analyzer will see the configuration in .eslintrc.cjs and the installed npm packages and use those to lint, displaying any errors in the Visual Studio code editor and Error List.
 
-For this to work the settings 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' must be set to their defaults of 'True' in Tools/Options/TypeScript Analyzer/ESLint.
+For this to work the settings 'Enable local config (.eslintrc.js)' and 'Enable local node_modules' must be set to their **defaults** of 'True' in Tools/Options/TypeScript Analyzer/ESLint.
 
-### Linting
+You also need to have built the solution at least once to ensure it works and to install the npm packages.
 
-To see this we need to actually generate an error, since the initial code has none.
+## Testing This Is Working
 
-One rule that is enabled is [new-parens](https://eslint.org/docs/rules/new-parens), and the documentation shows [code that breaks this rule](https://eslint.org/docs/rules/new-parens#always) as below.  If you paste this code into a code file in the project, for example src/App.tsx in the TypeScript React project or src/App.js in the JavaScript React project, then the TypeScript Analyzer will run and show a warning for new-parens in the Error List, underlining the 'new ' in each line:
-``` javascript
-var person = new Person;
-var person = new (Person);
+**To test this is working**, open file src/App.tsx in the client project.  At the very end of the file add the line below:
+
+```javascript
+      export const foo = () => { };
 ```
 
-### Fixing
+This is one of the examples that [fails the only-export-components rule](https://github.com/ArnaudBarre/eslint-plugin-react-refresh?tab=readme-ov-file#fail) of react-refresh. You should see 'foo' underlined in green, since this is a warning, and if you hover should see the message 'Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.'
 
-**The TypeScript Analyzer can also fix this error.**  If you rightclick in the code editor and select 'Fix TypeScript Analyzer (ESLint) Errors in Code if Possible' on the context menu, then the problems will be fixed and the new-parens warnings will disappear.
+To test the refresh-hooks rules, first ensure that useEffect is being imported: for a standalone project you will need to change the first line to the line below:
 
-## Prettier
+```javascript
+      import { useState, useEffect } from 'react'
+```
 
-Note that Prettier is NOT available by default if you create a Standalone React project in Visual Studio.  This is because the TypeScript Analyzer is using Create React App's linting rules and configuration as shown above, and that doesn't include Prettier.  
+Then at the start of function App add the code below, which is taken from [the documentation](https://legacy.reactjs.org/docs/hooks-rules.html):
 
-## Seeing Rules that are Enabled
-
-One problem here is that our configuration just says 'react-app' and 'react-app/jest'.  We don't know which individual rules are in force without using Google.
-
-The TypeScript Analyzer can help here.  Go to Tools/Options/TypeScript Analyzer/ESLint and set the options 'Enable logging' and 'Log first config' to True. Then lint a file, for example rightclick index.tsx in Solution Explorer/Run TypeScript Analyzer (ESLint).  
-
-Now go to the Output pane in Visual Studio (View/Output) and select 'TypeScript Analyzer (ESLint, Prettier)' in the dropdown.
-
-Log entries are generated and shown here when the TypeScript Analyzer lints.  This includes a dump of the configuration that was used if 'Log first config' is True.  It's put between entries 'CALCULATED CONFIG FOR FILE START' and 'CALCULATED CONFIG FOR FILE END' to make it easier to find.
-
-The configuration generated at the time of writing is on [this link](setupreacttemplateconfig.md) and shows that by default a very long list of rules is enabled, including some [typescript-eslint plugin](https://github.com/typescript-eslint/typescript-eslint) rules.
+```javascript
+    if (name !== '') {
+        useEffect(function persistForm() {
+            localStorage.setItem('formData', name);
+        });
+    }
+```
+This should generate a react-hooks/rules-of-hooks error on useEffect: 'React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render.'  

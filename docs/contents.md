@@ -38,8 +38,6 @@
 
 ### Plugin and Project Set Up Examples
 
-[Set Up for React Plugin](setupreact.md)
-
 [Set Up for Angular Plugin](setupangular.md)
 
 [Set Up for Vue Plugin](setupvue.md)
@@ -50,7 +48,11 @@
 
 [Set Up for JSDoc Plugin](setupjsdoc.md)
 
-[Standalone TypeScript React Template & Standalone JavaScript React Template](setupreacttemplate.md)
+[Set Up for React Plugins](setupreact.md)
+
+[Standalone React Projects/React and ASP.NET Core Projects](setupreacttemplate.md)
+
+[Setting Up React in Node Console Applications](setupreactnodeconsole.md)
 
 ### Common Issues
 

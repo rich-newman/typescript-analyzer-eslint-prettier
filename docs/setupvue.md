@@ -10,12 +10,10 @@ We can set up the TypeScript Analyzer to use this plugin in Visual Studio projec
 
 Visual Studio has several Vue project templates, of two basic types:
 
-1. 'Standalone JavaScript/TypeScript Vue Project' and 'Vue and ASP.NET Core', again in JavaScript and TypeScript versions.  These project templates are only available in Visual Studio 2022.  The project created here is Vue 3.  Here the Standalone projects are just client projects, whereas the 'Vue and ASP.NET Core' projects have the same client project but also a C# ASP.NET Core project in the created solution.
-2. 'Basic vue.js Web Application'.  These project templates available in Visual Studio 2017 and 2019, and in JavaScript or TypeScript versions.  They used to be in Visual Studio 2022 but have been removed.  All of these templates are different, but similar obviously.  They are Vue 2.
+1. **'Standalone Vue Project' and 'Vue and ASP.NET Core' project**, both in JavaScript and TypeScript versions.  These project templates are only available in Visual Studio 2022.  The projects created here are Vue 3.  Here the Standalone projects are just client projects, whereas the 'Vue and ASP.NET Core' projects have a client project but also a C# ASP.NET Core server project in the created solution.
+2. **'Basic vue.js Web Application'**.  These project templates available in Visual Studio 2017 and 2019, and in JavaScript or TypeScript versions.  They used to be in Visual Studio 2022 but have been removed. **We recommend you don't use these templates.**  They are very old, target Vue 2 which is an old version of Vue, and the npm packages won't even install with the latest versions of Node.  As a result configuring them for use with the TypeScript Analyzer is no longer covered here.
 
-Enabling the TypeScript Analyzer for the 'Standalone JavaScript/TypeScript Vue Projects' and 'Vue and ASP.NET Core' projects is described below.
-
-**We recommend you don't use the Basic vue.js Web Application project templates.**  None of them works well.  They are very old, target an old version of Vue, and the npm packages won't even install with the latest versions Node.  Even if you coerce them into installing they are liable to break when you run them.  As a result configuring them for use with the TypeScript Analyzer is no longer covered here.
+Enabling the TypeScript Analyzer for the 'Standalone Vue Projects' and 'Vue and ASP.NET Core' projects is described below.  The setup process is the same for any of these projects.
 
 ## Standalone JavaScript/TypeScript Vue Project or Vue and ASP.NET Core Project in Visual Studio 2022
 
@@ -38,6 +36,8 @@ If you run `npm run lint` from a terminal in the root of the client project ESLi
 **To enable this** you need to add .vue files to the list of files the Analyzer handles.  To do this go to Tools/Options/TypeScript Analyzer/ESLint and under 'File extensions to lint' add ',vue' to the existing list. After the change the 'File extensions to lint' setting should look like 'js,jsx,ts,tsx,mjs,cjs,vue'.  All other settings on this screen should be set to the defaults.  In particular settings 'Enable local config' and 'Enable local node_modules' should be set to True.
 
 You also need to have built the solution at least once to ensure it works and to install the npm packages.
+
+### Testing This Is Working
 
 **To test this is working**, open file src/App.vue in the client project.  On line 11 currently there is a 'HelloWorld' component declared with attribute msg:
 
