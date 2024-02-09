@@ -198,13 +198,17 @@ namespace TypeScriptAnalyzerEslintLinter
             errorCode.StartsWith("@angular-eslint/template/") ?
                 "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin-template/docs/rules/" +
                 $"{RuleUrlName(errorCode.Substring(16))}" :
-             errorCode.StartsWith("@angular-eslint/") ?
+            errorCode.StartsWith("@angular-eslint/") ?
                 "https://github.com/angular-eslint/angular-eslint/blob/master/packages/eslint-plugin/docs/rules/" +
                 $"{RuleUrlName(errorCode)}" :
-             errorCode.StartsWith("vue/") ?
+            errorCode.StartsWith("vue/") ?
                 "https://eslint.vuejs.org/rules/" + $"{RuleUrlName(errorCode, ".html")}" :
+            errorCode.StartsWith("react-hooks/") ?
+                "https://legacy.reactjs.org/docs/hooks-rules.html" :  // No proper documentation for the two rules, this will have to do.
+            errorCode.StartsWith("react-refresh/") ?
+                "https://github.com/ArnaudBarre/eslint-plugin-react-refresh" :
             errorCode.StartsWith("jsdoc/") ?
-                "https://www.npmjs.com/package/eslint-plugin-jsdoc#" + $"{RuleUrlName(errorCode, "")}" :
+                $"https://github.com/gajus/eslint-plugin-jsdoc/blob/HEAD/docs/rules/{RuleUrlName(errorCode)}#readme" :
             errorCode == "md/remark" ?
                 "https://github.com/remarkjs/remark-lint#rules" :
                 $"https://eslint.org/docs/rules/{errorCode}";
