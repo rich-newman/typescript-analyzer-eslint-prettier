@@ -2,7 +2,7 @@
 
 ## Overview
 
-This article shows how to set up React and the React plugin for ESLint, [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) in Node Console Applications for both JavaScript and TypeScript. This can be done in all versions of Visual Studio that are supported (2017, 2019 and 2022). For the TypeScript Analyzer this means setting up a local install with the plugin, and a configuration file with appropriate rules enabled.
+This article gives an example of how to set up React and the React plugin for ESLint, [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) using Node Console Applications for both JavaScript and TypeScript. This can be done in all versions of Visual Studio that are supported (2017, 2019 and 2022). For the TypeScript Analyzer this means setting up a local install with the plugin, and a configuration file with appropriate rules enabled.
 
 Below are separate instructions for TypeScript and JavaScript.
 

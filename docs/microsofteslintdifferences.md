@@ -7,4 +7,4 @@
 - TypeScript Analyzer can fix on a save, including doing Prettier formatting whenever a file is saved.
 - TypeScript Analyzer can be used to prevent Visual Studio from building if you have linting or formatting errors.
 - TypeScript Analyzer will allow you to lint files and code that are not TypeScript or JavaScript with an appropriate plugin, show the errors in the Error List, and allow fixing if that's possible.  For example, linting of Markdown in Markdown files in your solution is possible with the eslint-plugin-md plugin.  This requires a little set up, of course.
-- The Microsoft implementation has React and node plugins installed and enables some ESLint rules for these by default.  To do this with the TypeScript Analyzer requires [some set up and configuration](setupreact.md).
+- The Microsoft implementation has React and node plugins installed and enables some ESLint rules for these by default.  To do this with the TypeScript Analyzer requires some set up and configuration.

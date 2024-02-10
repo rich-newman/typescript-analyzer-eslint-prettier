@@ -11,5 +11,3 @@
 [Set Up for JSDoc Plugin](setupjsdoc.md)
 
 [Set Up for Node Plugin](setupnode.md)
-
-[Standalone TypeScript React Template & Standalone JavaScript React Template](setupreacttemplate.md)

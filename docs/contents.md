@@ -50,10 +50,6 @@
 
 [Set Up for React Plugins](setupreact.md)
 
-[Standalone React Projects/React and ASP.NET Core Projects](setupreacttemplate.md)
-
-[Setting Up React in Node Console Applications](setupreactnodeconsole.md)
-
 ### Common Issues
 
 [Troubleshooting](troubleshooting.md)
