@@ -10,11 +10,12 @@ number of 1.
 
 ## 2.8
 
-**TO BE DECIDED**
+**2024-02-10**
 
 - Update to latest versions of dependent packages, including ESLint 8.56.0.
 - If referencing the typescript-eslint parser by path in a .eslintrc.js file you now need to reference the full path to .../@typescript-eslint/parser/dist/index.js.  Previously you could reference the parser folder, but a typescript-eslint change means this no longer works with ESLint.  The Analyzer's own code has been updated to reflect this change.
 - Hard reference libraries Microsoft.VisualStudio.Workspace and Microsoft.VisualStudio.Workspace.Extensions.VS after Microsoft deleted the NuGet packages we were relying on and then didn't provide any new ones that work without giving compatibility warnings.  These are needed to allow linting from folder view in Solution Explorer. This is a hack, as not referencing a package inevitably means you avoid compatibility warnings.
+- Update documentation to reflect new Visual Studio templates for Angular, Vue and React.
 
 ## 2.7
 
