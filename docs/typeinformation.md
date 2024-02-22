@@ -4,7 +4,7 @@
 
 The TypeScript ESLint plugin has two sorts of rules for linting TypeScript:
 - There are basic rules that don't need to know anything about the structure of the project they are in.  
-- There are rules that require type information that DO need to understand the project structure.  These rules are marked as 'requires type information' with a check in the final column on the [plugin's rules page](https://typescript-eslint.io/rules/).  These rules are also known as 'type-aware rules'.
+- There are rules that require type information that DO need to understand the project structure.  These rules are marked as 'requires type information' with a check in the 'type checked' column on the [plugin's rules page](https://typescript-eslint.io/rules/).  These rules are also known as 'type-aware rules'.
 
 For the rules that require type information to work you have to be using tsconfig.json files to structure your project, and you have to tell the linter about the tsconfig.json files.
 
