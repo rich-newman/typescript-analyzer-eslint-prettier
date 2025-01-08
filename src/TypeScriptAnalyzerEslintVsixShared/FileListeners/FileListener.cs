@@ -128,7 +128,7 @@ namespace TypeScriptAnalyzerEslintVsix
         }
 
         private static readonly EventHandler<TextContentChangedEventArgs> textBufferChangedEventHandler =
-            (s, e) => Package.Jtf.RunAsync(() => OnTextBufferChangedAsync(s, e));
+            (s, e) => Package.Jtf.RunAsync(() => OnTextBufferChangedAsync(s, e)).Forget();
 
         private static async Task OnTextBufferChangedAsync(object sender, TextContentChangedEventArgs e)
         {
@@ -165,7 +165,7 @@ namespace TypeScriptAnalyzerEslintVsix
         }
 
         private static readonly TimerCallback textBufferChangedTimerCallback =
-            s => Package.Jtf.RunAsync(() => OnTextBufferChangedTimerCallbackAsync(s));
+            s => Package.Jtf.RunAsync(() => OnTextBufferChangedTimerCallbackAsync(s)).Forget();
 
         private static async Task OnTextBufferChangedTimerCallbackAsync(object state)
         {
@@ -184,7 +184,7 @@ namespace TypeScriptAnalyzerEslintVsix
         }
 
         private static readonly EventHandler<TextDocumentFileActionEventArgs> fileActionOccurredEventHandler =
-            (s, e) => Package.Jtf.RunAsync(() => OnFileActionOccurredAsync(s, e));
+            (s, e) => Package.Jtf.RunAsync(() => OnFileActionOccurredAsync(s, e)).Forget();
 
         private static async Task OnFileActionOccurredAsync(object sender, TextDocumentFileActionEventArgs e)
         {
