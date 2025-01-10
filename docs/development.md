@@ -4,6 +4,8 @@ This page explains how to perform some tasks relating to developing the TypeScri
 
 ## Running the TypeScript Analyzer in Visual Studio in Debug
 
+**NOTE: for Visual Studio 2022 the instructions below only work if you have v17.8 or earlier installed.  The latest version of Visual Studio throws a null pointer exception on build. We are trying to find a fix for this at the time of writing. It's possible to [install v17.8 by using the command line](https://stackoverflow.com/a/78637995/4166522).**
+
 To run the TypeScript Analyzer in debug ensure [node is installed](https://nodejs.org/en/download/), clone the repository, and open the appropriate solution with Visual Studio.  The 'appropriate solution' is TypeScriptAnalyzerEslint VS2022.sln if you are running Visual Studio 2022, or TypeScriptAnalyzerEslint.sln for Visual Studio 2019.  Both of these files are in the root folder.  The TypeScript Analyzer cannot be run in debug from Visual Studio 2017.
 
 Now ensure TypeScriptAnalyzerESlintVsix64 is your startup project in VS2022, or TypeScriptAnalyzerEslintVsix in VS2019.  
