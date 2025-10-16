@@ -85,7 +85,7 @@
       <Version>2.2.8</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
+      <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="StreamJsonRpc">
       <Version>2.9.85</Version>
