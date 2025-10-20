@@ -47,10 +47,10 @@
       <Version>16.0.206</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
-      <Version>2.2.7</Version>
+      <Version>3.11.0</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
-      <Version>2.2.7</Version>
+      <Version>3.11.0</Version>
     </PackageReference>
     <PackageReference Include="StreamJsonRpc">
       <Version>2.3.99</Version>
@@ -81,7 +81,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
+      <Version>13.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +93,9 @@
       <Project>{f541d968-0fc8-4ad3-9693-6169f47399f0}</Project>
       <Name>TypeScriptAnalyzerEslintVsix</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="..\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems" Label="Shared" />
   <Choose>
