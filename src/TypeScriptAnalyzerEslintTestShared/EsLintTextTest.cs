@@ -22,9 +22,9 @@ debugger;
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\a.ts") }, new string[] { }
                 , text, false);
             Assert.IsTrue(result.HasErrors);
-            Assert.AreEqual(1, result.Errors.Count);
+            Assert.HasCount(1, result.Errors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.IsTrue(result.Errors.First().FileName.EndsWith(@"eslint\a.ts"));
+            Assert.EndsWith(@"eslint\a.ts", result.Errors.First().FileName);
             Assert.AreEqual(1, result.Errors.First().LineNumber);
             Assert.AreEqual("Unexpected 'debugger' statement.", result.Errors.First().Message);
         }
@@ -51,11 +51,11 @@ const baz = foo!";
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(6, result.Errors.Count);  // The underlying file has 3 errors, text above has 6
+            Assert.HasCount(6, result.Errors);  // The underlying file has 3 errors, text above has 6
 
             // Should have 6 errors, one of them our no-unnecessary-type-assertion
             IList<LintingError> file2Errors = GetErrorsForFile("file2.ts", result.Errors);
-            Assert.IsTrue(file2Errors.Count == 6);
+            Assert.HasCount(6, file2Errors);
             LintingError noUnnecessaryTypeAssertionError = file2Errors.First(le => 
                 le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
             Assert.IsNotNull(noUnnecessaryTypeAssertionError);

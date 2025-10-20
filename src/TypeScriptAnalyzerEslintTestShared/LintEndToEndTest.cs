@@ -95,7 +95,7 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsTrue(hasVSErrors); // By default ESLint errors are also VS errors now
                 Assert.IsTrue(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(10, mockErrorListDataSource.Snapshots.Count);
+                Assert.HasCount(10, mockErrorListDataSource.Snapshots);
 
                 // See LintFileLocationsTest.GetLintFilesForSolutionIncludeNested
                 //string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\react-dom.d.ts");
@@ -143,7 +143,7 @@ namespace TypeScriptAnalyzerEslintTest
                 Assert.AreEqual(2, lintingError.EndLineNumber);
                 Assert.AreEqual(20, lintingError.EndColumnNumber);
                 Assert.AreEqual("https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md", lintingError.HelpLink);
-                Assert.IsTrue(lintingError.ErrorType == LintingErrorType.Error);
+                Assert.AreEqual(LintingErrorType.Error, lintingError.ErrorType);
                 Assert.IsFalse(lintingError.IsBuildError);
                 Assert.AreEqual("eslint", lintingError.Provider.Name);
             }
@@ -173,7 +173,7 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsTrue(hasVSErrors);
                 Assert.IsTrue(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(9, mockErrorListDataSource.Snapshots.Count);
+                Assert.HasCount(9, mockErrorListDataSource.Snapshots);
 
                 // Note file5 is referenced by a tsconfig that isn't in the project, so doesn't get included
                 string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\file1.ts");

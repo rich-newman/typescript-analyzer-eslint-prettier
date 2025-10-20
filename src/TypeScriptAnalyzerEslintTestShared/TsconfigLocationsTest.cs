@@ -88,7 +88,7 @@ namespace TypeScriptAnalyzerEslintTest
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\file1.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
-            Assert.AreEqual(1, result.Length);
+            Assert.HasCount(1, result);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\tsconfig.json");
             Assert.AreEqual(expected, result[0]);
         }
@@ -99,7 +99,7 @@ namespace TypeScriptAnalyzerEslintTest
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\test.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
-            Assert.AreEqual(1, result.Length);
+            Assert.HasCount(1, result);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfig.json");
             Assert.AreEqual(expected, result[0]);
         }
@@ -110,7 +110,7 @@ namespace TypeScriptAnalyzerEslintTest
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\file10.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
-            Assert.AreEqual(2, result.Length);
+            Assert.HasCount(2, result);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             Assert.IsTrue(result.Contains(expected1));
             string expected2 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
@@ -124,7 +124,7 @@ namespace TypeScriptAnalyzerEslintTest
             // Note folder c contains a tsconfig.json reference in VS that doesn't exist on disk: we don't want to try to lint this
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
-            Assert.AreEqual(1, result.Length);
+            Assert.HasCount(1, result);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\tsconfig.json");
             Assert.AreEqual(expected, result[0]);
         }
@@ -137,7 +137,7 @@ namespace TypeScriptAnalyzerEslintTest
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\b\file2.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
             //Assert.IsNull(result);
-            Assert.AreEqual(1, result.Length);
+            Assert.HasCount(1, result);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\b\tsconfig.json");
             Assert.AreEqual(expected, result[0]);
         }
@@ -155,12 +155,12 @@ namespace TypeScriptAnalyzerEslintTest
             string expectedConfig3 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\b\tsconfig.json");
             string expectedConfig4 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             string expectedConfig5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
-            Assert.AreEqual(5, results.Count);
-            Assert.IsTrue(results.Contains(expectedConfig1));
-            Assert.IsTrue(results.Contains(expectedConfig2));
-            Assert.IsTrue(results.Contains(expectedConfig3));
-            Assert.IsTrue(results.Contains(expectedConfig4));
-            Assert.IsTrue(results.Contains(expectedConfig5));
+            Assert.HasCount(5, results);
+            Assert.Contains(expectedConfig1, results);
+            Assert.Contains(expectedConfig2, results);
+            Assert.Contains(expectedConfig3, results);
+            Assert.Contains(expectedConfig4, results);
+            Assert.Contains(expectedConfig5, results);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -179,13 +179,13 @@ namespace TypeScriptAnalyzerEslintTest
             string expectedConfig5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
             // With EnableIgnore false the tsconfig in node_modules is included and will be linted
             string expectedConfig6 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\node_modules\tsconfig.json");
-            Assert.AreEqual(6, results.Count);
-            Assert.IsTrue(results.Contains(expectedConfig1));
-            Assert.IsTrue(results.Contains(expectedConfig2));
-            Assert.IsTrue(results.Contains(expectedConfig3));
-            Assert.IsTrue(results.Contains(expectedConfig4));
-            Assert.IsTrue(results.Contains(expectedConfig5));
-            Assert.IsTrue(results.Contains(expectedConfig6));
+            Assert.HasCount(6, results);
+            Assert.Contains(expectedConfig1, results);
+            Assert.Contains(expectedConfig2, results);
+            Assert.Contains(expectedConfig3, results);
+            Assert.Contains(expectedConfig4, results);
+            Assert.Contains(expectedConfig5, results);
+            Assert.Contains(expectedConfig6, results);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -200,7 +200,7 @@ namespace TypeScriptAnalyzerEslintTest
             HashSet<string> results = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             TsconfigLocations.FindTsconfigsInProject(project, results);
             Assert.IsNotNull(results);
-            Assert.AreEqual(0, results.Count);
+            Assert.IsEmpty(results);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -221,10 +221,10 @@ namespace TypeScriptAnalyzerEslintTest
 
             // Assert
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\tsconfig.json");
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.IsTrue(results.Contains(expected));
             // We do create the map for selected individual files
-            Assert.AreEqual(1, fileToProjectMap.Keys.Count);
+            Assert.HasCount(1, fileToProjectMap.Keys);
             Assert.AreEqual("tsconfigTest", fileToProjectMap[mainFile4FullName]);
         }
 
@@ -243,10 +243,10 @@ namespace TypeScriptAnalyzerEslintTest
             string[] results = TsconfigLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
             string expected = mainProjectTsconfigFullName;
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.IsTrue(results.Contains(expected));
             // If we lint having selected a tsconfig we don't search the project structure pre-lint, so can't construct the map
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -263,8 +263,8 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = TsconfigLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(0, results.Length);
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(results);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -282,13 +282,13 @@ namespace TypeScriptAnalyzerEslintTest
             string expectedConfig3 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\b\tsconfig.json");
             string expectedConfig4 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             string expectedConfig5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
-            Assert.AreEqual(5, results.Length);
+            Assert.HasCount(5, results);
             Assert.IsTrue(results.Contains(expectedConfig1));
             Assert.IsTrue(results.Contains(expectedConfig2));
             Assert.IsTrue(results.Contains(expectedConfig3));
             Assert.IsTrue(results.Contains(expectedConfig4));
             Assert.IsTrue(results.Contains(expectedConfig5));
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -309,13 +309,13 @@ namespace TypeScriptAnalyzerEslintTest
             string expected3 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\b\tsconfig.json");
             string expected4 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             string expected5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
-            Assert.AreEqual(5, results.Length);
+            Assert.HasCount(5, results);
             Assert.IsTrue(results.Contains(expected1));
             Assert.IsTrue(results.Contains(expected2));
             Assert.IsTrue(results.Contains(expected3));
             Assert.IsTrue(results.Contains(expected4));
             Assert.IsTrue(results.Contains(expected5));
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -348,10 +348,10 @@ namespace TypeScriptAnalyzerEslintTest
             string[] results = TsconfigLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\tsconfig.json");
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.IsTrue(results.Contains(expected));
             // We create the fileToProjectMap for single selected files only, which is what we have here
-            Assert.AreEqual(2, fileToProjectMap.Keys.Count);
+            Assert.HasCount(2, fileToProjectMap.Keys);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\file1.ts");
             string expected2 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Assert.AreEqual("tsconfigTest", fileToProjectMap[expected1]);
@@ -369,12 +369,12 @@ namespace TypeScriptAnalyzerEslintTest
             string expected3 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\b\tsconfig.json");
             string expected4 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             string expected5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
-            Assert.AreEqual(5, results.Count);
-            Assert.IsTrue(results.Contains(expected1));
-            Assert.IsTrue(results.Contains(expected2));
-            Assert.IsTrue(results.Contains(expected3));
-            Assert.IsTrue(results.Contains(expected4));
-            Assert.IsTrue(results.Contains(expected5));
+            Assert.HasCount(5, results);
+            Assert.Contains(expected1, results);
+            Assert.Contains(expected2, results);
+            Assert.Contains(expected3, results);
+            Assert.Contains(expected4, results);
+            Assert.Contains(expected5, results);
         }
 
         public static Project FindProject(string projectFullName, Solution solution)
@@ -426,10 +426,10 @@ namespace TypeScriptAnalyzerEslintTest
             // Assert
             // tsconfig in results, original file in fileToProjectMap
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\tsconfig.json");
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.IsTrue(results.Contains(expected));
             // We do create the map for selected individual files
-            Assert.AreEqual(1, fileToProjectMap.Keys.Count);
+            Assert.HasCount(1, fileToProjectMap.Keys);
             Assert.IsTrue(fileToProjectMap.Keys.Contains(path));
             Assert.AreEqual("", fileToProjectMap[path]);
         }
@@ -453,14 +453,14 @@ namespace TypeScriptAnalyzerEslintTest
             string expected3 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\b\tsconfig.json");
             string expected4 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.json");
             string expected5 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\tsconfig.app.json");
-            Assert.AreEqual(5, results.Length);
+            Assert.HasCount(5, results);
             Assert.IsTrue(results.Contains(expected1));
             Assert.IsTrue(results.Contains(expected2));
             Assert.IsTrue(results.Contains(expected3));
             Assert.IsTrue(results.Contains(expected4));
             Assert.IsTrue(results.Contains(expected5));
 
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
@@ -477,10 +477,10 @@ namespace TypeScriptAnalyzerEslintTest
 
             // Assert
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfig.json");
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.IsTrue(results.Contains(expected));
 
-            Assert.AreEqual(0, fileToProjectMap.Keys.Count);
+            Assert.IsEmpty(fileToProjectMap.Keys);
         }
     }
 }

@@ -81,11 +81,10 @@ namespace TypeScriptAnalyzerEslintTest
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             UIHierarchyItem[] results = BuildSelectedItems.Get(isBuildingSolution: true);
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Solution solutionObject = results[0].Object as Solution;
             Assert.IsNotNull(solutionObject);
-            Assert.IsTrue(solutionObject.FullName
-                .EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\multiple.sln"));
+            Assert.EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\multiple.sln", solutionObject.FullName);
         }
 
         [TestMethod, TestCategory("Build Selected Items")]
@@ -101,11 +100,11 @@ namespace TypeScriptAnalyzerEslintTest
 
             UIHierarchyItem[] results = BuildSelectedItems.MapToProjects(new UIHierarchyItem[] { mockProjectItemHierarchyItem }).ToArray();
 
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Project projectObject = results[0].Object as Project;
             Assert.IsNotNull(projectObject);
-            Assert.IsTrue(projectObject.FullName
-                .EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj"));
+            Assert.EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj", projectObject.FullName
+);
         }
 
         [TestMethod, TestCategory("Build Selected Items")]
@@ -124,11 +123,11 @@ namespace TypeScriptAnalyzerEslintTest
             UIHierarchyItem[] results = BuildSelectedItems.MapToProjects(
                 new UIHierarchyItem[] { mockProjectItemHierarchyItemA, mockProjectItemHierarchyItemAA }).ToArray();
 
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Project projectObject = results[0].Object as Project;
             Assert.IsNotNull(projectObject);
-            Assert.IsTrue(projectObject.FullName
-                .EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj"));
+            Assert.EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj", projectObject.FullName
+);
         }
 
         [TestMethod, TestCategory("Build Selected Items")]
@@ -147,15 +146,15 @@ namespace TypeScriptAnalyzerEslintTest
             UIHierarchyItem[] results = BuildSelectedItems.MapToProjects(
                 new UIHierarchyItem[] { mockProjectItemHierarchyItemA, mockProjectItemHierarchyItemB }).ToArray();
 
-            Assert.AreEqual(2, results.Length);
+            Assert.HasCount(2, results);
             Project projectObject = results[0].Object as Project;
             Assert.IsNotNull(projectObject);
-            Assert.IsTrue(projectObject.FullName
-                .EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj"));
+            Assert.EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\a\\a.csproj", projectObject.FullName
+);
             Project projectObject2 = results[1].Object as Project;
             Assert.IsNotNull(projectObject2);
-            Assert.IsTrue(projectObject2.FullName
-                .EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\b\\b.csproj"));
+            Assert.EndsWith("\\src\\TypeScriptAnalyzerEslintTestShared\\artifacts\\localinstall\\multiple\\b\\b.csproj", projectObject2.FullName
+);
         }
 
 
@@ -172,7 +171,7 @@ namespace TypeScriptAnalyzerEslintTest
 
             UIHierarchyItem[] results = BuildSelectedItems.MapToProjects(new UIHierarchyItem[] { mockProjectItemHierarchyItem }).ToArray();
 
-            Assert.AreEqual(0, results.Length);
+            Assert.IsEmpty(results);
         }
     }
 }

@@ -68,27 +68,27 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK">
-      <Version>17.1.32210.191</Version>
+      <Version>18.0.42242</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Sdk.TestFramework">
-      <Version>17.0.15</Version>
+      <Version>17.11.72</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>17.1.4054</Version>
+      <Version>18.3.28</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
-      <Version>2.2.8</Version>
+      <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
-      <Version>2.2.8</Version>
+      <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="StreamJsonRpc">
-      <Version>2.9.85</Version>
+      <Version>2.23.115</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +103,9 @@
       <Project>{3b2bd3b3-d42e-452d-8ab3-3b5b50187d25}</Project>
       <Name>TypeScriptAnalyzerEslintVsix64</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="..\TypeScriptAnalyzerEslintTestShared\TypeScriptAnalyzerEslintTestShared.projitems" Label="Shared" />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -91,11 +91,11 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsTrue(hasVSErrors);
                 Assert.IsTrue(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(1, mockErrorListDataSource.Snapshots.Count);
+                Assert.HasCount(1, mockErrorListDataSource.Snapshots);
 
                 CollectionAssert.AreEquivalent(new string[] { "eslint" }, mockErrorListDataSource.Snapshots.Keys.ToArray());
                 var actualMsg = mockErrorListDataSource.Snapshots["eslint"].Select(e => e.Message).First();
-                Assert.IsTrue(actualMsg.StartsWith("ESLint webserver error. For more details see Output window: Cannot read config file:"));
+                Assert.StartsWith("ESLint webserver error. For more details see Output window: Cannot read config file:", actualMsg);
             }
             finally
             {

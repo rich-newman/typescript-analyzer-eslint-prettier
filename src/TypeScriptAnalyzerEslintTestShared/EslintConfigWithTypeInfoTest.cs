@@ -92,12 +92,12 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsTrue(hasVSErrors);
                 Assert.IsTrue(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(1, mockErrorListDataSource.Snapshots.Count);
+                Assert.HasCount(1, mockErrorListDataSource.Snapshots);
 
                 CollectionAssert.AreEquivalent(new string[] { "eslint" }, mockErrorListDataSource.Snapshots.Keys.ToArray());
                 var actualMsg = mockErrorListDataSource.Snapshots["eslint"].Select(e => e.Message).First();
-                Assert.IsTrue(actualMsg.StartsWith("ESLint webserver error caused by a rule included in config that " +
-                    "needs type information"));
+                Assert.StartsWith("ESLint webserver error caused by a rule included in config that " +
+                    "needs type information", actualMsg);
             }
             finally
             {
@@ -126,7 +126,7 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsTrue(hasVSErrors);
                 Assert.IsTrue(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(1, mockErrorListDataSource.Snapshots.Count);
+                Assert.HasCount(1, mockErrorListDataSource.Snapshots);
 
                 string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"bad-eslint-config-typeinfo\badtest.ts");
                 Assert.AreEqual(expected, mockErrorListDataSource.Snapshots.Keys.First());

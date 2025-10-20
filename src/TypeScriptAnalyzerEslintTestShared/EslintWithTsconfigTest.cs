@@ -36,17 +36,17 @@ namespace TypeScriptAnalyzerEslintTest
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(378, result.Errors.Count);
+            Assert.HasCount(378, result.Errors);
 
             // file3.ts is excluded from this tsconfig.json, in spite of being in the VS project.
             // It has errors but they shouldn't appear here
             IList<LintingError> file3Errors = GetErrorsForFile("file3.ts", result.Errors);
-            Assert.IsTrue(file3Errors.Count == 0);
+            Assert.IsEmpty(file3Errors);
 
             // file2.ts is the reverse of the above: it's included in the tsconfig.json file, but is not in the VS project
             // It should have 3 errors, one of them our no-unnecessary-type-assertion
             IList<LintingError> file2Errors = GetErrorsForFile("file2.ts", result.Errors);
-            Assert.IsTrue(file2Errors.Count == 3);
+            Assert.HasCount(3, file2Errors);
             LintingError noUnnecessaryTypeAssertionError = file2Errors.First(le => le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
             Assert.IsNotNull(noUnnecessaryTypeAssertionError);
             Assert.AreEqual(2, noUnnecessaryTypeAssertionError.LineNumber);
@@ -67,10 +67,10 @@ namespace TypeScriptAnalyzerEslintTest
             // Assert
             // file2 is in both tsconfigs.  It has 3 errors.  With the old code we got duplicates in the Error List, and here.
             Assert.IsNotNull(result);
-            Assert.AreEqual(380, result.Errors.Count);
+            Assert.HasCount(380, result.Errors);
 
             IList<LintingError> file2Errors = GetErrorsForFile("file2.ts", result.Errors);
-            Assert.IsTrue(file2Errors.Count == 3);
+            Assert.HasCount(3, file2Errors);
             LintingError noUnnecessaryTypeAssertionError = file2Errors.First(le => le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
             Assert.IsNotNull(noUnnecessaryTypeAssertionError);
             Assert.AreEqual(2, noUnnecessaryTypeAssertionError.LineNumber);
@@ -95,35 +95,35 @@ namespace TypeScriptAnalyzerEslintTest
             // Assert
             // file2 is in both tsconfigs.  It has 4 errors.  With the old code we got 8 in the Error List, and here.
             Assert.IsNotNull(result);
-            Assert.AreEqual(382, result.Errors.Count);
+            Assert.HasCount(382, result.Errors);
 
             IList<LintingError> file1Errors = GetErrorsForFile("file1.ts", result.Errors);
-            Assert.IsTrue(file1Errors.Count == 2);
+            Assert.HasCount(2, file1Errors);
 
             IList<LintingError> file2Errors = GetErrorsForFile("file2.ts", result.Errors);
-            Assert.IsTrue(file2Errors.Count == 3);
+            Assert.HasCount(3, file2Errors);
             LintingError noUnnecessaryTypeAssertionError = file2Errors.First(le => le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
             Assert.IsNotNull(noUnnecessaryTypeAssertionError);
             Assert.AreEqual(2, noUnnecessaryTypeAssertionError.LineNumber);
             Assert.AreEqual(12, noUnnecessaryTypeAssertionError.ColumnNumber);
 
             IList<LintingError> file3Errors = GetErrorsForFile("file3.ts", result.Errors);
-            Assert.IsTrue(file3Errors.Count == 2);
+            Assert.HasCount(2, file3Errors);
 
             IList<LintingError> file4Errors = GetErrorsForFile("file4.ts", result.Errors);
-            Assert.IsTrue(file4Errors.Count == 2);
+            Assert.HasCount(2, file4Errors);
 
             IList<LintingError> file5Errors = GetErrorsForFile("file5.ts", result.Errors);
-            Assert.IsTrue(file5Errors.Count == 2);
+            Assert.HasCount(2, file5Errors);
 
             IList<LintingError> file6TsxErrors = GetErrorsForFile("file6.tsx", result.Errors);
-            Assert.IsTrue(file6TsxErrors.Count == 3);
+            Assert.HasCount(3, file6TsxErrors);
 
             IList<LintingError> file7NestedErrors = GetErrorsForFile("file7.ts", result.Errors);
-            Assert.IsTrue(file7NestedErrors.Count == 2);
+            Assert.HasCount(2, file7NestedErrors);
 
             IList<LintingError> testErrors = GetErrorsForFile("test.ts", result.Errors);
-            Assert.IsTrue(testErrors.Count == 3);
+            Assert.HasCount(3, testErrors);
         }
 
         private IList<LintingError> GetErrorsForFile(string fileName, IEnumerable<LintingError> allErrors)

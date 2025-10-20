@@ -88,7 +88,7 @@ namespace TypeScriptAnalyzerEslintTest
                            new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(1, result.Errors.Count);
+            Assert.HasCount(1, result.Errors);
             Assert.AreEqual(@"prettier/prettier", result.Errors.ElementAt(0).ErrorCode);
             Assert.AreEqual(@"Replace `'Hello·world')␍⏎` with `""Hello·world"");`", result.Errors.ElementAt(0).Message);
         }
@@ -123,7 +123,7 @@ namespace TypeScriptAnalyzerEslintTest
                            new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(1, result.Errors.Count);
+            Assert.HasCount(1, result.Errors);
             Assert.AreEqual(@"prettier/prettier", result.Errors.ElementAt(0).ErrorCode);
             Assert.AreEqual(@"Replace `'Hello·world')␍⏎` with `""Hello·world"");`", result.Errors.ElementAt(0).Message);
         }
@@ -139,10 +139,9 @@ namespace TypeScriptAnalyzerEslintTest
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localconfig\broken\test.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(1, result.Errors.Count);
+            Assert.HasCount(1, result.Errors);
             Assert.AreEqual(@"eslint", result.Errors.ElementAt(0).ErrorCode);
-            Assert.IsTrue(result.Errors.ElementAt(0).Message.StartsWith(
-                @"ESLint webserver error. For more details see Output window: Cannot read config file"));
+            Assert.StartsWith(@"ESLint webserver error. For more details see Output window: Cannot read config file", result.Errors.ElementAt(0).Message);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace TypeScriptAnalyzerEslintTest
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(11, result.Errors.Count);
+            Assert.HasCount(11, result.Errors);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.First().Message);
         }
 
@@ -38,7 +38,7 @@ namespace TypeScriptAnalyzerEslintTest
                     .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\aTest.ts") }, new string[] { });
                 Assert.IsTrue(result.HasErrors);
                 Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-                Assert.AreEqual(5, result.Errors.Count);
+                Assert.HasCount(5, result.Errors);
                 Assert.AreEqual("Expected '===' and instead saw '=='.", result.Errors.First().Message);
                 string actual = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\aTest.ts"));
                 string expected = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\aFixed.ts"));
@@ -60,7 +60,7 @@ namespace TypeScriptAnalyzerEslintTest
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\e.ts") }, new string[] { });
             Assert.IsFalse(result.HasErrors);
-            Assert.AreEqual(0, result.Errors.Count);
+            Assert.IsEmpty(result.Errors);
             Assert.IsFalse(string.IsNullOrEmpty(result.FileNames.First()), "File name is empty");
         }
 
@@ -72,7 +72,7 @@ namespace TypeScriptAnalyzerEslintTest
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\c.tsx") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(3, result.Errors.Count);
+            Assert.HasCount(3, result.Errors);
             Assert.AreEqual("Missing return type on function.", result.Errors.First().Message);
         }
 
@@ -87,7 +87,7 @@ namespace TypeScriptAnalyzerEslintTest
                 LintingResult result = await new Linter(MockSettings.Instance, true)
                     .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\cTest.tsx") }, new string[] { });
                 Assert.IsTrue(result.HasErrors);
-                Assert.AreEqual(2, result.Errors.Count);
+                Assert.HasCount(2, result.Errors);
                 string actual = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\cTest.tsx"));
                 string expected = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\cFixed.tsx"));
                 Assert.AreEqual(expected, actual);
@@ -105,7 +105,7 @@ namespace TypeScriptAnalyzerEslintTest
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\d.tsx") }, new string[] { });
             Assert.IsFalse(result.HasErrors);
-            Assert.AreEqual(0, result.Errors.Count);
+            Assert.IsEmpty(result.Errors);
             Assert.IsFalse(string.IsNullOrEmpty(result.FileNames.First()), "File name is empty");
         }
 

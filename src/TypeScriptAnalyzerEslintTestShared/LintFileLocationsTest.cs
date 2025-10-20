@@ -84,7 +84,7 @@ namespace TypeScriptAnalyzerEslintTest
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
             string[] results = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(11, results.Length);
+            Assert.HasCount(11, results);
 
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\react-dom.d.ts");
             string expected2 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\react.d.ts");
@@ -110,7 +110,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(results.Contains(expected10)); // file7 nested, but included
             Assert.IsTrue(results.Contains(expected11)); // file7 nested, but included
 
-            Assert.AreEqual(11, fileToProjectMap.Keys.Count);
+            Assert.HasCount(11, fileToProjectMap.Keys);
             Assert.AreEqual("tsconfigTest", fileToProjectMap[expected1]);
             Assert.AreEqual("tsconfigTest", fileToProjectMap[expected2]);
             Assert.AreEqual("tsconfigTest", fileToProjectMap[expected3]);
@@ -137,11 +137,11 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\b\file5.ts");
             Assert.IsTrue(results.Contains(expected1));
-            Assert.AreEqual(1, fileToProjectMap.Keys.Count);
-            Assert.AreEqual(fileToProjectMap[expected1], "tsconfigEmptyTest");
+            Assert.HasCount(1, fileToProjectMap.Keys);
+            Assert.AreEqual("tsconfigEmptyTest", fileToProjectMap[expected1]);
         }
 
         [TestMethod, TestCategory("Lint File Locations")]
@@ -159,10 +159,10 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             Assert.AreEqual(projectItemFullName, results[0]);
-            Assert.AreEqual(1, fileToProjectMap.Keys.Count);
-            Assert.AreEqual(fileToProjectMap[projectItemFullName], "tsconfigTest");
+            Assert.HasCount(1, fileToProjectMap.Keys);
+            Assert.AreEqual("tsconfigTest", fileToProjectMap[projectItemFullName]);
         }
 
         // ESLint ignores the node_modules folder completely (unless you pass no-ignore), so we don't want our code to find all those files
@@ -180,11 +180,11 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(10, results.Length);
+            Assert.HasCount(10, results);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Assert.IsTrue(results.Contains(expected1));
-            Assert.AreEqual(10, fileToProjectMap.Keys.Count);
-            Assert.AreEqual(fileToProjectMap[expected1], "tsconfigTest");
+            Assert.HasCount(10, fileToProjectMap.Keys);
+            Assert.AreEqual("tsconfigTest", fileToProjectMap[expected1]);
             string notExpected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(),
                 @"tsconfig\multiple\node_modules\d\filenm5.ts");
             Assert.IsTrue(File.Exists(notExpected1));
@@ -211,11 +211,11 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItems(selectedItems, fileToProjectMap);
 
-            Assert.AreEqual(12, results.Length);
+            Assert.HasCount(12, results);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Assert.IsTrue(results.Contains(expected1));
-            Assert.AreEqual(12, fileToProjectMap.Keys.Count);
-            Assert.AreEqual(fileToProjectMap[expected1], "tsconfigTest");
+            Assert.HasCount(12, fileToProjectMap.Keys);
+            Assert.AreEqual("tsconfigTest", fileToProjectMap[expected1]);
             string expected2 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(),
                 @"tsconfig\multiple\node_modules\d\filenm5.ts");
             Assert.IsTrue(results.Contains(expected2));
@@ -234,11 +234,11 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItemInFolderView(path, fileToProjectMap);
 
-            Assert.AreEqual(1, results.Length);
+            Assert.HasCount(1, results);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Assert.IsTrue(results.Contains(expected1));
-            Assert.AreEqual(1, fileToProjectMap.Keys.Count);
-            Assert.AreEqual(fileToProjectMap[expected1], "");
+            Assert.HasCount(1, fileToProjectMap.Keys);
+            Assert.AreEqual("", fileToProjectMap[expected1]);
         }
 
         [TestMethod, TestCategory("Lint File Locations")]
@@ -250,8 +250,8 @@ namespace TypeScriptAnalyzerEslintTest
 
             string[] results = LintFileLocations.FindPathsFromSelectedItemInFolderView(path, fileToProjectMap);
 
-            Assert.AreEqual(10, results.Length);
-            Assert.AreEqual(10, fileToProjectMap.Keys.Count);
+            Assert.HasCount(10, results);
+            Assert.HasCount(10, fileToProjectMap.Keys);
 
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\react-dom.d.ts");
             string expected2 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\react.d.ts");
@@ -280,7 +280,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(results.Contains(expected11));
             Assert.IsTrue(results.Contains(expected12));
 
-            Assert.AreEqual(fileToProjectMap[expected1], "");
+            Assert.AreEqual("", fileToProjectMap[expected1]);
         }
     }
 }

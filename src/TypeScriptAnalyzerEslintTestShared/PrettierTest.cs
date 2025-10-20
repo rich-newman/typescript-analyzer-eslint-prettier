@@ -37,7 +37,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(result.HasErrors);
             Assert.IsTrue(HasPrettierErrors(result.Errors));
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(19, result.Errors.Count);
+            Assert.HasCount(19, result.Errors);
             Assert.AreEqual("no-var", result.Errors.ElementAt(0).ErrorCode);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.ElementAt(0).Message);
             Assert.AreEqual("prettier/prettier", result.Errors.ElementAt(1).ErrorCode);
@@ -55,7 +55,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(HasPrettierErrors(result.Errors));
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(11, result.Errors.Count);
+            Assert.HasCount(11, result.Errors);
             Assert.AreEqual("no-var", result.Errors.First().ErrorCode);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.First().Message);
         }
@@ -76,7 +76,7 @@ namespace TypeScriptAnalyzerEslintTest
                 Assert.IsTrue(result.HasErrors);
                 Assert.IsFalse(HasPrettierErrors(result.Errors)); // They should have all be fixed
                 Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-                Assert.AreEqual(5, result.Errors.Count);
+                Assert.HasCount(5, result.Errors);
                 Assert.AreEqual("Expected '===' and instead saw '=='.", result.Errors.First().Message);
                 string actual = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"prettier\aTest.ts"));
                 string expected = File.ReadAllText(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"prettier\aFixed.ts"));
@@ -101,7 +101,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(result.HasErrors);
             Assert.IsTrue(HasPrettierErrors(result.Errors));
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.AreEqual(5, result.Errors.Count);
+            Assert.HasCount(5, result.Errors);
             LintingError noUnnecessaryTypeAssertionError = result.Errors.First(le =>
                 le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
             Assert.IsNotNull(noUnnecessaryTypeAssertionError);
@@ -123,7 +123,7 @@ namespace TypeScriptAnalyzerEslintTest
                 Assert.IsTrue(result.HasErrors);
                 Assert.IsFalse(HasPrettierErrors(result.Errors));  // Have been fixed
                 Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-                Assert.AreEqual(1, result.Errors.Count);
+                Assert.HasCount(1, result.Errors);
                 bool errorExists = result.Errors.Any(le =>
                     le.ErrorCode == "@typescript-eslint/no-unnecessary-type-assertion");
                 Assert.IsFalse(errorExists); // Has been fixed

@@ -92,7 +92,7 @@ namespace TypeScriptAnalyzerEslintTest
 
                 Assert.IsFalse(hasVSErrors);
                 Assert.IsFalse(mockErrorListDataSource.HasErrors());
-                Assert.AreEqual(0, mockErrorListDataSource.Snapshots.Count);
+                Assert.IsEmpty(mockErrorListDataSource.Snapshots);
             }
             finally
             {
