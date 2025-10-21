@@ -16,6 +16,8 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class ParserTest
     {
+        public TestContext TestContext { get; set; } = null;
+
         [TestMethod, TestCategory("Parser")]
         public async Task ParserNotSpecified()
         {
@@ -23,7 +25,7 @@ namespace TypeScriptAnalyzerEslintTest
             // provided in the TypeScript Analyzer installation: that is it should be able to parse our a.ts file containing TypeScript.
             // It was this breaking Feb 2024 after the release of v6.0.0 of @typescript-eslint that lead to these tests being added.
             // Note that we do this by setting options.baseConfig in server.js, the webserver code
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"parser\parsernotspecified\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -40,7 +42,7 @@ namespace TypeScriptAnalyzerEslintTest
         public async Task ParserIncorrectlySpecified()
         {
             // If we specify a parser in .eslintrc.js but we don't include a correct path we should error with an appropriate message
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"parser\parserincorrectlyspecified\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -53,7 +55,7 @@ namespace TypeScriptAnalyzerEslintTest
         public async Task EspreeParserSpecified()
         {
             // .eslintrc.js specifies the espree parser, which can't deal with TypeScript syntax so we should get errors re our a.ts file
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"parser\espreeparserspecified\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -68,7 +70,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             // .eslintrc.js specifically specifies the typescript-eslint parser, by path, and we should get the same results as ParserNotSpecified
             // above, which defaults to the same parser
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"parser\typescriptparserspecified\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);

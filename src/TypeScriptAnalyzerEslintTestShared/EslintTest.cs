@@ -13,10 +13,12 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class ESLintTest
     {
+        public TestContext TestContext { get; set; } = null;
+
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTs()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -28,7 +30,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTsFixErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 File.Copy(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\a.ts"),
@@ -56,7 +58,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTsNoErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\e.ts") }, new string[] { });
             Assert.IsFalse(result.HasErrors);
@@ -67,7 +69,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTsx()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\c.tsx") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -79,7 +81,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTsxFixErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 File.Copy(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\c.tsx"),
@@ -101,7 +103,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task StandardTsxNoErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\d.tsx") }, new string[] { });
             Assert.IsFalse(result.HasErrors);
@@ -112,7 +114,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task TsFileNotExist()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\doesntexist.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
@@ -121,7 +123,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint")]
         public async Task TsxFileNotExist()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             LintingResult result = await new Linter(MockSettings.Instance)
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\doesntexist.tsx") }, new string[] { });
             Assert.IsTrue(result.HasErrors);

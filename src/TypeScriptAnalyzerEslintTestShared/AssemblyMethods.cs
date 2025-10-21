@@ -5,7 +5,7 @@ using TypeScriptAnalyzerEslintLinter;
 namespace TypeScriptAnalyzerEslintTest
 {
     [TestClass]
-    public class AssemblyMethods
+    public static class AssemblyMethods
     {
         internal static GlobalServiceProvider MockServiceProvider { get; private set; }
 

@@ -120,7 +120,7 @@ namespace TypeScriptAnalyzerEslintLinter
         private async Task ParseEslintErrorsAsync(JArray array, bool isCalledFromBuild)
         {
             bool hasVSErrors = false;
-            foreach (JObject obj in array)
+            foreach (JObject obj in array.Cast<JObject>())
             {
                 string fileName = obj["filePath"]?.Value<string>().Replace("/", "\\");
                 if (string.IsNullOrEmpty(fileName)) continue;

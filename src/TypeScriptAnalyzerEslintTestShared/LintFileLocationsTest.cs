@@ -21,16 +21,17 @@ namespace TypeScriptAnalyzerEslintTest
         private static EnvDTE.Solution solution = null;
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(testContext); });
         }
 
-        public static async Task ClassInitializeAsync()
+        public static async Task ClassInitializeAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             MessageFilter.Register();
             Type type = System.Type.GetTypeFromProgID(VisualStudioVersion.ProgID);
             object inst = System.Activator.CreateInstance(type, true);
@@ -59,15 +60,19 @@ namespace TypeScriptAnalyzerEslintTest
             settings.EnableIgnore = true;
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             if (solution != null) { solution.Close(); solution = null; }
             dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Settings = null;
@@ -78,7 +83,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForSolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             MockUIHierarchyItem mockSolutionHierarchyItem = new MockUIHierarchyItem() { Object = solution };
             UIHierarchyItem[] selectedItems = new UIHierarchyItem[] { mockSolutionHierarchyItem };
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
@@ -128,7 +133,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForProject()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\tsconfigEmptyTest.csproj");
             Project project = TsconfigLocationsTest.FindProject(projectFullName, solution);
             MockUIHierarchyItem mockSolutionHierarchyItem = new MockUIHierarchyItem() { Object = project };
@@ -147,7 +152,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForSingleItem()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\file1.ts");
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project project = TsconfigLocationsTest.FindProject(projectFullName, solution);
@@ -170,7 +175,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForProjectWithNodeModules()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(),
                 @"tsconfig\multiple\tsconfigTest.csproj");
             Project project = TsconfigLocationsTest.FindProject(projectFullName, solution);
@@ -199,7 +204,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForProjectWithNodeModulesDisableIgnore()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(),
                 @"tsconfig\multiple\tsconfigTest.csproj");
             Project project = TsconfigLocationsTest.FindProject(projectFullName, solution);
@@ -228,7 +233,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForSingleFileInFolderView()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string path = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
 
@@ -244,7 +249,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint File Locations")]
         public async Task GetLintFilesForFolderInFolderView()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string path = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple");
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
 

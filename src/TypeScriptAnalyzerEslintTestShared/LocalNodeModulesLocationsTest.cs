@@ -11,6 +11,8 @@ namespace TypeScriptAnalyzerEslintTest
     {
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -31,7 +33,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task InProjectFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\b\b.csproj");
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\b");
@@ -41,7 +43,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task InParentFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\a.csproj");
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple");
@@ -51,7 +53,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task InSolutionFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\multiple.sln");
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
             string expected = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple");
@@ -61,7 +63,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task InNoLocalFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 // If we install ESLint at the solution root for linting the Analyzer solution it becomes a valid local install for
@@ -92,7 +94,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task LocalNodeModulesDisabledInProjectFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\b\b.csproj");
             settings.EnableLocalNodeModules = false;
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);
@@ -102,7 +104,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local Node Module Locations")]
         public async Task LocalNodeModulesDisabledInParentFolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\a.csproj");
             settings.EnableLocalNodeModules = false;
             string result = LocalNodeModulesLocations.FindLocalInstallFromPath(projectItemFullName);

@@ -25,16 +25,17 @@ namespace TypeScriptAnalyzerEslintTest
         private static Solution solution = null;
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(testContext); });
         }
 
-        public static async Task ClassInitializeAsync()
+        public static async Task ClassInitializeAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             MessageFilter.Register();
             Type type = System.Type.GetTypeFromProgID(VisualStudioVersion.ProgID);
             object inst = System.Activator.CreateInstance(type, true);
@@ -61,15 +62,19 @@ namespace TypeScriptAnalyzerEslintTest
             TypeScriptAnalyzerEslintVsix.Package.Dte = null;
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             if (solution != null) { solution.Close(); solution = null; }
             dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Settings = null;
@@ -80,7 +85,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint End to End")]
         public async Task LintSolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             MockUIHierarchyItem mockSolutionHierarchyItem = new MockUIHierarchyItem() { Object = solution };
             UIHierarchyItem[] selectedItems = new UIHierarchyItem[] { mockSolutionHierarchyItem };
 
@@ -158,7 +163,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Lint End to End")]
         public async Task LintSolutionUseTsconfigs()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             MockUIHierarchyItem mockSolutionHierarchyItem = new MockUIHierarchyItem() { Object = solution };
             UIHierarchyItem[] selectedItems = new UIHierarchyItem[] { mockSolutionHierarchyItem };
 

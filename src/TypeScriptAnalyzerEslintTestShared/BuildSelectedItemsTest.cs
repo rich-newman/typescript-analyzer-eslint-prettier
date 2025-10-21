@@ -23,16 +23,17 @@ namespace TypeScriptAnalyzerEslintTest
         private static EnvDTE.Solution solution = null;
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(testContext); });
         }
 
-        public static async Task ClassInitializeAsync()
+        public static async Task ClassInitializeAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             MessageFilter.Register();
             Type type = System.Type.GetTypeFromProgID(VisualStudioVersion.ProgID);
             object inst = System.Activator.CreateInstance(type, true);
@@ -60,15 +61,19 @@ namespace TypeScriptAnalyzerEslintTest
             TypeScriptAnalyzerEslintVsix.Package.Dte = null;
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             if (solution != null) { solution.Close(); solution = null; }
             dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Settings = null;
@@ -79,7 +84,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Build Selected Items")]
         public async Task SelectedItemsWhenBuidingSolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             UIHierarchyItem[] results = BuildSelectedItems.Get(isBuildingSolution: true);
             Assert.HasCount(1, results);
             Solution solutionObject = results[0].Object as Solution;
@@ -90,7 +95,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Build Selected Items")]
         public async Task MapToProjectsSingleProjectItem()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Simulate fileA.ts being selected in Solution Explorer in multiple.sln.
             // Ensure a.csproj (which contains fileA.ts) is the item we calculate as building
             string fileAFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\fileA.ts");
@@ -110,7 +115,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Build Selected Items")]
         public async Task MapToProjectsTwoProjectItemsInSameProject()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Simulate fileA.ts and fileAA.ts being selected in Solution Explorer in multiple.sln.
             string fileAFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\fileA.ts");
             string fileAAFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\fileAA.ts");
@@ -133,7 +138,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Build Selected Items")]
         public async Task MapToProjectsTwoProjectItemsInDifferentProjects()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Simulate fileA.ts and fileB.ts being selected in Solution Explorer in multiple.sln.
             string fileAFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\a\fileA.ts");
             string fileBFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall\multiple\b\fileB.ts");
@@ -161,7 +166,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Build Selected Items")]
         public async Task MapToProjectsItemNotInProject()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // package.json in b isn't in a project or solution
             string fileFullPath = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"localinstall/multiple/b/package.json");
             Assert.IsTrue(File.Exists(fileFullPath));

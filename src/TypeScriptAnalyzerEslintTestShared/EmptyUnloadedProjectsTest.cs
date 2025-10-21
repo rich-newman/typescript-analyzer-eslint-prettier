@@ -16,6 +16,8 @@ namespace TypeScriptAnalyzerEslintTest
         protected UIHierarchyItem[] selectedItems;
         protected MockErrorListDataSource mockErrorListDataSource;
 
+        public TestContext TestContext { get; set; } = null;
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -59,15 +61,19 @@ namespace TypeScriptAnalyzerEslintTest
             return selectedItems;
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             if (solution != null) { solution.Close(); solution = null; }
             dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Jtf = null;
@@ -83,7 +89,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Empty/Unloaded Projects")]
         public async Task LintEmptySolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 Arrange(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"empty\noprojects.sln"));

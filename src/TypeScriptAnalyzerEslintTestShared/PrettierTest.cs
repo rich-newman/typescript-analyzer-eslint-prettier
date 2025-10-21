@@ -12,6 +12,8 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class PrettierTest
     {
+        public TestContext TestContext { get; set; } = null;
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -28,7 +30,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Prettier")]
         public async Task StandardTs()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // prettier is enabled by the .eslintrc.js in artifacts/prettier containing the appropriate rule
             // The EnablePrettier setting only applies if you're using the default configs in Users
             MockSettings settings = new MockSettings { ShowPrettierErrors = true };
@@ -47,7 +49,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Prettier")]
         public async Task StandardTsDontShowPrettier()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // We set ShowPrettierErrors to false and they should be filtered out even though we're running with prettier
             MockSettings settings = new MockSettings { ShowPrettierErrors = false };
             LintingResult result = await new Linter(settings)
@@ -65,7 +67,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Prettier")]
         public async Task StandardTsFixErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 File.Copy(Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"prettier\a.ts"), 
@@ -91,7 +93,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Prettier")]
         public async Task StandardTsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // As for tsconfig tests in EslintWithConfigTest we add rule @typescript-eslint/no-unnecessary-type-assertion
             // into our .eslintrc.js and hand the linter a tsconfig.json file to lint.  This points at file a.ts only, which
             // contains code that has the error, as well as prettier errors.
@@ -110,7 +112,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Prettier")]
         public async Task StandardTsconfigFixErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             try
             {
                 // Fix the errors from the StandardTsconfig test

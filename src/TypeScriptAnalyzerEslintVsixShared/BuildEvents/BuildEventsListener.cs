@@ -65,9 +65,11 @@ namespace TypeScriptAnalyzerEslintVsix
                     FileListener.FixOnSaveSuspended = true;  // Event linting re-enabled in UpdateSolution_Done
                 if (!isBuilding || !Package.Settings.RunOnBuild || !Package.Settings.ESLintEnable)
                     return VSConstants.S_OK;
+#pragma warning disable IDE0079
 #pragma warning disable VSTHRD102
                 bool cancelBuild = package.JoinableTaskFactory.Run(() => LintBuildSelectionAsync(isBuildingSolution));
 #pragma warning restore VSTHRD102
+#pragma warning restore IDE0079
                 pfCancelUpdate = cancelBuild ? 1 : 0;
                 ThreadHelper.ThrowIfNotOnUIThread();
                 if (cancelBuild)

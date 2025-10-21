@@ -12,19 +12,20 @@ namespace TypeScriptAnalyzerEslintTest
     {
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(testContext); });
         }
 
         // These tests assume the default .eslintrc.js is the one installed with the Analyzer:
         // the class initialize methods below make sure this is true whilst trying to keep any
         // changes that have been made
-        public static async Task ClassInitializeAsync()
+        public static async Task ClassInitializeAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             string userConfigFolder = Linter.GetUserConfigFolder();
             string defaultUserConfigFile = Path.Combine(userConfigFolder, ".eslintrc.js");
             RenameFile(defaultUserConfigFile, defaultUserConfigFile + "bak");
@@ -45,15 +46,19 @@ namespace TypeScriptAnalyzerEslintTest
             }
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             string userConfigFolder = Linter.GetUserConfigFolder();
             string defaultUserConfigFile = Path.Combine(userConfigFolder, ".eslintrc.js");
             RenameFile(defaultUserConfigFile + "bak", defaultUserConfigFile);
@@ -79,7 +84,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local ESLint Config")]
         public async Task DisableLocalConfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // The Analyzer default config generates one prettier error with localconfig\test.ts
             settings.EnableLocalConfig = false;
             settings.ShowPrettierErrors = true;
@@ -96,7 +101,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local ESLint Config")]
         public async Task EnableLocalConfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // The local config doesn't enable any rules, so we get no errors
             settings.EnableLocalConfig = true;
             LintingResult result = await new Linter(settings)
@@ -113,7 +118,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local ESLint Config")]
         public async Task DisableBrokenLocalConfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // There's a broken .eslintrc.js file in localconfig\broken
             // The Analyzer default config generates one prettier error with localconfig\broken\test.ts
             settings.EnableLocalConfig = false;
@@ -131,7 +136,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("Local ESLint Config")]
         public async Task EnableBrokenLocalConfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // The local config is broken: we get an error that it's broken if we try to use it
             settings.EnableLocalConfig = true;
             settings.ShowPrettierErrors = true;

@@ -202,7 +202,7 @@ namespace TypeScriptAnalyzerEslintVsix
             foreach (string file in Snapshots.Keys)
             {
                 var snapshot = Snapshots[file];
-                if (snapshot != null) snapshot.Dispose();
+                snapshot?.Dispose();
             }
             Snapshots.Clear();
             foreach (var manager in managers)

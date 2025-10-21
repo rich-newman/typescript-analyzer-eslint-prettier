@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#pragma warning disable IDE0079
+#pragma warning disable MSTEST0016
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
 namespace TypeScriptAnalyzerEslintTest

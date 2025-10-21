@@ -11,10 +11,12 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class EsLintTextTest
     {
+        public TestContext TestContext { get; set; } = null;
+
         [TestMethod, TestCategory("ESLint with text")]
         public async Task BasicLint()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string text = @"
 debugger;
 ";
@@ -32,7 +34,7 @@ debugger;
         [TestMethod, TestCategory("ESLint with text")]
         public async Task BasicLintWithTsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // .eslintrc.js is the usual file but has had no-unnecessary-type-assertion added to allow us to test the type checking:
             // this needs type checking via a tsconfig or it won't work
 

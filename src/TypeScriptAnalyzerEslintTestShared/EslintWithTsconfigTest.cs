@@ -14,10 +14,12 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class EslintWithTsconfigTest
     {
+        public TestContext TestContext { get; set; } = null;
+
         [TestMethod, TestCategory("ESLint with tsconfig")]
         public async Task BasicLint()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // .eslintrc.js is the usual file but has had no-unnecessary-type-assertion added to allow us to test the type checking:
             // this needs type checking via a tsconfig or it won't work
             // Note that eslint is very unforgiving: if you try to lint individual files with a type checking rule in your config it will
@@ -56,7 +58,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint with tsconfig")]
         public async Task LintWithDuplicateErrors()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();           // Arrange
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);           // Arrange
             string topTsconfig = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfigTypeInfoRule/multiple/tsconfig.json");
             string folderbTsconfig = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfigTypeInfoRule/multiple/b/tsconfig.json");
             string[] fileNames = new string[] { topTsconfig, folderbTsconfig };
@@ -80,7 +82,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("ESLint with tsconfig")]
         public async Task LintAll()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Arrange
             string topTsconfig = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfigTypeInfoRule/multiple/tsconfig.json");
             string folderaTsconfig = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfigTypeInfoRule/multiple/a/tsconfig.json");

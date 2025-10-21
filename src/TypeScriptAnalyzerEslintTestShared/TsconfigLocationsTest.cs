@@ -21,16 +21,17 @@ namespace TypeScriptAnalyzerEslintTest
         private static EnvDTE.Solution solution = null;
         private static MockSettings settings = null;
 
+        public TestContext TestContext { get; set; } = null;
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _ = testContext; // https://github.com/dotnet/roslyn/issues/35063#issuecomment-484616262
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassInitializeAsync(testContext); });
         }
 
-        public static async Task ClassInitializeAsync()
+        public static async Task ClassInitializeAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             MessageFilter.Register();
             Type type = System.Type.GetTypeFromProgID(VisualStudioVersion.ProgID);
             object inst = System.Activator.CreateInstance(type, true);
@@ -60,15 +61,19 @@ namespace TypeScriptAnalyzerEslintTest
             settings.EnableIgnore = true;
         }
 
+#if MSTEST_V3
+        [ClassCleanup(ClassCleanupBehavior.EndOfClass)]
+#else
         [ClassCleanup]
-        public static void ClassCleanup()
+#endif
+        public static void ClassCleanup(TestContext testContext)
         {
-            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(); });
+            ThreadHelper.JoinableTaskFactory.Run(async () => { await ClassCleanupAsync(testContext); });
         }
 
-        public static async Task ClassCleanupAsync()
+        public static async Task ClassCleanupAsync(TestContext testContext)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(testContext.CancellationToken);
             if (solution != null) { solution.Close(); solution = null; }
             dte?.Quit();
             TypeScriptAnalyzerEslintVsix.Package.Settings = null;
@@ -79,13 +84,13 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task BasicEnvironment()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
         }
 
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindForSingleItem()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\file1.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
             Assert.HasCount(1, result);
@@ -96,7 +101,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindForSingleItemSubfolder()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\test.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
             Assert.HasCount(1, result);
@@ -107,7 +112,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindForSingleItemMultipleTsconfigs()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\d\file10.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
             Assert.HasCount(2, result);
@@ -120,7 +125,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindForSingleItemRoot()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Note folder c contains a tsconfig.json reference in VS that doesn't exist on disk: we don't want to try to lint this
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
@@ -132,7 +137,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindForSingleItemNotsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Note there's a tsconfig.json in the folder but it's not in the project: logic changed so it's picked up
             string projectItemFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\b\file2.ts");
             string[] result = TsconfigLocations.FindParentTsconfigs(projectItemFullName);
@@ -145,7 +150,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInProject()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project project = FindProject(projectFullName, solution);
             HashSet<string> results = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -166,7 +171,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInProjectWithNodeModulesDisableIgnore()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             settings.EnableIgnore = false;
             string projectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project project = FindProject(projectFullName, solution);
@@ -191,7 +196,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInProjectNotsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Folder b contains a tsconfig on disk that's not included in the VS project
             // Folder c contains a tsconfig in the VS project (tsconfigEmptyTest.csproj) that doesn't exist on disk
             // In both cases we don't lint with these
@@ -206,7 +211,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsSingleFile()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Arrange
             string mainProjectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project mainProject = FindProject(mainProjectFullName, solution);
@@ -231,7 +236,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsTsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string mainProjectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project mainProject = FindProject(mainProjectFullName, solution);
             string mainProjectTsconfigFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfig.json");
@@ -252,7 +257,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsNoTsconfig()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string emptyProjectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\tsconfigEmptyTest.csproj");
             Project emptyProject = FindProject(emptyProjectFullName, solution);
             string emptyFile2FullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\none\b\file2.ts");
@@ -270,7 +275,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsSolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             MockUIHierarchyItem mockSolutionHierarchyItem = new MockUIHierarchyItem() { Object = solution };
             UIHierarchyItem[] selectedItems = new UIHierarchyItem[] { mockSolutionHierarchyItem };
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
@@ -294,7 +299,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsProject()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             string mainProjectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project mainProject = FindProject(mainProjectFullName, solution);
 
@@ -321,7 +326,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSelectedItemsMultipleFiles()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Includes two files with the same tsconfig.json and one with none
             string mainProjectFullName = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfigTest.csproj");
             Project mainProject = FindProject(mainProjectFullName, solution);
@@ -361,7 +366,7 @@ namespace TypeScriptAnalyzerEslintTest
         [TestMethod, TestCategory("tsconfig Locations")]
         public async Task FindInSolution()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             HashSet<string> results = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             TsconfigLocations.FindTsconfigsInSolution(solution, results);
             string expected1 = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfig.json");
@@ -415,7 +420,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             // If we lint an individual file in folder view we find the first tsconfig above it and put that in results, and put the 
             // file in the fileToProjectMap as a key.  There are no projects, so the values in the map are empty strings (currently).
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Arrange
             string path = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\a\c\file4.ts");
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
@@ -439,7 +444,7 @@ namespace TypeScriptAnalyzerEslintTest
         {
             // If we lint a folder in folder view we find all tsconfig.json files at any level in it and put those in results
             // There are no individual files, so fileToProjectMap is empty
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Arrange
             string path = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple");
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
@@ -467,7 +472,7 @@ namespace TypeScriptAnalyzerEslintTest
         public async Task FindInSingleTsconfigFileInFolderView()
         {
             // If we lint a tsconfig.json in folder view then results should contain the tsconfig.json, fileToProject map again empty
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(TestContext.CancellationToken);
             // Arrange
             string path = Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"tsconfig\multiple\tsconfig.json");
             Dictionary<string, string> fileToProjectMap = new Dictionary<string, string>();
