@@ -15524,6 +15524,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.Workspace">
+      <HintPath>..\..\lib\Microsoft.VisualStudio.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Workspace.Extensions.VS">
+      <HintPath>..\..\lib\Microsoft.VisualStudio.Workspace.Extensions.VS.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -15536,12 +15542,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK">
       <Version>17.14.40674</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Workspace">
-      <Version>17.12.19</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Workspace.Extensions">
-      <Version>17.12.19</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>17.14.2128</Version>

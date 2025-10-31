@@ -28,7 +28,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)FolderViewActions\LintableFileContextProviderFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FolderViewActions\LintActionProviderFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileListeners\FileListener.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)FolderViewActions\LintActionProviderFactoryVS2019.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Testing\GCTesting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LintableFiles.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LocationFinders\LintFileLocations.cs" />

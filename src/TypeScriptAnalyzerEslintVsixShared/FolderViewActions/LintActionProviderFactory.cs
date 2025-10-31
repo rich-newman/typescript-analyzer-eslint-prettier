@@ -1,5 +1,4 @@
-﻿#if VS2022
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,47 +6,61 @@ using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Workspace;
-//using Microsoft.VisualStudio.Workspace.Extensions.VS;
+using Microsoft.VisualStudio.Workspace.Extensions.VS;
 using Task = System.Threading.Tasks.Task;
 using System.ComponentModel.Design;
 
 namespace TypeScriptAnalyzerEslintVsix
 {
-    [ExportFileContextActionProvider(
-        ProviderType,
-        ProviderPriority.Normal,
-        LintableFileContextProviderFactory.LintableFileContextType)]
-    internal sealed class LintActionProviderFactory : IWorkspaceProviderFactory<IFileContextActionProvider>
+    [ExportFileContextActionProvider((FileContextActionProviderOptions)VsCommandActionProviderOptions.SupportVsCommands,
+        ProviderType, ProviderPriority.Normal, LintableFileContextProviderFactory.LintableFileContextType)]
+    public class LintActionProviderFactory : IWorkspaceProviderFactory<IFileContextActionProvider>, IVsCommandActionProvider
     {
         private const string ProviderType = "F77E9835-FB7C-404D-BFB8-A10F4810557B";
 
+        private static readonly Guid ProviderCommandGroup = PackageGuids.FolderViewGuid;
+        private static readonly IReadOnlyList<CommandID> SupportedCommands = new List<CommandID>
+            {
+                new CommandID(PackageGuids.FolderViewGuid, PackageIds.FolderViewLintFilesCommand),
+                new CommandID(PackageGuids.FolderViewGuid, PackageIds.FolderViewFixLintErrorsCommand),
+            };
+
         public IFileContextActionProvider CreateProvider(IWorkspace workspaceContext)
-            => new LintActionProvider();
+        {
+            return new LintActionProvider();
+        }
 
+        public IReadOnlyCollection<CommandID> GetSupportedVsCommands()
+        {
+            return SupportedCommands;
+        }
 
-        internal sealed class LintActionProvider : IFileContextActionProvider
+        internal class LintActionProvider : IFileContextActionProvider
         {
             private static readonly Guid ActionOutputWindowPane = new Guid("{35F304B6-2329-4A0C-B9BE-92AFAB7AF858}");
 
-            public Task<IReadOnlyList<IFileContextAction>> GetActionsAsync(
-                string filePath, FileContext fileContext, CancellationToken cancellationToken)
+            public Task<IReadOnlyList<IFileContextAction>> GetActionsAsync(string filePath, FileContext fileContext, CancellationToken cancellationToken)
             {
-                var actions = new List<IFileContextAction>
+                return Task.FromResult<IReadOnlyList<IFileContextAction>>(new IFileContextAction[]
                 {
-                    new MyContextAction(fileContext, "Lint " + fileContext.DisplayName,
-                        async (ctx, progress, ct) =>
+                    new MyContextAction(
+                        fileContext,
+                        new Tuple<Guid, uint>(ProviderCommandGroup, PackageIds.FolderViewLintFilesCommand),
+                        "My Action" + fileContext.DisplayName,
+                        async (fCtxt, progress, ct) =>
                         {
-                            await OutputWindowPaneAsync("Test of messaging before linting");
-                            await LintFilesCommandBase.LintItemsSelectedInSolutionExplorerAsync(false, ctx.Context.ToString());
+                            await LintFilesCommandBase.LintItemsSelectedInSolutionExplorerAsync(false, fCtxt.Context.ToString());
                         }),
-                    new MyContextAction(fileContext, "Fix lint errors in " + fileContext.DisplayName,
-                        async (ctx, progress, ct) =>
-                        {
-                            await LintFilesCommandBase.LintItemsSelectedInSolutionExplorerAsync(true, ctx.Context.ToString());
-                        })
-                };
 
-                return Task.FromResult<IReadOnlyList<IFileContextAction>>(actions);
+                    new MyContextAction(
+                        fileContext,
+                        new Tuple<Guid, uint>(ProviderCommandGroup, PackageIds.FolderViewFixLintErrorsCommand),
+                        "My Action" + fileContext.DisplayName,
+                        async (fCtxt, progress, ct) =>
+                        {
+                            await LintFilesCommandBase.LintItemsSelectedInSolutionExplorerAsync(true, fCtxt.Context.ToString());
+                        }),
+                });
             }
 
             internal static async Task OutputWindowPaneAsync(string message)
@@ -73,30 +86,34 @@ namespace TypeScriptAnalyzerEslintVsix
                 outputPane?.OutputStringThreadSafe(message);
             }
 
-            internal sealed class MyContextAction : IFileContextAction
+            internal class MyContextAction : IFileContextAction, IVsCommandItem
             {
-                private readonly Func<FileContext, IProgress<IFileContextActionProgressUpdate>, CancellationToken, Task> _execute;
+                private readonly Func<FileContext, IProgress<IFileContextActionProgressUpdate>, CancellationToken, Task> executeAction;
 
-                public MyContextAction(FileContext source, string displayName,
-                    Func<FileContext, IProgress<IFileContextActionProgressUpdate>, CancellationToken, Task> execute)
+                internal MyContextAction(
+                    FileContext fileContext,
+                    Tuple<Guid, uint> command,
+                    string displayName,
+                    Func<FileContext, IProgress<IFileContextActionProgressUpdate>, CancellationToken, Task> executeAction)
                 {
-                    Source = source;
-                    DisplayName = displayName;
-                    _execute = execute;
+                    this.executeAction = executeAction;
+                    this.Source = fileContext;
+                    this.CommandGroup = command.Item1;
+                    this.CommandId = command.Item2;
+                    this.DisplayName = displayName;
                 }
 
+                public Guid CommandGroup { get; }
+                public uint CommandId { get; }
                 public string DisplayName { get; }
                 public FileContext Source { get; }
 
-                public async Task<IFileContextActionResult> ExecuteAsync(
-                    IProgress<IFileContextActionProgressUpdate> progress,
-                    CancellationToken cancellationToken)
+                public async Task<IFileContextActionResult> ExecuteAsync(IProgress<IFileContextActionProgressUpdate> progress, CancellationToken cancellationToken)
                 {
-                    await _execute(Source, progress, cancellationToken);
+                    await this.executeAction(this.Source, progress, cancellationToken);
                     return new FileContextActionResult(true);
                 }
             }
         }
     }
 }
-#endif
