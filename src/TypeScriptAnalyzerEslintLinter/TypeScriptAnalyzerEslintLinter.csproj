@@ -64,9 +64,6 @@
     <None Include="Node\server.js" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.SDK">
-      <Version>17.14.40674</Version>
-    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>
     </PackageReference>
