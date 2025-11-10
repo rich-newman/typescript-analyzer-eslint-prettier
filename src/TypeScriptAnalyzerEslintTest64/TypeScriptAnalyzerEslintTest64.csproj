@@ -68,10 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK">
-      <Version>17.14.40674</Version>
+      <Version>17.14.40680</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Sdk.TestFramework">
-      <Version>17.11.74</Version>
+      <Version>17.11.75</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>17.14.2128</Version>
@@ -88,7 +88,7 @@
       <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="StreamJsonRpc">
-      <Version>2.22.23</Version>
+      <Version>2.23.124</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
