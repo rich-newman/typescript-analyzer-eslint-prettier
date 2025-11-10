@@ -49,6 +49,8 @@ namespace TypeScriptAnalyzerEslintVsix
                         "My Action" + fileContext.DisplayName,
                         async (fCtxt, progress, ct) =>
                         {
+                            // Outputs the 'Before Lint' text in the Output window of the client VS, under 'Actions' in the dropdown
+                            //await OutputWindowPaneAsync("Before Lint\n");
                             await LintFilesCommandBase.LintItemsSelectedInSolutionExplorerAsync(false, fCtxt.Context.ToString());
                         }),
 

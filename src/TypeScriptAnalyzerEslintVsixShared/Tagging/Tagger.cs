@@ -22,8 +22,8 @@ namespace TypeScriptAnalyzerEslintVsix
                 if (currentTextSnapshot.TextBuffer.Properties.TryGetProperty("lint_filename_eslint", out string fileName)
                     && fileName != null) return fileName;
 #if DEBUG
-                //throw new Exception("Tagger created but can't find file name");
-                return "";
+                throw new Exception("Tagger created but can't find file name");
+                //return "";
 #else
                 return "";
 #endif
