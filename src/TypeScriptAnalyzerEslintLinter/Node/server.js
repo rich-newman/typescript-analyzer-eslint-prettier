@@ -91,6 +91,9 @@ async function linteslint(data, log) {
     const dirName = data.dirname === "" ? __dirname : data.dirname;
     if (data.debug || data.enablelogging) logInitialValues(data, dirName, log);
     process.env["USERPROFILE"] = data.configfolder;
+    // Not sure setting this makes any difference
+    //process.env["ESLINT_USE_FLAT_CONFIG"] = "false";
+    //console.log("ESLINT_USE_FLAT_CONFIG set to: " + process.env["ESLINT_USE_FLAT_CONFIG"]);
     let allResults = [];
     if (data.projectfiles.length > 0) {
         const results = await eslinttsconfigs(data, dirName, log);
@@ -114,9 +117,9 @@ function setWorkingDirectory(dirName, log) {
         } catch (err) {
             log(
                 "Unable to set working directory to '" +
-                    dirName +
-                    "'. Error: " +
-                    err
+                dirName +
+                "'. Error: " +
+                err
             );
         }
     }
@@ -198,7 +201,7 @@ function gettsconfigContents(tsconfigFile, dirName, data, log) {
 
 // files are either regular files, or a list of tsconfigs if we're using tsconfig
 async function calleslint(data, files, dirName, log, parserOptions) {
-    const ESLint = createESLint(dirName, log);
+    const ESLint = createESLint(dirName, true, log);
     const options = createOptions(data, dirName, log, parserOptions);
     const eslint = new ESLint(options);
     if (fs.existsSync(data.msconfigfile)) deleteMsConfigFile(data, log);
@@ -216,14 +219,27 @@ async function calleslint(data, files, dirName, log, parserOptions) {
     return results;
 }
 
-function createESLint(dirName, log) {
-    const pathToRequire = dirName + "\\node_modules\\eslint";
-    log("Path for ESLint: " + pathToRequire);
-    const { ESLint } = require(pathToRequire);
-    if (ESLint === null || ESLint === undefined)
-        throw "ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?";
-    log("Successfully Loaded ESLint version: " + ESLint.version);
-    return ESLint;
+function createESLint(dirName, useOldConfig, log) {
+    if (useOldConfig) {
+        const pathToRequire = dirName + "\\node_modules\\eslint";
+        log("Path for ESLint: " + pathToRequire);
+
+        // Require LegacyESLint directly from the lib path
+        const { LegacyESLint } = require(pathToRequire + "\\lib\\eslint\\legacy-eslint.js");
+
+        if (LegacyESLint === null || LegacyESLint === undefined)
+            throw "ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?";
+        log("Successfully Loaded ESLint version: " + LegacyESLint.version);
+        return LegacyESLint;
+    } else {
+        const pathToRequire = dirName + "\\node_modules\\eslint";
+        log("Path for ESLint: " + pathToRequire);
+        const { ESLint } = require(pathToRequire);
+        if (ESLint === null || ESLint === undefined)
+            throw "ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?";
+        log("Successfully Loaded ESLint version: " + ESLint.version);
+        return ESLint;
+    }
 }
 
 function createOptions(data, dirName, log, parserOptions) {
@@ -340,8 +356,7 @@ async function testServer() {
         text: null, // Make null to read the file from disk
         //projectfiles: ["C:\\Dotnet\\NodejsConsoleApp3TestTypeScript\\NodejsConsoleApp3TestTypeScript\\tsconfig.json"],
         files: [
-            "C:\\Dotnet\\NodejsConsoleApp9\\NodejsConsoleApp9\\app.js",
-            "C:\\Dotnet\\NodejsConsoleApp9\\NodejsConsoleApp9\\test\\apptest.js",
+            "C:\\Dotnet\\NodeConsoleApp1\\NodeConsoleApp1\\test\\apptest.js",
         ],
         projectfiles: [],
         fixerrors: false,

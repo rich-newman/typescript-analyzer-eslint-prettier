@@ -18,7 +18,7 @@ namespace TypeScriptAnalyzerEslintTest
     [TestClass]
     public class ZzNpmPackageUpdate
     {
-        private readonly string typesNodeOverride = "20.11.0";
+        private readonly string typesNodeOverride = "24.10.1";
         private readonly string configLineTemplate = "        \"[0]\": \"[1]\"";
         private readonly string packageJsonLineTemplate = "    \"[0]\": \"[1]\",";
 

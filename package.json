@@ -2,13 +2,14 @@
   "name": "tsa-docs",
   "version": "0.0.0",
   "devDependencies": {
-    "@types/node": "20.11.0",
-    "@typescript-eslint/eslint-plugin": "6.21.0",
-    "@typescript-eslint/parser": "6.21.0",
-    "eslint": "8.56.0",
-    "eslint-plugin-prettier": "5.1.3",
-    "prettier": "3.2.5",
-    "typescript": "5.3.3",
-    "eslint-plugin-md": "1.0.19"
+    "@types/node": "24.10.1",
+    "@typescript-eslint/eslint-plugin": "8.46.4",
+    "@typescript-eslint/parser": "8.46.4",
+    "eslint": "9.39.1",
+    "eslint-plugin-prettier": "5.5.4",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "eslint-plugin-md": "1.0.19",
+    "eslint-formatter-visualstudio": "9.0.1"
   }
 }
