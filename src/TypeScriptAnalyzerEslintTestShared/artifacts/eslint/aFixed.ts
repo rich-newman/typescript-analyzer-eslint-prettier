@@ -13,5 +13,5 @@ const testie = 3
 const more = "hello"
 function testie2() { const a = 5 }
 console.log(testie);
-{ }
+{ };
 console.log(foo());
