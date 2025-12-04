@@ -129,7 +129,7 @@ namespace TypeScriptAnalyzerEslintTest
 
                 // May be too painful when we upgrade
                 Assert.AreEqual(22, mockErrorListDataSource.Snapshots[expected1].Count());
-                Assert.AreEqual(341, mockErrorListDataSource.Snapshots[expected2].Count());
+                Assert.AreEqual(334, mockErrorListDataSource.Snapshots[expected2].Count());
                 Assert.AreEqual(3, mockErrorListDataSource.Snapshots[expected3].Count());
                 Assert.AreEqual(2, mockErrorListDataSource.Snapshots[expected4].Count());
                 Assert.AreEqual(2, mockErrorListDataSource.Snapshots[expected5].Count());
@@ -215,7 +215,7 @@ namespace TypeScriptAnalyzerEslintTest
                 Assert.AreEqual(2, mockErrorListDataSource.Snapshots[expected7].Count());
                 Assert.AreEqual(3, mockErrorListDataSource.Snapshots[expected8].Count());
                 Assert.AreEqual(22, mockErrorListDataSource.Snapshots[expected9].Count());
-                Assert.AreEqual(341, mockErrorListDataSource.Snapshots[expected10].Count());
+                Assert.AreEqual(334, mockErrorListDataSource.Snapshots[expected10].Count());
             }
             finally
             {

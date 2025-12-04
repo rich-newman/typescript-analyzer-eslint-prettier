@@ -38,7 +38,7 @@ namespace TypeScriptAnalyzerEslintTest
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.HasCount(378, result.Errors);
+            Assert.HasCount(371, result.Errors);
 
             // file3.ts is excluded from this tsconfig.json, in spite of being in the VS project.
             // It has errors but they shouldn't appear here
@@ -69,7 +69,7 @@ namespace TypeScriptAnalyzerEslintTest
             // Assert
             // file2 is in both tsconfigs.  It has 3 errors.  With the old code we got duplicates in the Error List, and here.
             Assert.IsNotNull(result);
-            Assert.HasCount(380, result.Errors);
+            Assert.HasCount(373, result.Errors);
 
             IList<LintingError> file2Errors = GetErrorsForFile("file2.ts", result.Errors);
             Assert.HasCount(3, file2Errors);
@@ -97,7 +97,7 @@ namespace TypeScriptAnalyzerEslintTest
             // Assert
             // file2 is in both tsconfigs.  It has 4 errors.  With the old code we got 8 in the Error List, and here.
             Assert.IsNotNull(result);
-            Assert.HasCount(382, result.Errors);
+            Assert.HasCount(375, result.Errors);
 
             IList<LintingError> file1Errors = GetErrorsForFile("file1.ts", result.Errors);
             Assert.HasCount(2, file1Errors);
