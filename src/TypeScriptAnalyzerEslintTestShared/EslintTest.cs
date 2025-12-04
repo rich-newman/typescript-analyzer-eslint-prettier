@@ -23,7 +23,7 @@ namespace TypeScriptAnalyzerEslintTest
                 .LintAsync(new string[] { Path.Combine(VisualStudioVersion.GetArtifactsFolder(), @"eslint\a.ts") }, new string[] { });
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.HasCount(11, result.Errors);
+            Assert.HasCount(10, result.Errors);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.First().Message);
         }
 

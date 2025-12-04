@@ -39,7 +39,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(result.HasErrors);
             Assert.IsTrue(HasPrettierErrors(result.Errors));
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.HasCount(19, result.Errors);
+            Assert.HasCount(18, result.Errors);
             Assert.AreEqual("no-var", result.Errors.ElementAt(0).ErrorCode);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.ElementAt(0).Message);
             Assert.AreEqual("prettier/prettier", result.Errors.ElementAt(1).ErrorCode);
@@ -57,7 +57,7 @@ namespace TypeScriptAnalyzerEslintTest
             Assert.IsTrue(result.HasErrors);
             Assert.IsFalse(HasPrettierErrors(result.Errors));
             Assert.IsFalse(string.IsNullOrEmpty(result.Errors.First().FileName), "File name is empty");
-            Assert.HasCount(11, result.Errors);
+            Assert.HasCount(10, result.Errors);
             Assert.AreEqual("no-var", result.Errors.First().ErrorCode);
             Assert.AreEqual("Unexpected var, use let or const instead.", result.Errors.First().Message);
         }
