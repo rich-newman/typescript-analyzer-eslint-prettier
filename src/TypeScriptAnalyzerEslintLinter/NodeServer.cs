@@ -100,8 +100,11 @@ namespace TypeScriptAnalyzerEslintLinter
             }
         }
 
-        private readonly string runTimeInfoExceptionMessage = "You have used a rule which requires parserServices to be generated. " +
-            "You must therefore provide a value for the \"parserOptions.project\" property for @typescript-eslint/parser";
+        // Old error text
+        //private readonly string runTimeInfoExceptionMessage = "You have used a rule which requires parserServices to be generated. " +
+        //    "You must therefore provide a value for the \"parserOptions.project\" property for @typescript-eslint/parser";
+        private readonly string runTimeInfoExceptionMessage = "You have used a rule which requires type information, but don't have " +
+            "parserOptions set to generate type information for this file";
         private bool IsTypeScriptRunTimeInfoException(string messageFromServer) 
             => messageFromServer?.Contains(runTimeInfoExceptionMessage) ?? false;
         private readonly string analyzerTypeInfoNeededMessage =
