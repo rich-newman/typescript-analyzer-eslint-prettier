@@ -117,9 +117,9 @@ function setWorkingDirectory(dirName, log) {
         } catch (err) {
             log(
                 "Unable to set working directory to '" +
-                dirName +
-                "'. Error: " +
-                err
+                    dirName +
+                    "'. Error: " +
+                    err
             );
         }
     }
@@ -225,7 +225,9 @@ function createESLint(dirName, useOldConfig, log) {
         log("Path for ESLint: " + pathToRequire);
 
         // Require LegacyESLint directly from the lib path
-        const { LegacyESLint } = require(pathToRequire + "\\lib\\eslint\\legacy-eslint.js");
+        const { LegacyESLint } = require(
+            pathToRequire + "\\lib\\eslint\\legacy-eslint.js"
+        );
 
         if (LegacyESLint === null || LegacyESLint === undefined)
             throw "ERROR: Unable to load ESLint. Is ESLint version >= 7.0.0 available to the Analyzer?";
@@ -257,7 +259,9 @@ function createOptions(data, dirName, log, parserOptions) {
     // This is because the typescript-eslint plugin needs it specified even if it's in the same node_modules as its own code
     // Any parser at top-level in actual config will override this
     options.baseConfig = {
-        parser: dirName + "\\node_modules\\@typescript-eslint\\parser\\dist\\index.js",
+        parser:
+            dirName +
+            "\\node_modules\\@typescript-eslint\\parser\\dist\\index.js",
     };
     if (data.fixerrors) {
         options.fix = true;
@@ -303,7 +307,9 @@ async function logConfigForFirstFile(files, eslint, log) {
 async function logResults(eslint, data, results, log) {
     let message, outputMessage;
     if (data.enablelogging) {
-        const vsFormatter = await eslint.loadFormatter("visualstudio");
+        const vsFormatter = await eslint.loadFormatter(
+            require.resolve("eslint-formatter-visualstudio")
+        );
         outputMessage = "RESULTS:\r\n" + vsFormatter.format(results);
     }
     if (data.debug) {

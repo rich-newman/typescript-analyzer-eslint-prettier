@@ -108,7 +108,7 @@
       <Generator>VsctGenerator</Generator>
       <LastGenOutput>VSCommandTable.cs</LastGenOutput>
     </VSCTCompile>
-	<Content Include="..\Shared\Node\log.txt">
+    <Content Include="..\Shared\Node\log.txt">
       <Link>Node\log.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -9610,6 +9610,26 @@
     </Content>
     <Content Include="..\Shared\Node\node_modules\eslint\node_modules\minimatch\package.json">
       <Link>Node\node_modules\eslint\node_modules\minimatch\package.json</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\eslint-formatter-visualstudio\index.d.ts">
+      <Link>Node\node_modules\eslint-formatter-visualstudio\index.d.ts</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\eslint-formatter-visualstudio\index.js">
+      <Link>Node\node_modules\eslint-formatter-visualstudio\index.js</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\eslint-formatter-visualstudio\license">
+      <Link>Node\node_modules\eslint-formatter-visualstudio\license</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Shared\Node\node_modules\eslint-formatter-visualstudio\package.json">
+      <Link>Node\node_modules\eslint-formatter-visualstudio\package.json</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
